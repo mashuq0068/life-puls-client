@@ -51,6 +51,11 @@ const Navbar = (props) => {
           }}
         >
           <Box onClick={handleDrawerToggle}>
+          {/* <img
+        src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
+        alt=""
+        style={{ width: '100%', height: 'auto' }}
+      /> */}
             <Typography variant="h6" sx={{ my: 2 , display:'flex' , justifyContent:'left' , marginLeft:'10%' }}>
               MUI
             </Typography>
@@ -119,6 +124,11 @@ const Navbar = (props) => {
               component="div"
               sx={{ flexGrow: 1,backgroundColor:'transparent' , color:'white', display: { xs: 'none', sm: 'block' } }}
             >
+                   {/* <img
+        src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
+        alt=""
+        style={{ width: '10%', height: 'auto' }}
+      /> */}
               MUI
             </Typography>
             <Box  sx={{ display: { xs: 'none', sm: 'block',backgroundColor:'transparent' , color:'white'  } }}>
