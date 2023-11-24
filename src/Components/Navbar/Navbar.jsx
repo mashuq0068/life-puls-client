@@ -71,10 +71,22 @@ const Navbar = (props) => {
          
         
             <Typography variant="h6" sx={{ my: 2 , display:'flex' , justifyContent:'left' , marginLeft:'10%' }}>
+            {/* <img
+        src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
+        alt=""
+        style={{ width: '5%', position:'absolute',  height: 'auto' , left:'-5%' }}
+      /> */}
              Life Puls
             </Typography>
             <Divider />
             <List sx={{ display: 'flex', marginTop:'-10%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+            { user && <ListItem sx={{ backgroundColor: 'transparent', color: 'black', width: '100%' }} disablePadding>
+                <ListItemButton sx={{ textAlign: 'center', backgroundColor: 'transparent', color: 'black', width: '100%' }}>
+                  <NavLink to={'/dashboard'}>
+                    <ListItemText sx={{ backgroundColor: 'transparent', color: 'black' }} primary={"dashboard"} />
+                  </NavLink>
+                </ListItemButton>
+              </ListItem>}
               <ListItem sx={{ backgroundColor: 'transparent', color: 'black', width: '100%' }} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center', backgroundColor: 'transparent', color: 'black', width: '100%' }}>
                   <NavLink to={'/'}>
@@ -137,13 +149,13 @@ const Navbar = (props) => {
         <AppBar sx={{backgroundColor:'transparent' ,  marginLeft:'auto', boxShadow:'none', color:'black' }} component="nav">
           <Toolbar sx={{
     backgroundColor: 'transparent',
-    width: '100%', // Default to full width
-    maxWidth: '100%', // Limit the width to 60% for laptops and desktops
-    margin: '0 auto', // Center the toolbar
+    width: '100%', 
+    maxWidth: '100%', 
+    margin: '0 auto', 
     boxShadow: 'none',
     color: 'black',
     '@media (min-width: 960px)': {
-      width: '70%', // Override width to 60% for screens wider than 960px (laptops and desktops)
+      width: '70%', 
     },
    
   }}>
@@ -163,7 +175,7 @@ const Navbar = (props) => {
               sx={{ flexGrow: 1,backgroundColor:'transparent' ,  fontWeight:'bold', color:'black', display: { xs: 'none', sm: 'block' },
               '@media (min-width: 1660px)': {
                
-                fontSize:'30px' // Override width to 60% for screens wider than 960px (laptops and desktops)
+                fontSize:'30px' 
               },
             
             }}
@@ -180,6 +192,36 @@ const Navbar = (props) => {
           
           }}>
 
+{
+  user &&
+  <Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+
+  '@media (min-width: 1660px)': {
+    fontSize:'16px',
+    margin:'0 20px',
+    letterSpacing:'3px',
+  fontWeight:"bold",
+  
+   
+
+  },
+  '@media (min-width: 660px) and (max-width: 900px)': {
+    position : 'absolute',
+     top:'40px',
+     left:'0px'
+  
+   
+
+  }
+}
+ }
+>
+  <NavLink
+
+   to={'/dashboard'}>
+    dashboard
+  </NavLink>
+</Button>}
 <Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
 
   '@media (min-width: 1660px)': {
@@ -188,7 +230,7 @@ const Navbar = (props) => {
     letterSpacing:'3px',
   fontWeight:"bold"
    
-    // Override width to 60% for screens wider than 960px (laptops and desktops)
+
   }
 }
  }
@@ -207,7 +249,6 @@ const Navbar = (props) => {
   letterSpacing:'3px',
   fontWeight:"bolder"
  
-  // Override width to 60% for screens wider than 960px (laptops and desktops)
 }
 }}>
   <NavLink to={'/biodatas'}>
@@ -222,7 +263,7 @@ const Navbar = (props) => {
   letterSpacing:'3px',
   fontWeight:"bolder"
  
-  // Override width to 60% for screens wider than 960px (laptops and desktops)
+  
 }
 }}>
   <NavLink to={'about'}>
@@ -237,7 +278,7 @@ const Navbar = (props) => {
   letterSpacing:'3px',
   fontWeight:"bolder"
  
-  // Override width to 60% for screens wider than 960px (laptops and desktops)
+ 
 }
 }}>
   <NavLink to={'/contact'}>
