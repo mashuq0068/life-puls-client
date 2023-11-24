@@ -51,13 +51,9 @@ const Navbar = (props) => {
           }}
         >
           <Box onClick={handleDrawerToggle}>
-          {/* <img
-        src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
-        alt=""
-        style={{ width: '100%', height: 'auto' }}
-      /> */}
+        
             <Typography variant="h6" sx={{ my: 2 , display:'flex' , justifyContent:'left' , marginLeft:'10%' }}>
-              MUI
+             Life Puls
             </Typography>
             <Divider />
             <List sx={{ display: 'flex', marginTop:'-10%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
@@ -105,10 +101,21 @@ const Navbar = (props) => {
    
   
     return (
-      <Box sx={{ display: 'flex',   backgroundColor:'transparent' }}>
+      <Box   data-aos-duration="1500" data-aos="fade-right" sx={{ display: 'flex',   backgroundColor:'transparent' }}>
         <CssBaseline/>
-        <AppBar sx={{backgroundColor:'transparent' ,  marginLeft:'auto', width:'70%', boxShadow:'none', color:'white' }} component="nav">
-          <Toolbar sx={{backgroundColor:'transparent' , width:'60%', boxShadow:'none', color:'white' }}>
+        <AppBar sx={{backgroundColor:'transparent' ,  marginLeft:'auto', boxShadow:'none', color:'black'}} component="nav">
+          <Toolbar sx={{
+    backgroundColor: 'transparent',
+    width: '100%', // Default to full width
+    maxWidth: '100%', // Limit the width to 60% for laptops and desktops
+    margin: '0 auto', // Center the toolbar
+    boxShadow: 'none',
+    color: 'black',
+    '@media (min-width: 960px)': {
+      width: '70%', // Override width to 60% for screens wider than 960px (laptops and desktops)
+    },
+   
+  }}>
             <IconButton
               color='white'
               aria-label="open drawer"
@@ -122,49 +129,121 @@ const Navbar = (props) => {
            
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1,backgroundColor:'transparent' , color:'white', display: { xs: 'none', sm: 'block' } }}
+              sx={{ flexGrow: 1,backgroundColor:'transparent' ,  fontWeight:'bold', color:'black', display: { xs: 'none', sm: 'block' },
+              '@media (min-width: 1660px)': {
+               
+                fontSize:'30px' // Override width to 60% for screens wider than 960px (laptops and desktops)
+              },
+            
+            }}
             >
-                   {/* <img
+        <img
         src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
         alt=""
-        style={{ width: '10%', height: 'auto' }}
-      /> */}
-              MUI
+        style={{ width: '5%', position:'absolute',  height: 'auto' , left:'-5%' }}
+      />
+          <p>Life Puls</p>
             </Typography>
-            <Box  sx={{ display: { xs: 'none', sm: 'block',backgroundColor:'transparent' , color:'white'  } }}>
+            <Box sx={{ display: { xs: 'none', sm: 'block', backgroundColor: 'transparent', color: 'white' },
             
-                <Button  sx={{ color: 'white' }}>
-                <NavLink to={'/'}>
-                 home
-                </NavLink>
-                </Button>
-                <Button  sx={{ color: 'white' }}>
-                <NavLink to={'/biodatas'}>
-                 biodatas
-                </NavLink>
-                </Button>
-                <Button  sx={{ color: 'white' }}>
-                <NavLink to={'about'}>
-                 about us
-                </NavLink>
-                </Button>
-                <Button  sx={{ color: 'white' }}>
-                <NavLink to={'/contact'}>
-                 contact us
-                </NavLink>
-                </Button>
-                <Button  sx={{ color: 'white' }}>
-                <NavLink to={'/login'}>
-                  login
-                </NavLink>
-                </Button>
-                {/* <Button  sx={{ color: 'black' }}>
-                <NavLink>
-                  rome
-                </NavLink>
-                </Button> */}
-            
-            </Box>
+          
+          }}>
+
+<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+
+  '@media (min-width: 1660px)': {
+    fontSize:'16px',
+    margin:'0 20px',
+    letterSpacing:'3px',
+  fontWeight:"bold"
+   
+    // Override width to 60% for screens wider than 960px (laptops and desktops)
+  }
+}
+ }
+>
+  <NavLink
+
+   to={'/'}>
+    home
+  </NavLink>
+</Button>
+
+<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+ '@media (min-width: 1660px)': {
+  fontSize:'16px',
+  margin:'0 20px',
+  letterSpacing:'3px',
+  fontWeight:"bolder"
+ 
+  // Override width to 60% for screens wider than 960px (laptops and desktops)
+}
+}}>
+  <NavLink to={'/biodatas'}>
+    biodatas
+  </NavLink>
+</Button>
+
+<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px' ,
+ '@media (min-width: 1660px)': {
+  fontSize:'16px',
+  margin:'0 20px',
+  letterSpacing:'3px',
+  fontWeight:"bolder"
+ 
+  // Override width to 60% for screens wider than 960px (laptops and desktops)
+}
+}}>
+  <NavLink to={'about'}>
+    about us
+  </NavLink>
+</Button>
+
+<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+ '@media (min-width: 1660px)': {
+  fontSize:'16px',
+  margin:'0 20px',
+  letterSpacing:'3px',
+  fontWeight:"bolder"
+ 
+  // Override width to 60% for screens wider than 960px (laptops and desktops)
+}
+}}>
+  <NavLink to={'/contact'}>
+    contact us
+  </NavLink>
+</Button>
+
+<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+ '@media (min-width: 1660px)': {
+  fontSize:'16px',
+  margin:'0 20px',
+  letterSpacing:'3px',
+  fontWeight:"bolder"
+ 
+  // Override width to 60% for screens wider than 960px (laptops and desktops)
+}
+}}>
+  <NavLink to={'/login'}>
+    login
+  </NavLink>
+</Button>
+{/* <Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
+ '@media (min-width: 1660px)': {
+  fontSize:'17px',
+  margin:'0 20px',
+  letterSpacing:'3px',
+  fontWeight:"bolder"
+ 
+  // Override width to 60% for screens wider than 960px (laptops and desktops)
+}
+}}>
+  <NavLink to={'/login'}>
+    login
+  </NavLink>
+</Button> */}
+
+</Box>
           </Toolbar>
         </AppBar>
         <nav>

@@ -2,5 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 .active{
-  color: brown;
+  color: black;
+  text-decoration: none; /* Remove default underline */
+  border-bottom: 2px solid black; /* Set the thickness and color of the underline */
+  border-bottom-width: 2px; /* Adjust the thickness to make the underline bold */
+  padding-bottom: 2px; /* Adjust the padding to create a gap between text and underline */
+  font-weight: bold; 
+  
+}
+.spacing{
+  letter-spacing: 3px;
+
+}
+@media (max-width:1540px) {
+  .spacing{
+    letter-spacing: normal;
+  }
+  
 }
