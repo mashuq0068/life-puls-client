@@ -14,6 +14,23 @@
   letter-spacing: 3px;
 
 }
+body{
+  overflow-x: hidden;
+}
+@keyframes height {
+  from{
+   height: 10%;
+  }
+  to{
+    height: 145%;
+  }
+}
+.animate-height{
+  animation-name: height;
+  animation-duration:3s;
+
+}
+
 @media (max-width:1540px) {
   .spacing{
     letter-spacing: normal;
