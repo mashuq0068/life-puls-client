@@ -101,9 +101,10 @@ const Navbar = (props) => {
    
   
     return (
-      <Box   data-aos-duration="1500" data-aos="fade-right" sx={{ display: 'flex',   backgroundColor:'transparent' }}>
+      <Box   data-aos="fade-right"
+      data-aos-duration="1500" sx={{ display: 'flex',   backgroundColor:'transparent',  position:'sticky', top:'0', zIndex:'2' }}>
         <CssBaseline/>
-        <AppBar sx={{backgroundColor:'transparent' ,  marginLeft:'auto', boxShadow:'none', color:'black'}} component="nav">
+        <AppBar sx={{backgroundColor:'transparent' ,  marginLeft:'auto', boxShadow:'none', color:'black' }} component="nav">
           <Toolbar sx={{
     backgroundColor: 'transparent',
     width: '100%', // Default to full width

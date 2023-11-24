@@ -37,3 +37,9 @@ body{
   }
   
 }
+@media (max-width:840px) {
+  .spacing{
+    letter-spacing: 3px;
+  }
+  
+}
