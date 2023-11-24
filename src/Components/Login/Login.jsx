@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -12,6 +12,9 @@ const Login = () => {
     userWithTwitter()
     .then(res => {
         console.log(res)
+        if(res){
+            navigate(location?.state ? location?.state : '/')
+        }
     })
    .catch(error => {
     console.log(error.message)
@@ -22,11 +25,16 @@ const handleGoogle = () => {
     userWithGoogle()
     .then(res => {
         console.log(res)
+        if(res){
+            navigate(location?.state ? location?.state : '/')
+        }
     })
    .catch(error => {
     console.log(error.message)
    })
    }
+
+
    const {
     register,
     handleSubmit,
@@ -58,9 +66,9 @@ const handleGoogle = () => {
                 <h1 className="font-medium text-2xl mt-3 spacing text-center">Login</h1>
                 <form onSubmit={handleSubmit(onSubmit)} action="" className="mt-6">
                     <div className="my-5 text-sm spacing 2xl:text-lg">
-                        <label htmlFor="username" className="block text-black">Username</label>
-                        <input type="text" {...register("email" , {required:true} )}
-                         autoFocus id="username" className="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Username" />
+                        <label htmlFor="username" className="block text-black">Email</label>
+                        <input type="email" {...register("email" , {required:true} )}
+                         autoFocus id="email" className="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Your Email" />
                          {errors.email && <span className="text-red-600">Your email is required</span>}
                         <span className="text-red-600">{error}</span>
                     </div>
@@ -90,7 +98,7 @@ const handleGoogle = () => {
                     </div>
                 </div>
 
-                <p className="mt-12 spacing  text-sm 2xl:text-lg text-center font-light text-gray-400"> Do not have an account? <a href="#" className="text-black font-medium"> Create One </a>  </p> 
+                <p className="mt-12 spacing  text-sm 2xl:text-lg text-center font-light text-gray-400"> Do not have an account? <Link to='/signUp' className="text-black font-medium"> Create One </Link>  </p> 
 
             </div>
         </div>

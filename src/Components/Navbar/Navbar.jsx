@@ -15,13 +15,30 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
+import toast, { Toaster } from 'react-hot-toast';
 const drawerWidth = 240;
 // const navItems = ['home', 'about', 'contact'];
 
 const Navbar = (props) => {
+  const {user , logOutUser} = useAuth()
+  
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+    const handleLogOut = () => {
+      logOutUser()
+      .then(res => {
+        if(res)
+        {
+        toast.success("You has been logged out")
+        }
+      })
+      .catch(error => {
+        console.error(error.message)
+      })
+      
+  }
     const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
     };
@@ -51,6 +68,7 @@ const Navbar = (props) => {
           }}
         >
           <Box onClick={handleDrawerToggle}>
+         
         
             <Typography variant="h6" sx={{ my: 2 , display:'flex' , justifyContent:'left' , marginLeft:'10%' }}>
              Life Puls
@@ -85,13 +103,23 @@ const Navbar = (props) => {
                   </NavLink>
                 </ListItemButton>
               </ListItem>
-              <ListItem sx={{ backgroundColor: 'transparent', color: 'black', width: '100%' }} disablePadding>
+              {/* login */}
+              {!user ? <ListItem sx={{ backgroundColor: 'transparent', color: 'black', width: '100%' }} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center', backgroundColor: 'transparent', color: 'black', width: '100%' }}>
                   <NavLink to={'/login'}>
                     <ListItemText sx={{ backgroundColor: 'transparent', textAlign: 'center', color: 'black' }} primary={"Login"} />
                   </NavLink>
                 </ListItemButton>
               </ListItem>
+            
+              :
+              <ListItem sx={{ backgroundColor: 'transparent', color: 'black', width: '100%' }} disablePadding>
+                <ListItemButton sx={{ textAlign: 'center', backgroundColor: 'transparent', color: 'black', width: '100%' }}>
+                
+                    <ListItemText onClick={handleLogOut} sx={{ backgroundColor: 'transparent', textAlign: 'center', color: 'black' }} primary={"Logout"} />
+                
+                </ListItemButton>
+              </ListItem>}
             </List>
           </Box>
         </Drawer>
@@ -101,6 +129,8 @@ const Navbar = (props) => {
    
   
     return (
+      <>  
+       <Toaster position='top-center' />    
       <Box   data-aos="fade-right"
       data-aos-duration="1500" sx={{ display: 'flex',   backgroundColor:'transparent',  position:'sticky', top:'0', zIndex:'2' }}>
         <CssBaseline/>
@@ -214,21 +244,29 @@ const Navbar = (props) => {
     contact us
   </NavLink>
 </Button>
+<Button
+      sx={{
+        color: 'black',
+        fontWeight: 'bold',
+        margin: '0 10px',
+        '@media (min-width: 1660px)': {
+          fontSize: '16px',
+          margin: '0 20px',
+          letterSpacing: '3px',
+          fontWeight: 'bolder'
+        },
+      }}
+    >
+      {user ? (
+       
+        <p onClick={handleLogOut}>Logout</p>
+      ) : (
+        
+        <NavLink to="/login">Login</NavLink>
+      )}
+    </Button>
 
-<Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
- '@media (min-width: 1660px)': {
-  fontSize:'16px',
-  margin:'0 20px',
-  letterSpacing:'3px',
-  fontWeight:"bolder"
- 
-  // Override width to 60% for screens wider than 960px (laptops and desktops)
-}
-}}>
-  <NavLink to={'/login'}>
-    login
-  </NavLink>
-</Button>
+
 {/* <Button sx={{ color: 'black', fontWeight: 'bold', margin: '0 10px',
  '@media (min-width: 1660px)': {
   fontSize:'17px',
@@ -267,6 +305,7 @@ const Navbar = (props) => {
         </nav>
         </Box>
        
+       </>
     
    ) }
    Navbar.propTypes = {
