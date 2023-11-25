@@ -1,5 +1,6 @@
 import Banner from "../../Components/Banner/Banner";
-import BioData from "../../Components/BioData/BioData";
+import Footer from "../../Components/Footer/Footer";
+
 import ProfilePicture from "../../Components/ProfilePicture/ProfilePicture";
 
 
@@ -10,7 +11,8 @@ const HomePage = () => {
         <div>
            <ProfilePicture></ProfilePicture>
            <Banner></Banner>
-           <BioData></BioData>
+           <Footer></Footer>
+          
          
         </div>
     );
