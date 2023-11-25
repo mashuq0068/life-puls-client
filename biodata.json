@@ -1,6 +1,6 @@
 [
     {
-      "email": "mashuq0068@gmail.com",
+      "email": "mashuq1068@gmail.com",
       "DateOfBirth": "1990-05-15",
       "age": 32,
       "biodataId": 1,
@@ -15,10 +15,11 @@
       "mothersName": "Jane Doe",
       "name": "Alice Johnson",
       "occupation": "Software Engineer",
-      "profileLink": "https://example.com/alice",
-      "race": "Asian",
+      "profileLink": "https://tse1.mm.bing.net/th?id=OIP.GvMzt9kFXs-a3wtMt74TggHaE9&pid=Api&P=0&h=220",
+      "race": "brown",
       "weight": 55
     },
+    
     {
       "email": "john.doe@example.com",
       "DateOfBirth": "1988-08-22",
@@ -35,8 +36,8 @@
       "mothersName": "Eva Johnson",
       "name": "John Doe",
       "occupation": "Marketing Manager",
-      "profileLink": "https://example.com/john",
-      "race": "Caucasian",
+      "profileLink": "https://images.unsplash.com/photo-1592009309602-1dde752490ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      "race": "white",
       "weight": 75
     },
     {
@@ -55,8 +56,8 @@
       "mothersName": "Jennifer Smith",
       "name": "Emma Smith",
       "occupation": "Teacher",
-      "profileLink": "https://example.com/emma",
-      "race": "African American",
+      "profileLink": "https://tse4.mm.bing.net/th?id=OIP.jmIJqPM64IB9CwlgXomDYQHaHa&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 58
     },
     {
@@ -75,8 +76,8 @@
       "mothersName": "Mary Jones",
       "name": "Peter Jones",
       "occupation": "Architect",
-      "profileLink": "https://example.com/peter",
-      "race": "Hispanic",
+      "profileLink": "https://wallpapercave.com/wp/wp6813924.jpg",
+      "race": "white",
       "weight": 70
     },
     {
@@ -95,9 +96,9 @@
       "mothersName": "Sara White",
       "name": "Lisa White",
       "occupation": "Graphic Designer",
-      "profileLink": "https://example.com/lisa",
-      "race": "Asian",
-      "weight": 50
+      "profileLink": "https://www.al.com/resizer/4HuBYYMbtwltelaUfgJ_IPho384=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/D6CCQZRJXFCQVGJ3TPDPE2QGGU.jpg",
+      "race": "white",    
+       "weight": 50
     },
     {
       "email": "michael.brown@example.com",
@@ -115,8 +116,8 @@
       "mothersName": "Emily Brown",
       "name": "Michael Brown",
       "occupation": "Doctor",
-      "profileLink": "https://example.com/michael",
-      "race": "Caucasian",
+      "profileLink": "https://tse3.mm.bing.net/th?id=OIP.INsxPQ-bU9uvvXVF2ndkswHaJy&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 75
     },
     {
@@ -135,8 +136,8 @@
       "mothersName": "Sophia Johnson",
       "name": "Olivia Johnson",
       "occupation": "Engineer",
-      "profileLink": "https://example.com/olivia",
-      "race": "African American",
+      "profileLink": "https://tse3.mm.bing.net/th?id=OIP.MXrAs1fKp_OGx0U97-HPoQHaHa&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 60
     },
     {
@@ -155,8 +156,8 @@
       "mothersName": "Isabella Smith",
       "name": "James Smith",
       "occupation": "Artist",
-      "profileLink": "https://example.com/james",
-      "race": "Hispanic",
+      "profileLink": "https://c.stocksy.com/a/XJC000/z9/47339.jpg",
+      "race": "black",
       "weight": 75
     },
     {
@@ -175,8 +176,8 @@
       "mothersName": "Ava Miller",
       "name": "Sophia Miller",
       "occupation": "Journalist",
-      "profileLink": "https://example.com/sophia",
-      "race": "Asian",
+      "profileLink": "https://tse1.mm.bing.net/th?id=OIP.as5e143iltnc2bqcDDzZNwHaLH&pid=Api&P=0&h=220",
+      "race": "white",     
       "weight": 58
     },
     {
@@ -192,11 +193,10 @@
       "fathersName": "Andrew Jackson",
       "height": 6.2,
       "mobileNumber": "9876543210",
-      "mothersName": "Grace Jackson",
-      "name": "Ryan Jackson",
+      "mothersName": "Grace Jacksondd",    "name": "Ryan Jackson",
       "occupation": "Entrepreneur",
-      "profileLink": "https://example.com/ryan",
-      "race": "Caucasian",
+      "profileLink": "https://tse3.mm.bing.net/th?id=OIP.3KAjjyyfur5Rn7XiVPH9XAHaKE&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 80
     },
     {
@@ -215,8 +215,8 @@
       "mothersName": "Lily Thomas",
       "name": "Ava Thomas",
       "occupation": "Fashion Designer",
-      "profileLink": "https://example.com/ava",
-      "race": "African American",
+      "profileLink": "https://tse2.mm.bing.net/th?id=OIP.8Q3Ti-TGDjYcrfxBSQYftQHaHa&pid=Api&P=0&h=220",
+      "race": "black",
       "weight": 52
     },
     {
@@ -235,8 +235,8 @@
       "mothersName": "Julia Hall",
       "name": "David Hall",
       "occupation": "Chef",
-      "profileLink": "https://example.com/david",
-      "race": "Hispanic",
+      "profileLink": "https://tse4.mm.bing.net/th?id=OIP.X5sx2wq55Np21IuqALFgsgHaLH&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 75
     },
     {
@@ -255,8 +255,8 @@
       "mothersName": "Emma Harris",
       "name": "Chloe Harris",
       "occupation": "Photographer",
-      "profileLink": "https://example.com/chloe",
-      "race": "Caucasian",
+      "profileLink": "https://tse4.mm.bing.net/th?id=OIP.JiBb2eCk4a6SaqclB5PveQHaL2&pid=Api&P=0&h=220",
+      "race": "white",
       "weight": 55
     },
     {
@@ -275,8 +275,8 @@
         "mothersName": "Emily White",
         "name": "Jackson White",
         "occupation": "Photographer",
-        "profileLink": "https://example.com/jackson",
-        "race": "African American",
+        "profileLink": "https://tse2.mm.bing.net/th?id=OIP.KvppEG5Q6p2GO3c4NoDSVAHaLH&pid=Api&P=0&h=220",
+        "race": "white",
         "weight": 68
       },
       {
@@ -295,8 +295,8 @@
         "mothersName": "Lily Jones",
         "name": "Sophia Jones",
         "occupation": "Artist",
-        "profileLink": "https://example.com/sophia",
-        "race": "Latino",
+        "profileLink": "https://tse4.mm.bing.net/th?id=OIF.Lf5K%2bjE5qg66ZYmpguqBvw&pid=Api&P=0&h=220",
+        "race": "white",        
         "weight": 55
       },
       {
@@ -315,9 +315,9 @@
         "mothersName": "Ella Brown",
         "name": "Liam Brown",
         "occupation": "Architect",
-        "profileLink": "https://example.com/liam",
-        "race": "Asian",
-        "weight": 72
+        "profileLink": "https://tse4.mm.bing.net/th?id=OIP.d-9a1QjSHmxUkTgFkjnzGgHaE8&pid=Api&P=0&h=220",
+        "race": "white",      
+         "weight": 72
       },
       {
         "email": "chloe.davis@example.com",
@@ -335,8 +335,8 @@
         "mothersName": "Sophie Davis",
         "name": "Chloe Davis",
         "occupation": "Graphic Designer",
-        "profileLink": "https://example.com/chloe",
-        "race": "Caucasian",
+        "profileLink": "https://tse1.explicit.bing.net/th?id=OIF.IV%2blwUYVsdNfHp%2fnVAg%2fSQ&pid=Api&P=0&h=220",
+        "race": "white",
         "weight": 58
       },
       {
@@ -355,8 +355,8 @@
         "mothersName": "Emma Johnson",
         "name": "Oliver Johnson",
         "occupation": "Financial Analyst",
-        "profileLink": "https://example.com/oliver",
-        "race": "African American",
+        "profileLink": "https://c.stocksy.com/a/dTW500/z9/1316485.jpg",
+        "race": "brown",
         "weight": 68
       },
       {
@@ -375,8 +375,8 @@
         "mothersName": "Ava Martin",
         "name": "Ava Martin",
         "occupation": "Journalist",
-        "profileLink": "https://example.com/ava",
-        "race": "Latino",
+        "profileLink": "https://whenwomeninspire.com/wp-content/uploads/2023/11/Kendra-Lee-Merichem.png",
+        "race": "white",        
         "weight": 55
       },
       {
@@ -395,8 +395,8 @@
         "mothersName": "Olivia White",
         "name": "Noah White",
         "occupation": "Travel Blogger",
-        "profileLink": "https://example.com/noah",
-        "race": "Caucasian",
+        "profileLink": "https://i.pinimg.com/originals/fc/1a/3e/fc1a3ebf7e9a0a6d287098908f3c4681.jpg",
+        "race": "white",
         "weight": 70
       },
       {
@@ -415,8 +415,8 @@
         "mothersName": "Ava Jones",
         "name": "Mia Jones",
         "occupation": "Event Planner",
-        "profileLink": "https://example.com/mia",
-        "race": "Asian",
+        "profileLink": "https://peggynoestevens.com/wp-content/uploads/2012/11/Business-Woman-Image-Website.jpg",
+        "race": "white",       
         "weight": 55
       },
       {
@@ -432,11 +432,10 @@
         "fathersName": "Henry Brown",
         "height": 6.0,
         "mobileNumber": "9876543210",
-        "mothersName": "Grace Brown",
-        "name": "Ethan Brown",
+        "mothersName": "Grace Browndd",    "name": "Ethan Brown",
         "occupation": "Chef",
-        "profileLink": "https://example.com/ethan",
-        "race": "African American",
+        "profileLink": "https://media.istockphoto.com/photos/cheerful-young-man-picture-id188104960?k=6&m=188104960&s=612x612&w=0&h=HCDrsJ9GA7cerkjqOsmAsWkrfgVEEGpCEcUVxR7n8EM=",
+        "race": "white",
         "weight": 72
       },
       {
@@ -455,8 +454,8 @@
         "mothersName": "Sophie Davis",
         "name": "Zoey Davis",
         "occupation": "Interior Designer",
-        "profileLink": "https://example.com/zoey",
-        "race": "Latino",
+        "profileLink": "https://businesstoday.co.ke/wp-content/uploads/2017/10/Dina-Musindarwezo.jpg",
+        "race": "black",    
         "weight": 58
       },
       {
@@ -475,8 +474,8 @@
         "mothersName": "Emma Johnson",
         "name": "Lucas Johnson",
         "occupation": "Financial Planner",
-        "profileLink": "https://example.com/lucas",
-        "race": "Asian",
+        "profileLink": "https://tse1.mm.bing.net/th?id=OIP.6Q7x698xtCC0qZxUcna4XgAAAA&pid=Api&P=0&h=220",
+        "race": "white",       
         "weight": 68
       },
       {
@@ -495,8 +494,8 @@
         "mothersName": "Lily Martin",
         "name": "Amelia Martin",
         "occupation": "HR Manager",
-        "profileLink": "https://example.com/amelia",
-        "race": "Caucasian",
+        "profileLink": "https://i.pinimg.com/originals/e3/c0/b5/e3c0b57e39b9038b5a33a28d7953f24d.jpg",
+        "race": "white",
         "weight": 55
       }
 ]

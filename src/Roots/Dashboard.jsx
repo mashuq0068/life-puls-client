@@ -107,9 +107,10 @@ const Dashboard = () => {
   // };
 
   return (
+    
     <div className=" flex  ">
       <div className='uppercase z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
-      <div className="flex flex-col space-y-7 text-base 2xl:text-base spacing font-bold ml-[10%] mt-[30%]">
+      <div className="flex flex-col space-y-7 text-base spacing font-bold ml-[10%] mt-[30%]">
         <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/edit">Edit Biodata</NavLink>
         <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/view">View Biodata</NavLink>
         <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/contactRequest">My Contact Request</NavLink>
