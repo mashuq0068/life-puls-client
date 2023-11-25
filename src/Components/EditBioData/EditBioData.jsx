@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const EditBioData = () => {
     const {user} = useAuth()
+    const axiosSecure = useAxiosSecure()
     const {
         register,
         handleSubmit,
@@ -12,6 +14,12 @@ const EditBioData = () => {
       } = useForm()
       const onSubmit = (data) => {
        console.log(data)
+       if(data){
+        axiosSecure.put('/biodata' , data)
+        .then(res => {
+            console.log(res.data)
+        })
+       }
       }
     return (
       <div className="w-[75vw]">
