@@ -5,6 +5,8 @@ import LoginPage from "../Pages/LoginPage/LoginPage";
 import SignUpPage from "../Pages/SignUpPage/SignUpPage";
 import Dashboard from "../Roots/Dashboard";
 import ErrorPage from "../Pages/errorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import EditBioDataPage from "../Pages/EditBioDataPage/EditBioDataPage";
 
 
 const Router = createBrowserRouter([
@@ -29,10 +31,13 @@ const Router = createBrowserRouter([
    },
    {
     path:'/dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement:<ErrorPage></ErrorPage>,
     children:[
-      
+       {
+        path:'edit',
+        element:<EditBioDataPage></EditBioDataPage>
+       }
     ]
     
    }

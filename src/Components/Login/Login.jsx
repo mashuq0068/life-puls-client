@@ -60,7 +60,7 @@ const handleGoogle = () => {
  
     }
     return (
-        <div  data-aos-duration="1500" data-aos="fade-left" className=" bg-[#fda3c4] flex justify-center items-center h-[130vh] 2xl:h-screen ">
+        <div   className=" bg-[#fda3c4] flex justify-center items-center h-[130vh] 2xl:h-screen ">
             <div className="bg-white  drop-shadow-xl shadow-xl lg:w-4/12 md:6/12 w-10/12 m-auto my-10 ">
             <div className="py-8 px-8 rounded-xl ">
                 <h1 className="font-medium text-2xl mt-3 spacing text-center">Login</h1>

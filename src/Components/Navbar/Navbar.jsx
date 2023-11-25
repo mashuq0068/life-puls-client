@@ -17,7 +17,8 @@ import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+
 const drawerWidth = 240;
 // const navItems = ['home', 'about', 'contact'];
 
@@ -37,7 +38,23 @@ const Navbar = (props) => {
       .catch(error => {
         console.error(error.message)
       })
-      
+      // swal.fire({
+      //   title: "Are you sure?",
+      //   text: "You won't be able to revert this!",
+      //   icon: "warning",
+      //   showCancelButton: true,
+      //   confirmButtonColor: "#3085d6",
+      //   cancelButtonColor: "#d33",
+      //   confirmButtonText: "Yes, delete it!"
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     swal.fire({
+      //       title: "Deleted!",
+      //       text: "Your file has been deleted.",
+      //       icon: "success"
+      //     });
+      //   }
+      // });
   }
     const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
@@ -142,7 +159,7 @@ const Navbar = (props) => {
   
     return (
       <>  
-       <Toaster position='top-center' />    
+       {/* <Toaster position='top-center' />     */}
       <Box   data-aos="fade-right"
       data-aos-duration="1500" sx={{ display: 'flex',   backgroundColor:'transparent',  position:'sticky', top:'0', zIndex:'2' }}>
         <CssBaseline/>

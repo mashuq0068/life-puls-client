@@ -20,9 +20,9 @@ const ProfilePicture = () => {
       
     return (
         <>
-        <div id="profile-container" className=" right-[15%] top-[1%] md:top-[3%] md:right-[80%] cursor-pointer   z-50 fixed lg:top-[1%] lg:right-[5%]">
+       <div id="profile-container" className={` right-[15%] top-[1%] md:top-[3%] md:right-[80%] cursor-pointer   z-50 fixed lg:top-[1%] lg:right-[5%]`}>
    <div  className="profile-picture  fixed mr-[4%] ">
-   {user?.photoURL && <img className={`rounded-profile`} src={user?.photoURL} alt="" /> }
+   {user?.photoURL ? <img className={`rounded-profile`} src={user?.photoURL} alt="" /> : ""}
    </div>
         {/* info */}
    
@@ -37,7 +37,7 @@ const ProfilePicture = () => {
   <hr className="" />
   <p className=" text-lg spacing">Creation Time : {user?.metadata?.creationTime}</p>
   {/* <Link onClick={handleSignOut} className="btn text-base bg-teal-400 mx-auto  w-[60%] hover:bg-teal-400  2xl:text-xl ">Sign Out</Link> */}
-  </div>
+  </div> 
         </>
     );
 };
