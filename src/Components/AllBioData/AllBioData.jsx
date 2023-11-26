@@ -3,18 +3,16 @@ import useAllBioData from "../../Hooks/useAllBioData";
 import BioData from "../BioData/BioData";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const AllBioData = () => {
     const {data , isPending} = useAllBioData()
-    const [filterSectionData, setFilterSectionData] = useState(data);
-    
+    const [filterSectionData, setFilterSectionData] = useState([]);
+  
 
-    // useEffect(() => {
-    //   // Update filterSectionData when data changes
-    //   setFilterSectionData(data);
-    // }, [data]);
+    useEffect(() => {
+      setFilterSectionData(data);
+    }, [data]);
     // const axiosPublic = useAxiosPublic()
     console.log(filterSectionData)
     const [minAge, setMinAge] = useState('');
@@ -162,6 +160,7 @@ const AllBioData = () => {
                    <option value="Female">Female</option>
                 
                   </select>
+                  {/* <Select   options={GenderOptions}></Select> */}
                  </div>
                  
                  </div>
