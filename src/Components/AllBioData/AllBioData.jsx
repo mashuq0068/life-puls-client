@@ -10,7 +10,7 @@ import PaginationBioData from "../PaginationBiodata/PaginationBioData";
 
 
 const AllBioData = () => {
-    const {data , isPending} = useAllBioData()
+    const {data , isPending , isLoading} = useAllBioData()
     const [filterSectionData, setFilterSectionData] = useState([]);
   
    
@@ -99,7 +99,7 @@ const AllBioData = () => {
      setFilterSectionData(filteredData);
    }
     
-    if(isPending){
+    if(isPending || isLoading){
         return(
             <Box
             sx={{

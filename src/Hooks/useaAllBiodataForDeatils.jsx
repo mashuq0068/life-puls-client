@@ -3,11 +3,10 @@ import { Box } from "@mui/system";
 import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
-
-const useAllBioData = () => {
-  const axiosPublic = useAxiosPublic()
+const useAllBioDataForDetails = () => {
+    const axiosPublic = useAxiosPublic()
    
-    const { data , isPending , isLoading} = useQuery({
+    const { data:allBiodata , isPending , isLoading} = useQuery({
         queryKey:["biodata"],
         queryFn : async()=>{
             const response = await axiosPublic.get("/allBiodata")
@@ -34,7 +33,7 @@ const useAllBioData = () => {
           </Box>
         )
     }
-    return {data , isPending , isLoading}
+    return {allBiodata , isPending , isLoading}
 };
 
-export default useAllBioData;
+export default useAllBioDataForDetails;

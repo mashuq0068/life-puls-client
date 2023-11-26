@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import EditBioDataPage from "../Pages/EditBioDataPage/EditBioDataPage";
 import BiodatasPage from "../Pages/BiodatasPage/BiodatasPage";
 import BioDataDetailsPage from "../Pages/BiodataDetailsPage/BioDataDetailsPage";
+import AboutUsPage from "../Pages/AboutUsPage/AboutUsPage";
 
 
 const Router = createBrowserRouter([
@@ -36,7 +37,11 @@ const Router = createBrowserRouter([
        {
         path:'/biodata/:email',
         element : <PrivateRoute><BioDataDetailsPage></BioDataDetailsPage></PrivateRoute>
-       }
+       },
+      { 
+        path:'/about',
+        element:<AboutUsPage></AboutUsPage>
+      }
      ]
    },
    {

@@ -282,7 +282,7 @@ const Navbar = (props) => {
   
 }
 }}>
-  <NavLink to={'about'}>
+  <NavLink to={'/about'}>
     about us
   </NavLink>
 </Button>

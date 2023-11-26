@@ -57,6 +57,20 @@ body{
   object-fit: cover; 
 }
 
+.details-picture {
+  height: 240px;
+  width: 240px;
+  border-radius: 50%; 
+  overflow: hidden; 
+}
+
+
+.details-profile {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
 @media (max-width:1540px) {
   .spacing{
     letter-spacing: normal;
