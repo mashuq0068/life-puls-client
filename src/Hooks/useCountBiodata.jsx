@@ -1,30 +1,37 @@
+import { useState, useEffect } from 'react';
+import useAxiosPublic from './useAxiosPublic';
 
-import { useEffect } from "react";
-import useCountBiodata from "./useCountBiodata";
-
-const MyComponent = () => {
-  const getCountBiodata = useCountBiodata();
+const useCountBiodata = () => {
+  const axiosPublic = useAxiosPublic();
+  const [biodataCount, setBiodataCount] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCountBiodata = async () => {
       try {
-        const count = await getCountBiodata();
-        console.log("Count of biodata:", count);
-        // Do something with the count, e.g., update state or UI
+        const response = await axiosPublic.get('/countBiodata');
+        setBiodataCount(response.data);
+        setIsLoading(false);
       } catch (error) {
-        // Handle errors, e.g., log or show an error message
-        console.error("Error fetching count of biodata:", error);
+        console.error('Error fetching countBiodata:', error);
+        setIsError(true);
+        setIsLoading(false);
       }
     };
 
-    fetchData();
-  }, [getCountBiodata]);
+    fetchCountBiodata();
+  }, []);
 
-  return (
-    <div>
-      {/* Your component JSX */}
-    </div>
-  );
+  if (isLoading) {
+    return 'Loading...';
+  }
+
+  if (isError) {
+    return 'Error fetching countBiodata';
+  }
+
+  return { biodataCount };
 };
 
-export default MyComponent;
+export default useCountBiodata;

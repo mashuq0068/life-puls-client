@@ -8,6 +8,7 @@ import ErrorPage from "../Pages/errorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import EditBioDataPage from "../Pages/EditBioDataPage/EditBioDataPage";
 import BiodatasPage from "../Pages/BiodatasPage/BiodatasPage";
+import BioDataDetailsPage from "../Pages/BiodataDetailsPage/BioDataDetailsPage";
 
 
 const Router = createBrowserRouter([
@@ -31,6 +32,10 @@ const Router = createBrowserRouter([
        {
          path:'/biodatas',
          element:<BiodatasPage></BiodatasPage>
+       },
+       {
+        path:'/biodata/:email',
+        element : <PrivateRoute><BioDataDetailsPage></BioDataDetailsPage></PrivateRoute>
        }
      ]
    },

@@ -3,6 +3,8 @@ import useAllBioData from "../../Hooks/useAllBioData";
 import BioData from "../BioData/BioData";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
+import PaginationBioData from "../PaginationBiodata/PaginationBioData";
+
 
 
 
@@ -10,18 +12,15 @@ import { useEffect, useState } from "react";
 const AllBioData = () => {
     const {data , isPending} = useAllBioData()
     const [filterSectionData, setFilterSectionData] = useState([]);
+  
    
-   const totalBiodata = data?.length
-   const perPageData = 6
-   const totalPage = Math.ceil(totalBiodata /perPageData)
-   const pages = [...Array(totalPage).keys()]
 
-   console.log(pages)
+ 
     useEffect(() => {
       setFilterSectionData(data);
     }, [data]);
     // const axiosPublic = useAxiosPublic()
-    console.log(filterSectionData)
+    
     const [minAge, setMinAge] = useState('');
     const [maxAge, setMaxAge] = useState('');
     const [division, setDivision] = useState('');
@@ -99,7 +98,7 @@ const AllBioData = () => {
   
      setFilterSectionData(filteredData);
    }
-    console.log(data)
+    
     if(isPending){
         return(
             <Box
@@ -202,22 +201,31 @@ const AllBioData = () => {
             </div>
             {/* all bio */}
            
-            <div>
+            {/* <div>
             <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl">All Biodata</h3>
             <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
-            {data?.slice(0,10).map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
+            {data?.slice(0,6).map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
             
            </div>
-           <div className="relative top-[3%]" >
+           <div className="relative top-[3%] 2xl:top-[3%]" >
            {pages?.map((page , i) => 
           
-            <button className=" drop-shadow-xl hover:border border-[#f06598] shadow-lg px-8 py-2 mr-[2%]" key={i}>{page}</button>
+            <button className=" drop-shadow-xl focus:border hover:border border-[#f06598] shadow-lg px-8 py-2 mr-[2%]" key={i}>{page}</button>
            )}
+           <select  value={perPageData}  onChange={handlePageDataOptions} name="" id="">
+                    <option value="5">6</option>
+                    <option value="10">8</option>
+                    <option value="15">10</option>
+                   
+                </select>
            </div>
           
          
-        </div>
+        </div> */}
+       
+          <PaginationBioData></PaginationBioData>
+      
         </div>
     );
 };
