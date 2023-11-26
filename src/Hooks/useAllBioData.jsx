@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 const useAllBioData = () => {
   const axiosPublic = useAxiosPublic()
    
-    const {isLoading , data} = useQuery({
+    const { data , isPending} = useQuery({
         queryKey:["biodata"],
         queryFn : async()=>{
             const response = await axiosPublic.get("/allBiodata")
@@ -16,7 +16,7 @@ const useAllBioData = () => {
         },
       
     })
-    if(isLoading){
+    if( isPending){
         return(
             <Box
             sx={{
@@ -34,7 +34,7 @@ const useAllBioData = () => {
           </Box>
         )
     }
-    return {data}
+    return {data , isPending}
 };
 
 export default useAllBioData;

@@ -34,7 +34,28 @@ const EditBioData = () => {
         handleSubmit,
         
         formState: { errors },
-      } = useForm()
+      } = useForm({
+        defaultValues:{
+          DateOfBirth : data?.DateOfBirth,
+          age: data?.age,
+          biodataType:data?.biodataType,
+          division:data?.division,
+          email: data?.email,
+          expectedPartnerAge:data?.expectedPartnerAge,
+          expectedPartnerHeight : data?.expectedPartnerHeight,
+          expectedPartnerWeight:data?.expectedPartnerWeight,
+          fathersName:data?.fathersName,
+          height:data?.height,
+          mobileNumber: data?.mobileNumber,
+          mothersName :data?.mothersName,
+          name:data?.name,
+          occupation: data?.occupation,
+          profileLink : data?.profileLink,
+          race: data?.race,
+          weight : data?.weight
+
+        }
+      })
       const onSubmit = (data) => {
        console.log(data)
        if(data){
