@@ -5,11 +5,18 @@ import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 
 
+
+
 const AllBioData = () => {
     const {data , isPending} = useAllBioData()
     const [filterSectionData, setFilterSectionData] = useState([]);
-  
+   
+   const totalBiodata = data?.length
+   const perPageData = 6
+   const totalPage = Math.ceil(totalBiodata /perPageData)
+   const pages = [...Array(totalPage).keys()]
 
+   console.log(pages)
     useEffect(() => {
       setFilterSectionData(data);
     }, [data]);
@@ -194,13 +201,23 @@ const AllBioData = () => {
               </div>
             </div>
             {/* all bio */}
+           
             <div>
             <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl">All Biodata</h3>
             <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
-            {data?.map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
+            {data?.slice(0,10).map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
+            
            </div>
-            </div>
+           <div className="relative top-[3%]" >
+           {pages?.map((page , i) => 
+          
+            <button className=" drop-shadow-xl hover:border border-[#f06598] shadow-lg px-8 py-2 mr-[2%]" key={i}>{page}</button>
+           )}
+           </div>
+          
+         
+        </div>
         </div>
     );
 };
