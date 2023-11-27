@@ -22,7 +22,7 @@ const BioDataDetails = () => {
   const [bg , setBg] = useState('bg-[#f178a5]')
   const [hoverBg , setHoverBg] = useState('hover:bg-[#f06598]')
   const [isAlert , setIsAlert] = useState(false)
-  const isPremium = true
+  const isPremium = false
   
   const style = {
     display : 'flex',

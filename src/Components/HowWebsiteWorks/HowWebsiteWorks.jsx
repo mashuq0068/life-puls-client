@@ -1,98 +1,31 @@
-import { Box } from "@mui/system";
-import { useQuery } from "react-query";
-import BioData from "../BioData/BioData";
-import { CircularProgress } from "@mui/material";
-import { useEffect, useState } from "react";
-import useAllBioData from "../../Hooks/useAllBioData";
 
 
 const HowWebsiteWorks = () => {
-    const {data : allBioData} = useAllBioData()
-    const { data, isLoading, isError } = useQuery("allBioData", allBioData );
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(10); 
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const paginatedData = data?.slice(startIndex, endIndex);
-
-  useEffect(() => {
-    
-    setCurrentPage(1);
-  }, [data]);
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
-  if (isLoading) {
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-        }}
-      >
-        <CircularProgress
-          sx={{
-            color: "#fda3c4",
-          }}
-        />
-      </Box>
-    );
-  }
-
-  if (isError) {
-    return <div>Error fetching biodata</div>;
-  }
-
   return (
-    <div className="flex gap-[5%]">
-      {/* ... (your filter form) */}
-      <div>
-        {/* biodata */}
-        <div>
-          <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
-            {paginatedData?.length === 0 ? (
-              <div>
-                <p>No Biodata Like that</p>
-              </div>
-            ) : (
-              paginatedData?.map((biodata) => (
-                <BioData key={biodata._id} biodata={biodata}></BioData>
-              ))
-            )}
-          </div>
-          <div className="flex justify-between mt-4">
-            <button
-              onClick={handlePrevPage}
-              disabled={currentPage === 1}
-              className="text-center font-semibold px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl mb-[5%] bg-[#f178a5] shadow-xl spacing"
-            >
-              Previous Page
-            </button>
-            <button
-              onClick={handleNextPage}
-              disabled={endIndex >= data?.length}
-              className="text-center font-semibold px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl mb-[5%] bg-[#f178a5] shadow-xl spacing"
-            >
-              Next Page
-            </button>
-          </div>
-        </div>
-      </div>
-      <div>
-            <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl">All Biodata</h3>
-            <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
-           <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
-            {data?.map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
-           </div>
-    </div>
+    <div>
+       <h3 className="mt-36 spacing text-center 2xl:text-3xl font-bold text-2xl"> How Website Works</h3>
+       {/* <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1%] mx-auto w-[23%]"></p> */}
+       {/* main div */}
+       <div className="w-[70%]  mx-auto  grid grid-cols-3 gap-[5%] mt-[10vh]">
+        {/* one */}
+       <div className="spacing text-center 2xl:text-lg">
+         <h3 className="spacing text-center 2xl:text-2xl font-bold text-xl">Login && Find Bio</h3>
+         <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1vh] mx-auto w-[80%]"></p>
+         <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, laboriosam perferendis tenetur necessitatibus magnam optio nemo ducimus suscipit obcaecati nesciunt repellendus perspiciatis laborum ut accusantium mollitia provident illo, natus quibusdam sed.</p>
+       </div>
+        {/* one */}
+       <div className="spacing text-center 2xl:text-lg">
+         <h3 className="spacing text-center 2xl:text-2xl font-bold text-xl">Login && Find Bio</h3>
+         <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1vh] mx-auto w-[80%]"></p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, laboriosam perferendis tenetur necessitatibus magnam optio nemo ducimus suscipit obcaecati nesciunt repellendus perspiciatis laborum ut accusantium mollitia provident illo, natus quibusdam sed.</p>
+       </div>
+        {/* one */}
+       <div className="spacing text-center 2xl:text-lg ">
+         <h3 className="spacing text-center 2xl:text-2xl font-bold text-xl">Login && Find Bio</h3>
+         <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1vh] mx-auto w-[80%]"></p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, laboriosam perferendis tenetur necessitatibus magnam optio nemo ducimus suscipit obcaecati nesciunt repellendus perspiciatis laborum ut accusantium mollitia provident illo, natus quibusdam sed.</p>
+       </div>
+       </div>
     </div>
   );
 };

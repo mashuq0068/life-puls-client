@@ -5,12 +5,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
 
 const AlertDialog = ({ open, handleClose }) => {
   const {logOutUser}  = useAuth()
+  
   const goForLogout = () => {
     logOutUser()
       .then((res) => {
@@ -74,6 +75,11 @@ const AlertDialog = ({ open, handleClose }) => {
 // };
 
 const Dashboard = () => {
+  const navigate = useNavigate()
+  const handleReload = () => {
+    navigate('/dashboard/favorites')
+    window.location.reload(false)
+  }
 
   const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
   // const [openSuccessDialog, setOpenSuccessDialog] = React.useState(false);
@@ -114,7 +120,7 @@ const Dashboard = () => {
         <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
         <NavLink className='' to="/dashboard/view">View Biodata</NavLink>
         <NavLink className='' to="/dashboard/contactRequest">My Contact Request</NavLink>
-        <NavLink className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
+        <NavLink onClick={handleReload} className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
         <Button
           onClick={handleLogout}
           sx={{
