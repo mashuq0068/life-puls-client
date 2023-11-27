@@ -7,7 +7,7 @@ import { Box, CircularProgress } from "@mui/material";
 const useOneBioData = () => {
     const axiosSecure = useAxiosSecure()
     const {user , loading} = useAuth()
-    const {isLoading , data} = useQuery({
+    const {isLoading , data , isPending} = useQuery({
         queryKey:["biodata"],
         queryFn : async()=>{
             const response = await axiosSecure.get(`/biodata/${user?.email}`)
@@ -16,7 +16,7 @@ const useOneBioData = () => {
         },
         enabled:!loading
     })
-    if(isLoading){
+    if(isLoading || loading || isPending){
         return(
             <Box
             sx={{
@@ -34,7 +34,7 @@ const useOneBioData = () => {
           </Box>
         )
     }
-    return {data}
+    return {data , isLoading , isPending }
     
 };
 

@@ -1,16 +1,48 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { Box, Modal, Typography } from "@mui/material";
-import React from "react";
-import useOneBioData from "../../Hooks/useOneBiodata";
+import { Box, CircularProgress, Modal, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+// import useOneBioData from "../../Hooks/useOneBiodata";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
 const EditBioData = () => {
+  const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
-    const {data} = useOneBioData()
-    console.log(data)
+    const [loading , setLoading] = useState(true)
+    // const {data , isLoading , isPending} = useOneBioData()
+    // console.log(data)
+    // console.log(data?.DateOfBirth)
+    const [data , setData] = useState([])
+  
+    useEffect(()=>{
+         axiosSecure.get(`/biodata/${user?.email}`)
+         .then(res => {
+          if(res?.data){
+            setData(res.data)
+            setLoading(false)
+          }
+         })
+    },[])
+    const {
+      DateOfBirth,
+      age,
+      biodataType,
+      division,
+      email,
+      expectedPartnerAge,
+      expectedPartnerHeight,
+      expectedPartnerWeight,
+      fathersName,
+      height,
+      mobileNumber,
+      mothersName,
+      name,
+      occupation,
+      profileLink,
+      race,
+      weight} = data
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -28,7 +60,7 @@ const EditBioData = () => {
         p: 4,
         
       };
-    const axiosSecure = useAxiosSecure()
+
     const {
         register,
         handleSubmit,
@@ -36,25 +68,26 @@ const EditBioData = () => {
         formState: { errors },
       } = useForm({
         defaultValues:{
-          DateOfBirth : data?.DateOfBirth,
-          age: data?.age,
-          biodataType:data?.biodataType,
-          division:data?.division,
-          email: data?.email,
-          expectedPartnerAge:data?.expectedPartnerAge,
-          expectedPartnerHeight : data?.expectedPartnerHeight,
-          expectedPartnerWeight:data?.expectedPartnerWeight,
-          fathersName:data?.fathersName,
-          height:data?.height,
-          mobileNumber: data?.mobileNumber,
-          mothersName :data?.mothersName,
-          name:data?.name,
-          occupation: data?.occupation,
-          profileLink : data?.profileLink,
-          race: data?.race,
-          weight : data?.weight
+          DateOfBirth : DateOfBirth,
+          age: age,
+          biodataType:biodataType,
+          division:division,
+          email: email,
+          expectedPartnerAge:expectedPartnerAge,
+          expectedPartnerHeight : expectedPartnerHeight,
+          expectedPartnerWeight:expectedPartnerWeight,
+          fathersName:fathersName,
+          height:height,
+          mobileNumber: mobileNumber,
+          mothersName :mothersName,
+          name:name,
+          occupation: occupation,
+          profileLink : profileLink,
+          race: race,
+          weight : weight
 
         }
+      
       })
       const onSubmit = (data) => {
        console.log(data)
@@ -68,6 +101,24 @@ const EditBioData = () => {
             
         })
        }
+      }
+      if(loading){
+        return(
+          <Box
+    sx={{
+      display: 'flex',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+    }}
+  >
+    <CircularProgress
+      sx={{
+        color: '#fda3c4',
+      }}
+    />
+  </Box>
+        )
       }
     return (
         <>

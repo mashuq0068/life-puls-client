@@ -11,6 +11,8 @@ import BiodatasPage from "../Pages/BiodatasPage/BiodatasPage";
 import BioDataDetailsPage from "../Pages/BiodataDetailsPage/BioDataDetailsPage";
 import AboutUsPage from "../Pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "../Pages/ContactUsPage/ContactUsPage";
+import ViewBioDataPage from "../Pages/ViewBiodataPage/ViewBiodataPage";
+import FavoritesPage from "../Pages/FavoritesPage/FavoritePage";
 
 
 const Router = createBrowserRouter([
@@ -54,9 +56,18 @@ const Router = createBrowserRouter([
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement:<ErrorPage></ErrorPage>,
     children:[
+      // user
        {
         path:'edit',
         element:<EditBioDataPage></EditBioDataPage>
+       },
+       {
+        path:'view',
+        element:<ViewBioDataPage></ViewBioDataPage>
+       },
+       {
+        path:'favorites',
+        element:<FavoritesPage></FavoritesPage>
        }
     ]
     

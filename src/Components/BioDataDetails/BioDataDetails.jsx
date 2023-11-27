@@ -4,23 +4,76 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/system";
-import { CircularProgress } from "@mui/material";
+import { Alert, CircularProgress, Stack } from "@mui/material";
 import { MdAddIcCall, MdOutlineFavoriteBorder } from "react-icons/md";
 import BioDataDetailsSimilar from "../BioDataDetailsSimilar/BioDataDetailsSimilar";
+import {   Modal, Typography } from "@mui/material";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import React, { useState } from "react";
 
 // import BioData from "../BioData/BioData";
 // import useAllBioDataForDetails from "../../Hooks/useaAllBiodataForDeatils";
 
 const BioDataDetails = () => {
+  const {user} = useAuth()
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [bg , setBg] = useState('bg-[#f178a5]')
+  const [hoverBg , setHoverBg] = useState('hover:bg-[#f06598]')
+  const [isAlert , setIsAlert] = useState(false)
+  const isPremium = true
+  
+  const style = {
+    display : 'flex',
+    flexDirection : 'column',
+    alignItems : 'center',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'white',
+    boxShadow: 24,
+    p: 4,
+    
+  };
     
     const axiosSecure = useAxiosSecure()
     // const {allBiodata} = useAllBioDataForDetails()
     const params = useParams()
     console.log(params)
     const { loading} = useAuth()
+    const handleFavorite = (Name , id , address , Occupation) => {
+      const allInfo = {
+     userEmail : user?.email,
+     name : Name,
+     biodataId : id ,
+     permanentAddress : address,
+     occupation : Occupation
+}
+     axiosSecure.post('/favorite' , allInfo)
+     .then(res => {
+      console.log(res.data)
+      if(res?.data?.insertedId){
+        const favorite =  document.getElementById('favorite')
+        if(!favorite.disabled) {
+          handleOpen()
+      }
+     
+      favorite.disabled = true
+     setHoverBg("bg-rose-200")
+     setBg("bg-rose-200")
+      
+      }
+     else{
+      setIsAlert(true)
+     }
+     })
+   }
     
     
-    const {isLoading , data} = useQuery({
+    const {isLoading , data , isPending} = useQuery({
         queryKey:["biodata"],
         queryFn : async()=>{
       
@@ -30,7 +83,9 @@ const BioDataDetails = () => {
         },
         enabled:!loading
     })
-    if(isLoading){
+   
+ 
+    if(isLoading || isPending){
         return(
             <Box
             sx={{
@@ -49,6 +104,28 @@ const BioDataDetails = () => {
         )
     }
    return(
+    <>
+    {isAlert ? 
+  <Alert variant="filled" sx={{position:"fixed" , top:"10%"  , fontSize:'19px'}} severity="warning">
+   This has been already included to favorites
+</Alert> : ""}
+    <Modal
+
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <CheckCircleOutlineIcon color="success"  sx={{ fontSize: 50, mb: 2  }} />
+          <Typography id="modal-modal-title" variant="h6" align="centers" component="h2">
+            well!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          This biodata added to your favorite list
+          </Typography>
+        </Box>
+      </Modal>
     <div className="mt-[8%] px-[10%] flex justify-between ">
         {/* details */}
        
@@ -73,7 +150,7 @@ const BioDataDetails = () => {
       </p>
     
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Division</span>: {data?.division}
+        <span className="font-bold text-black">Permanent Division</span>: {data?.division}
       </p>
     
       <p className="spacing text-gray-600">
@@ -106,17 +183,21 @@ const BioDataDetails = () => {
       <p className="spacing text-gray-600">
         <span className="font-bold text-black">Weight</span>: {data?.weight}
       </p>
-      <p className="text-center spacing text-xl pt-[4%] text-black font-bold">Contact</p>
+    { isPremium && <div>
+     <p className="text-center spacing text-xl pt-[4%] text-black font-bold">Contact</p>
       <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
       <p className="spacing text-center text-gray-600 pt-[2%]">
         <span className="font-bold text-black">Email</span>: {data?.email}
       </p>
-      <p className="spacing  text-gray-600">
+      <p className="spacing  text-gray-600 mt-3">
         <span className="font-bold text-black">Mobile Number</span>: {data?.mobileNumber}
       </p>
+     </div>}
       <div className="flex flex-col pt-[10%] gap-5">
-        <button className=" font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 bg-[#f178a5] shadow-xl spacing"><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
-         <button className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>
+        <button id="favorite" onClick={()=>{
+          handleFavorite(data?.name , data?.biodataId , data?.division , data?.occupation)
+        }} className={` font-semibold ${hoverBg} px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
+        { isPremium || <button className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
       </div>
         </div>
         {/* similar biodata */}
@@ -133,6 +214,7 @@ const BioDataDetails = () => {
         <BioDataDetailsSimilar  biodata = {data}></BioDataDetailsSimilar>
         </div>
     </div>
+    </>
    )
 };
 

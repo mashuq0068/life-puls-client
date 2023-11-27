@@ -109,31 +109,34 @@ const Dashboard = () => {
   return (
     
     <div className=" flex  ">
-      <div className='uppercase z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
-      <div className="flex flex-col space-y-7 text-base spacing font-bold ml-[10%] mt-[30%]">
-        <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/edit">Edit Biodata</NavLink>
-        <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/view">View Biodata</NavLink>
-        <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/contactRequest">My Contact Request</NavLink>
-        <NavLink className='drop-shadow-xl shadow-xl py-4 px-2' to="/dashboard/favorites">Favorites Biodata </NavLink>
+      <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+      <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
+        <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
+        <NavLink className='' to="/dashboard/view">View Biodata</NavLink>
+        <NavLink className='' to="/dashboard/contactRequest">My Contact Request</NavLink>
+        <NavLink className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
         <Button
           onClick={handleLogout}
           sx={{
-            fontSize:'16px',
+            fontSize:'18px',
             textAlign: 'left',
             textBase: '1rem',
             letterSpacing: '3px',
             fontWeight: '700',
-            textTransform: 'uppercase',
             position:'relative',
-            right:'37%',
+            right:'40%',
+           
             color:'black',
+            textTransform:'capitalize',
+            filter:' drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))',
+            // boxShadow : '0px 0px 1px 1px',
             '@media (max-width: 1700px)': {
               // Styles for screens with a maximum width of 1700px
               fontSize: '15px', 
               letterSpacing:'0px',
               fontWeight:'800',
               position:'relative',
-              right:'39%',// Adjust as needed
+              right:'40%',// Adjust as needed
             },
           }}
         >
