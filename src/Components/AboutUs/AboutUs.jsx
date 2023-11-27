@@ -17,6 +17,7 @@ const AboutUs = () => {
           </div>
           <div className="md:w-7/12 lg:w-6/12">
             <h2 className="text-2xl  text-gray-900 text-center font-bold md:text-4xl">Our Story </h2>
+            <p className=" bg-[#f06598] mb-[5%] mx-auto h-1 mt-2 w-[50%]"></p>
             <p className="mt-6 text-gray-600">
             At Life Puls, we believe in the power of love to transform lives. Our journey began with a simple yet profound vision – to create a platform where individuals could discover meaningful connections and build lifelong partnerships. Over the years, we have evolved into a trusted space, guiding hearts towards companionship and happiness.
             </p>
@@ -41,6 +42,7 @@ const AboutUs = () => {
           </div>
           <div className="md:w-7/12 lg:w-6/12">
             <h2 className="text-2xl  text-gray-900 text-center font-bold md:text-4xl">Mission Statement</h2>
+            <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto mt-2 w-[50%]"></p>
             <p className="mt-6 text-gray-600">
             Life Puls is more than a matchmaking service; it is a community dedicated to empowering individuals on their journey to find love. We provide a safe and supportive environment where people can explore, connect, and embark on a path to meaningful relationships.
             </p>

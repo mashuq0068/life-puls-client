@@ -7,6 +7,7 @@ const BioData = ({biodata}) => {
     const navigate = useNavigate()
     const handleViewProfile = () => {
         navigate(`/biodata/${email}`)
+        window.location.reload(false);
 
     }
     return (

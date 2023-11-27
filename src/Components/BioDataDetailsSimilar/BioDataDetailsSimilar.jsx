@@ -15,8 +15,11 @@ const [allBioData , setAllBioData] = useState([])
 useEffect(()=>{
     axiosPublic.get('/allBiodata')
     .then(res => {
+       
         if(res.data){
+            
             setAllBioData(res.data)
+           
         }
     })
 },[])

@@ -24,7 +24,9 @@ const drawerWidth = 240;
 
 const Navbar = (props) => {
   const {user , logOutUser} = useAuth()
-  
+  const handleReload = () => {
+    window.location.reload(false);
+  }
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const handleLogOut = () => {
@@ -267,7 +269,7 @@ const Navbar = (props) => {
  
 }
 }}>
-  <NavLink to={'/biodatas'}>
+  <NavLink onClick={handleReload} to={'/biodatas'}>
     biodatas
   </NavLink>
 </Button>

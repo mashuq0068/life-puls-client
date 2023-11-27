@@ -10,6 +10,7 @@ import EditBioDataPage from "../Pages/EditBioDataPage/EditBioDataPage";
 import BiodatasPage from "../Pages/BiodatasPage/BiodatasPage";
 import BioDataDetailsPage from "../Pages/BiodataDetailsPage/BioDataDetailsPage";
 import AboutUsPage from "../Pages/AboutUsPage/AboutUsPage";
+import ContactUsPage from "../Pages/ContactUsPage/ContactUsPage";
 
 
 const Router = createBrowserRouter([
@@ -41,6 +42,10 @@ const Router = createBrowserRouter([
       { 
         path:'/about',
         element:<AboutUsPage></AboutUsPage>
+      },
+      {
+        path:'/contact',
+        element:<ContactUsPage></ContactUsPage>
       }
      ]
    },

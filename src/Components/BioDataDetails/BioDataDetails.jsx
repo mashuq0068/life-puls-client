@@ -23,6 +23,7 @@ const BioDataDetails = () => {
     const {isLoading , data} = useQuery({
         queryKey:["biodata"],
         queryFn : async()=>{
+      
             const response = await axiosSecure.get(`/biodata/${params?.email}`)
             return response.data
 
@@ -129,7 +130,7 @@ const BioDataDetails = () => {
         {/* </div> */}
         
         <div>
-        <BioDataDetailsSimilar biodata = {data}></BioDataDetailsSimilar>
+        <BioDataDetailsSimilar  biodata = {data}></BioDataDetailsSimilar>
         </div>
     </div>
    )
