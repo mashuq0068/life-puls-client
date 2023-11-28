@@ -9,6 +9,11 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 // import useAuth from "../../Hooks/useAuth";
 import useUsers from "../../Hooks/useUsers";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import useSearchData from "../../Hooks/useSearchData";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../Hooks/useAuth";
+// import { useQuery } from "@tanstack/react-query";
 
 
 
@@ -16,9 +21,27 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 const ManageUsers = () => {
     // const axiosSecure = useAxiosSecure()
     // const{user} = useAuth()
+    const [searchName , setSearchName] = useState("")
     const {users , refetch} = useUsers()
     const axiosSecure  =useAxiosSecure()
+    // const {searchData} = useSearchData(searchName)
+    // const axiosSecure = useAxiosSecure()
+        const {loading} = useAuth()
+         
+          const { data : searchData } = useQuery({
+              queryKey:["search"],
+              queryFn : async()=>{
+                  const response = await axiosSecure.get(`/userByName/${searchName}`)
+                  return response.data
+      
+              },
+              enabled:!loading
+            
+          })
+          console.log(searchData)
+    
     console.log(users)
+  
     const [open, setOpen] = React.useState(false);
     const [openPremium, setOpenPremium] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -65,11 +88,24 @@ const ManageUsers = () => {
         }
     })
   } 
- 
-   
+ const handleSubmit = (e) => {
+    e.preventDefault()
+    const name = e.target.name.value
+    console.log(name)
+    if(name){
+        
+       setSearchName(name)
+    }
+
+
+ }
+//    if(isLoading || isPending){
+//     return <p>loading...</p>
+//    }
     if(users ){
     return (
         <>
+       
        <Modal
        open={open}
      onClose={handleClose}
@@ -102,6 +138,22 @@ const ManageUsers = () => {
      </Typography>
     </Box>
   </Modal>
+  <form onSubmit={handleSubmit} className="sticky w-[50vw] drop-shadow-xl shadow-xl mx-auto left-[30vw] top-0">
+           <div className=" flex">
+           {/* <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
+               Search
+            </label> */}
+            
+              <input
+         
+          type="text"
+          name="name"
+          placeholder="Search By Name"
+          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-base font-medium text-[black] 2xl:text-lg spacing outline-none focus:border-[#e75e91] focus:shadow-md"
+        />
+        <button className="bg-[#fc7aaa]  text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Search</button>
+           </div>
+           </form>
         <Container sx={{display:'flex' , justifyContent:'center' , marginLeft:'10%'}}>
         <TableContainer sx={{width:'max-content' , marginLeft:'auto', marginRight:'auto' }} component={Paper}>
       <Table sx={{ minWidth: 650,fontSize:'20px',width:'60vw', marginTop:'10%' }} aria-label="simple table">

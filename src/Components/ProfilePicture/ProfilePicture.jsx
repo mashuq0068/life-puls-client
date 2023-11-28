@@ -20,14 +20,14 @@ const ProfilePicture = () => {
       
     return (
         <>
-       <div id="profile-container" className={` right-[15%] top-[1%] md:top-[3%] md:right-[80%] cursor-pointer   z-50 fixed lg:top-[1%] lg:right-[5%]`}>
+       <div id="profile-container" className={` right-[15%]  top-[1%] md:top-[3%] md:right-[80%] cursor-pointer   z-50 fixed lg:top-[1%] lg:right-[5%]`}>
    <div  className="profile-picture  fixed mr-[4%] ">
    {user?.photoURL ? <img className={`rounded-profile`} src={user?.photoURL} alt="" /> : ""}
    </div>
         {/* info */}
    
         </div>
-        <div id="user-info" className={`absolute z-50 profile-info  bg-white p-[2%] rounded-lg  ${display}  flex-col lg:text-[10px] text-base 2xl:text-2xl space-y-3  md:w-max  md:left-[10%] left-[12%] lg:left-[70vw] lg:w-[25vw] drop-shadow-xl shadow-xl lg:pl-[2%] pl-[5%] w-[80%]  top-[13vh]  duration-300  mx-auto justify-center `}>
+        <div id="user-info" className={`fixed z-50 profile-info  bg-white p-[2%] rounded-lg  ${display}  flex-col lg:text-[10px] text-base 2xl:text-2xl space-y-3  md:w-max  md:left-[10%] left-[12%] lg:left-[70vw] lg:w-[25vw] drop-shadow-xl shadow-xl lg:pl-[2%] pl-[5%] w-[80%]  top-[13vh]  duration-300  mx-auto justify-center `}>
   
   <p className=" text-lg spacing">User Name : {user?.displayName}</p>
   <hr className="" />

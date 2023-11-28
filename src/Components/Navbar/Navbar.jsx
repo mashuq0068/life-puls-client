@@ -19,7 +19,7 @@ import useAuth from '../../Hooks/useAuth';
 
 import toast from 'react-hot-toast';
 // import { useState } from 'react';
-import { useEffect } from 'react';
+
 
 
 const drawerWidth = 240;
@@ -27,33 +27,11 @@ const drawerWidth = 240;
 
 const Navbar = (props) => {
   const {user , logOutUser} = useAuth()
-  const [bgColor , setBgColor] = React.useState("transparent")
+  // const [bgColor , setBgColor] = React.useState("transparent")
   const handleReload = () => {
     window.location.reload(false);
   }
-  useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== 'undefined' && window.scrollY) {
-        if (window.scrollY > 100) {
-          setBgColor('white');
-        } else {
-          setBgColor('transparent');
-        }
-      }
-    };
-  
-    // Add the event listener when the component mounts
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll);
-    }
-  
-    // Clean up the event listener when the component unmounts
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, []); // Empty dependency array means this effect will run once when the component mounts
+
   
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -192,7 +170,7 @@ const Navbar = (props) => {
        {/* <Toaster position='top-center' />     */}
       <Box    sx={{ display: 'flex',   backgroundColor: "transparent",   }}>
         <CssBaseline/>
-        <AppBar sx={{backgroundColor: bgColor ,  marginLeft:'auto', boxShadow:'none', color:'black' }} component="nav">
+        <AppBar sx={{backgroundColor: "transparent" ,  marginLeft:'auto', boxShadow:'none', color:'black' ,zIndex : 30 }} component="nav">
           <Toolbar sx={{
     backgroundColor: 'transparent',
     width: '100%', 
@@ -233,7 +211,7 @@ const Navbar = (props) => {
       />
           <p>Life Puls</p>
             </Typography>
-            <Box sx={{ display: { xs: 'none', sm: 'block', backgroundColor: bgColor, color: 'white' },
+            <Box sx={{ display: { xs: 'none', sm: 'block', backgroundColor:"transparent", color: 'white' },
             
           
           }}>
