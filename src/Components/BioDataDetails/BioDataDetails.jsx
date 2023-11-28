@@ -1,10 +1,10 @@
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/system";
-import { Alert, CircularProgress, Stack } from "@mui/material";
+import { Alert, CircularProgress } from "@mui/material";
 import { MdAddIcCall, MdOutlineFavoriteBorder } from "react-icons/md";
 import BioDataDetailsSimilar from "../BioDataDetailsSimilar/BioDataDetailsSimilar";
 import {   Modal, Typography } from "@mui/material";
@@ -16,6 +16,7 @@ import React, { useState } from "react";
 
 const BioDataDetails = () => {
   const {user} = useAuth()
+  const navigate = useNavigate()
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -23,6 +24,13 @@ const BioDataDetails = () => {
   const [hoverBg , setHoverBg] = useState('hover:bg-[#f06598]')
   const [isAlert , setIsAlert] = useState(false)
   const isPremium = false
+  const handleContactRequest = (id) => {
+
+     navigate(`/checkOut/${id}`)
+
+
+
+  }
   
   const style = {
     display : 'flex',
@@ -197,7 +205,9 @@ const BioDataDetails = () => {
         <button id="favorite" onClick={()=>{
           handleFavorite(data?.name , data?.biodataId , data?.division , data?.occupation)
         }} className={` font-semibold ${hoverBg} px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
-        { isPremium || <button className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
+        { isPremium || <button onClick={()=>{
+          handleContactRequest(data?.biodataId)
+        }} className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
       </div>
         </div>
         {/* similar biodata */}

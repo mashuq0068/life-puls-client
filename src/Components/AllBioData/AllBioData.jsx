@@ -4,6 +4,7 @@ import BioData from "../BioData/BioData";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import PaginationBioData from "../PaginationBiodata/PaginationBioData";
+import useAuth from "../../Hooks/useAuth"
 
 
 
@@ -12,7 +13,7 @@ import PaginationBioData from "../PaginationBiodata/PaginationBioData";
 const AllBioData = () => {
     const {data , isPending , isLoading} = useAllBioData()
     const [filterSectionData, setFilterSectionData] = useState([]);
-  
+   const {loading} = useAuth()
    
 
  
@@ -99,7 +100,7 @@ const AllBioData = () => {
      setFilterSectionData(filteredData);
    }
     
-    if(isPending || isLoading){
+    if(isPending || isLoading || loading){
         return(
             <Box
             sx={{

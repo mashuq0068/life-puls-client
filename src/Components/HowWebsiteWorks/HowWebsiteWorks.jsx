@@ -15,7 +15,7 @@ const HowWebsiteWorks = () => {
     
          <h3 className="spacing text-center 2xl:text-2xl font-bold text-xl">Login && Find Bio</h3>
          <p className=" bg-[#f06598] mb-[5%]  h-1 mt-[1vh] mx-auto w-[30%]"></p>
-         <p className="">First You must have to login. With Out sign Up you can' login. Because the access of the biodata details and the contact information will not given without login.Becuse , these are private pages. Then go to biodatas page and find your partner for you.</p>
+         <p className="">First You must have to login. With Out sign Up you can not login. Because the access of the biodata details and the contact information will not given without login.Becuse , these are private pages. Then go to biodatas page and find your partner for you.</p>
        </div>
         {/* one */}
        <div className="spacing text-center 2xl:text-lg">

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
+
 const EditBioData = () => {
   const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
@@ -23,6 +24,7 @@ const EditBioData = () => {
             setData(res.data)
             setLoading(false)
           }
+          setLoading(false)
          })
     },[])
     const {

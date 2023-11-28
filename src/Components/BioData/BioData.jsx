@@ -22,7 +22,7 @@ const BioData = ({biodata}) => {
                 <p className="mt-2 spacing ">Biodata Type : {biodataType}</p>
               
                
-                <p className="mt-2 spacing ">Division : {division}</p>
+                <p className="mt-2 spacing ">Permanent Division : {division}</p>
                 <p className="mt-2 spacing ">Age : {age}</p>
                
                 <p className="mt-2 spacing">Occupation : {occupation}</p>

@@ -13,6 +13,7 @@ import AboutUsPage from "../Pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "../Pages/ContactUsPage/ContactUsPage";
 import ViewBioDataPage from "../Pages/ViewBiodataPage/ViewBiodataPage";
 import FavoritesPage from "../Pages/FavoritesPage/FavoritePage";
+import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 
 
 const Router = createBrowserRouter([
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
       {
         path:'/contact',
         element:<ContactUsPage></ContactUsPage>
+      },
+      {
+        path:'/checkOut/:id',
+        element:<PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>
       }
      ]
    },
