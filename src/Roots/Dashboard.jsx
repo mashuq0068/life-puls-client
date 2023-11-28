@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import useCheckAdmin from '../Hooks/useCheckAdmin';
 
 const AlertDialog = ({ open, handleClose }) => {
   const {logOutUser}  = useAuth()
@@ -75,7 +76,9 @@ const AlertDialog = ({ open, handleClose }) => {
 // };
 
 const Dashboard = () => {
-  const isAdmin = true
+  
+  const {isAdmin} = useCheckAdmin()
+  console.log(isAdmin)
   const navigate = useNavigate()
   const handleReload = () => {
     navigate('/dashboard/favorites')
@@ -116,7 +119,7 @@ const Dashboard = () => {
   return (
     <div>
          {/* user */}
-   { !isAdmin ? <div className=" flex  ">
+   { !isAdmin?.admin ? <div className=" flex  ">
    
      <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
       <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
@@ -176,7 +179,7 @@ const Dashboard = () => {
      <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
       <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
        
-       <NavLink className='' to="/dashboard">Admin Dashboard</NavLink>
+       <NavLink className='' to="/dashboard/dashboardAdmin">Admin Dashboard</NavLink>
         <NavLink className='' to="/dashboard/manageUsers">Manage Users</NavLink>
         <NavLink className='' to="/dashboard/approvedPremium">Approved premium</NavLink>
         <NavLink onClick={handleReload} className='' to="/dashboard/approvedContactRequest">Approved Contact Request</NavLink>

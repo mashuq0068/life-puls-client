@@ -10,6 +10,7 @@ import BioDataDetailsSimilar from "../BioDataDetailsSimilar/BioDataDetailsSimila
 import {   Modal, Typography } from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import React, { useState } from "react";
+import useCheckPremium from "../../Hooks/useCheckpremium";
 
 // import BioData from "../BioData/BioData";
 // import useAllBioDataForDetails from "../../Hooks/useaAllBiodataForDeatils";
@@ -23,7 +24,8 @@ const BioDataDetails = () => {
   const [bg , setBg] = useState('bg-[#f178a5]')
   const [hoverBg , setHoverBg] = useState('hover:bg-[#f06598]')
   const [isAlert , setIsAlert] = useState(false)
-  const isPremium = false
+ const {premium} = useCheckPremium()
+ console.log("premium" ,premium?.isPremium)
   const handleContactRequest = (id) => {
 
      navigate(`/checkOut/${id}`)
@@ -191,7 +193,7 @@ const BioDataDetails = () => {
       <p className="spacing text-gray-600">
         <span className="font-bold text-black">Weight</span>: {data?.weight}
       </p>
-    { isPremium && <div>
+    { premium?.isPremium && <div>
      <p className="text-center spacing text-xl pt-[4%] text-black font-bold">Contact</p>
       <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
       <p className="spacing text-center text-gray-600 pt-[2%]">
@@ -205,7 +207,7 @@ const BioDataDetails = () => {
         <button id="favorite" onClick={()=>{
           handleFavorite(data?.name , data?.biodataId , data?.division , data?.occupation)
         }} className={` font-semibold ${hoverBg} px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
-        { isPremium || <button onClick={()=>{
+        { premium?.isPremium || <button onClick={()=>{
           handleContactRequest(data?.biodataId)
         }} className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
       </div>

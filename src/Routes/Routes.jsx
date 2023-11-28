@@ -16,6 +16,7 @@ import FavoritesPage from "../Pages/FavoritesPage/FavoritePage";
 import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 import ContactRequestPage from "../Pages/ContactRequestPage/ContactRequestPage";
 import AdminDashboardPage from "../Pages/AdminDashboardPage/AdminDashboardPage";
+import ManageUsersPage from "../Pages/ManageusersPage/ManageUsersPage";
 
 
 const Router = createBrowserRouter([
@@ -82,8 +83,12 @@ const Router = createBrowserRouter([
        },
       //  admin
       {
-        path:'/dashboard',
+        path:'dashboardAdmin',
         element : <AdminDashboardPage></AdminDashboardPage>
+      },
+      {
+        path:'manageUsers',
+        element:<ManageUsersPage></ManageUsersPage>
       }
     ]
     

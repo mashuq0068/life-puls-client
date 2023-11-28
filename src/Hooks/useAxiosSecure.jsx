@@ -28,6 +28,7 @@ const useAxiosSecure = () => {
         if (status === 401 || status === 403) {
             await logOutUser();
             navigate('/login')
+            // <p className=" text-center mt-[20%]">You are unAuthorized or forbidden</p>
         }
         return Promise.reject(error);
     

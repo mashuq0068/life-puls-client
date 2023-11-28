@@ -3,14 +3,17 @@ import { FaMale } from "react-icons/fa";
 import { FaFemale } from "react-icons/fa";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { TfiWallet } from "react-icons/tfi";
+import useAllCounts from "../../Hooks/useAllCounts";
+
 
 
 const AdminHome = () => {
    
     // const {customers , products , orders , revenue} = counts
-
+const{allCounts} = useAllCounts()
+console.log(allCounts)
     
-  
+  if(allCounts){
     return (
         <div className="w-[75vw] px-[10%] py-[5%] ">
             {/* one grid */}
@@ -24,7 +27,7 @@ const AdminHome = () => {
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
            <FaUserGraduate className=" text-3xl 2xl:text-4xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+100</p>
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.totalBiodata}</p>
 
            </div>
 
@@ -37,7 +40,7 @@ const AdminHome = () => {
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
            <FaMale className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+100</p>
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.maleBiodata}</p>
 
            </div>
 
@@ -50,7 +53,7 @@ const AdminHome = () => {
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
            <FaFemale className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+100</p>
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
 
            </div>
 
@@ -70,7 +73,7 @@ const AdminHome = () => {
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
            <MdOutlineWorkspacePremium className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+100</p>
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.premiumBiodata}</p>
 
            </div>
 
@@ -83,7 +86,7 @@ const AdminHome = () => {
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
            <TfiWallet className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+100</p>
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">${allCounts?.contactRequests*500}</p>
 
            </div>
 
@@ -93,6 +96,6 @@ const AdminHome = () => {
         </div>
         </div>
     );
-};
+}};
 
 export default AdminHome;

@@ -2,19 +2,29 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const Login = () => {
     const {userWithTwitter , userWithGoogle , loginUser} = useAuth()
+   const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const [error , setError] = useState(null)
     const handleTwitter = () => {
     userWithTwitter()
     .then(res => {
         console.log(res)
-        if(res){
+       
+            const userInfo = {
+                email:res?.user?.email,
+                name:res?.user?.displayName
+              }
+        axiosPublic.post(`/user/${res?.user?.email}`, userInfo)
+            .then(res => {
+                console.log(res?.data)
             navigate(location?.state ? location?.state : '/')
-        }
+        })
+        // navigate(location?.state ? location?.state : '/')
     })
    .catch(error => {
     console.log(error.message)
@@ -25,9 +35,17 @@ const handleGoogle = () => {
     userWithGoogle()
     .then(res => {
         console.log(res)
-        if(res){
+        if(res?.user){
+            const userInfo = {
+                email:res?.user?.email,
+                name:res?.user?.displayName
+              }
+            axiosPublic.post(`/user/${res?.body?.email}`, userInfo)
+            .then(res => {
+                console.log(res?.data)
             navigate(location?.state ? location?.state : '/')
-        }
+        })}
+        // navigate(location?.state ? location?.state : '/')
     })
    .catch(error => {
     console.log(error.message)
@@ -89,12 +107,12 @@ const handleGoogle = () => {
                     <div style={{height: "1px"}} className="bg-gray-300 md:block hidden w-4/12"></div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-2 mt-7">
-                    <div>
-                        <button onClick={handleGoogle} className="text-center w-full   p-3 duration-300 rounded-sm spacing  text-white bg-blue-900 hover:bg-blue-700">Google</button>
+                <div className=" mt-7">
+                    <div className="w-max mx-auto">
+                        <button onClick={handleGoogle} className="text-center w-full px-12  p-3 duration-300 rounded-sm spacing  text-white bg-blue-900 hover:bg-blue-700">Google</button>
                     </div>
                     <div>
-                        <button  onClick={handleTwitter} className="text-center w-full text-white bg-blue-400 p-3 duration-300 rounded-sm spacing hover:bg-blue-500">Twitter</button>
+                        <button  onClick={handleTwitter} className="text-center hidden w-full text-white bg-blue-400 p-3 duration-300 rounded-sm spacing hover:bg-blue-500">Twitter</button>
                     </div>
                 </div>
 
