@@ -75,6 +75,7 @@ const AlertDialog = ({ open, handleClose }) => {
 // };
 
 const Dashboard = () => {
+  const isAdmin = true
   const navigate = useNavigate()
   const handleReload = () => {
     navigate('/dashboard/favorites')
@@ -113,11 +114,14 @@ const Dashboard = () => {
   // };
 
   return (
-    
-    <div className=" flex  ">
-      <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+    <div>
+         {/* user */}
+   { !isAdmin ? <div className=" flex  ">
+   
+     <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
       <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
-        <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
+       
+       <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
         <NavLink className='' to="/dashboard/view">View Biodata</NavLink>
         <NavLink className='' to="/dashboard/contactRequest">My Contact Request</NavLink>
         <NavLink onClick={handleReload} className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
@@ -148,15 +152,75 @@ const Dashboard = () => {
         >
           Logout
         </Button>
-      </div>
 
+      </div>
+     
+      
+      
       {/* Logout Confirmation Dialog */}
       <AlertDialog open={openLogoutDialog} handleClose={handleCloseLogoutDialog} />
-     </div>
+    </div>
+    
 {/* outlet */}
     <div className='relative left-[25%]'>
     <Outlet></Outlet>
     </div>
+    </div>
+
+
+
+
+        //  {/* admin*/}
+    :<div className=" flex  ">
+   
+     <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+      <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
+       
+       <NavLink className='' to="/dashboard">Admin Dashboard</NavLink>
+        <NavLink className='' to="/dashboard/manageUsers">Manage Users</NavLink>
+        <NavLink className='' to="/dashboard/approvedPremium">Approved premium</NavLink>
+        <NavLink onClick={handleReload} className='' to="/dashboard/approvedContactRequest">Approved Contact Request</NavLink>
+        <Button
+          onClick={handleLogout}
+          sx={{
+            fontSize:'18px',
+            textAlign: 'left',
+            textBase: '1rem',
+            letterSpacing: '3px',
+            fontWeight: '700',
+            position:'relative',
+            right:'40%',
+           
+            color:'black',
+            textTransform:'capitalize',
+            filter:' drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))',
+            // boxShadow : '0px 0px 1px 1px',
+            '@media (max-width: 1700px)': {
+              // Styles for screens with a maximum width of 1700px
+              fontSize: '15px', 
+              letterSpacing:'0px',
+              fontWeight:'800',
+              position:'relative',
+              right:'40%',// Adjust as needed
+            },
+          }}
+        >
+          Logout
+        </Button>
+
+      </div>
+     
+      
+      
+      {/* Logout Confirmation Dialog */}
+      <AlertDialog open={openLogoutDialog} handleClose={handleCloseLogoutDialog} />
+    </div>
+    
+{/* outlet */}
+    <div className='relative left-[25%]'>
+    <Outlet></Outlet>
+    </div>
+    </div>}
     </div>
   );
 };

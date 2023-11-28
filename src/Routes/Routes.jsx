@@ -15,6 +15,7 @@ import ViewBioDataPage from "../Pages/ViewBiodataPage/ViewBiodataPage";
 import FavoritesPage from "../Pages/FavoritesPage/FavoritePage";
 import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 import ContactRequestPage from "../Pages/ContactRequestPage/ContactRequestPage";
+import AdminDashboardPage from "../Pages/AdminDashboardPage/AdminDashboardPage";
 
 
 const Router = createBrowserRouter([
@@ -78,7 +79,12 @@ const Router = createBrowserRouter([
        {
         path:'contactRequest',
         element:<ContactRequestPage></ContactRequestPage>
-       }
+       },
+      //  admin
+      {
+        path:'/dashboard',
+        element : <AdminDashboardPage></AdminDashboardPage>
+      }
     ]
     
    }
