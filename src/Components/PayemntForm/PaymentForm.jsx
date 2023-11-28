@@ -8,7 +8,7 @@ import { GiConfirmed } from "react-icons/gi";
 // import moment from "moment/moment";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { Container, Modal, Typography } from "@mui/material";
+import {  Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
@@ -95,16 +95,6 @@ const PaymentForm = ({paymentInfo}) => {
             if(paymentIntent.status === 'succeeded'){
               console.log('transaction id' , paymentIntent.id)
               setTransactionId(paymentIntent.id)
-            //   const payment = {
-            //     email : user?.email,
-            //     price : 500,
-            //     transactionId : paymentIntent.id,
-            //     date : moment().format('LLL'),
-            //     cartIds : data?.map(item => item?._id),
-            //     menuItemIds : data?.map(item => item?.menuId),
-            //     status : 'pending'
-
-            //   }
 
            const res =await axiosSecure.post('/contactRequest', paymentInfo)
           
@@ -121,7 +111,7 @@ const PaymentForm = ({paymentInfo}) => {
     }
     return (
         <>
-        <Container>
+        
         <Modal
         open={open}
         onClose={handleClose}
@@ -138,33 +128,41 @@ const PaymentForm = ({paymentInfo}) => {
           </Typography>
         </Box>
       </Modal>
-      </Container>
+      
         <form onSubmit={handleSubmit} className=" 2xl:text-2xl w-[75vw] mx-auto px-[20%]">
         <CardElement
       
-          options={{
-            style: {
-              base: {
-                fontSize: '20px',
-                color: '#424770',
-                border:'1px solid black',
-                '::placeholder': {
-                  color: 'black',
-                },
-              },
-              invalid: {
-                color: 'black',
-              },
+      options={{
+        style: {
+          base: {
+            fontSize: '19px',
+            color: '#424770',
+           
+            
+            '::placeholder': {
+              color: 'black',
             },
-          }}
+          },
+          invalid: {
+            color: 'black',
+          },
+        },
+      }}
         />
-        <button className="btn btn-primary mt-[4%]" type="submit" disabled={!stripe || !clientSecret}>
-          Pay
+        <button className=" mt-[4%] bg-[#e782a7] rounded-md px-3 py-2 drop-shadow-xl shadow-xl w-max mx-auto 2xl:text-xl text-lg spacing text-center relative left-[40%]" type="submit" disabled={!stripe || !clientSecret}>
+         CheckOut
         </button>
         <p className="text-red-500 text-base mt-5">{error}</p>
-      {transactionId && <p className="text-gray-800 w-[70%] text-base px-5 py-3 drop-shadow-xl shadow-md mt-5 flex items-center shadow-black">
+      {transactionId && 
+     <div>
+         <p className="text-gray-800 w-[70%] text-base px-5 py-3 drop-shadow-xl shadow-xl mt-5 flex items-center  mx-auto">
+      <GiConfirmed className="text-green-500 mr-3 " /> You have successfully paid for your contact request.
+        </p>
+      <p className="text-gray-800 w-[70%] text-base px-5 py-3 drop-shadow-xl shadow-xl mt-5 flex items-center  mx-auto">
       <GiConfirmed className="text-green-500 mr-3 " />   Your transaction id is :  {   transactionId}
-        </p>}
+        </p>
+     </div>
+        }
       </form>
       </>
 )};

@@ -1,20 +1,41 @@
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
 
-
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useOneBioData from "../../Hooks/useOneBiodata";
 import { TbPremiumRights } from "react-icons/tb";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Alert, Modal, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+// import { Box } from "@mui/system";
 import useAuth from "../../Hooks/useAuth";
+import React, { useState } from "react";
+import { Box } from '@mui/system';
 
 
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 const ViewBioData = () => {
-  const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const [isAlert , setIsAlert]  =useState(false)
+  const [openSuccess, setOpenSuccess] = React.useState(false);
+    const handleOpenSuccess = () => setOpenSuccess(true);
+    const handleCloseSuccess = () => setOpenSuccess(false);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    const [isAlert , setIsAlert]  = useState(false)
     const style = {
         display : 'flex',
         flexDirection : 'column',
@@ -23,7 +44,7 @@ const ViewBioData = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 500,
         bgcolor: 'white',
         boxShadow: 24,
         p: 4,
@@ -44,10 +65,12 @@ const ViewBioData = () => {
        .then(res => {
         console.log(res.data)
         if(res?.data?.insertedId){
-          handleOpen()
+          handleOpenSuccess()
+          handleClose()
         } 
         else{
           setIsAlert(true)
+          handleClose()
         }
 
        })
@@ -60,22 +83,45 @@ const ViewBioData = () => {
   <Alert variant="filled" sx={{position:"fixed" , top:"5%"  ,right:'0%', zIndex:50, fontSize:'19px'}} severity="warning">
    You already made a request for premium
 </Alert> : ""}
-       <Modal
+<React.Fragment>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
+        Slide in alert dialog
+      </Button> */}
+      <Dialog
         open={open}
+        TransitionComponent={Transition}
+        keepMounted
         onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Premium confirmation"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Are you surely, want to make your biodata premium
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>No,thanks</Button>
+          <Button  onClick={()=>{handlePremium(data?.biodataId)}}>Yes</Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+       <Modal
+        open={openSuccess}
+        onClose={handleCloseSuccess}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <CheckCircleOutlineIcon color="success"  sx={{ fontSize: 50, mb: 2  }} />
-          <Typography id="modal-modal-title" variant="h6" align="centers" component="h2">
-           Great!
+        <CheckCircleOutlineIcon color="success"  sx={{ fontSize: 50, mb: 2  }} />  <Typography id="modal-modal-title" variant="h6" align="centers" component="h2">
+         Great!
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          You successfully made a premium request
+      You successfully requested for make your biodata premium.
           </Typography>
+          
         </Box>
-      </Modal>
+      </Modal> 
        <div>
     <div className="mt-[12%] px-[10%] w-[80vw] flex justify-between  ">
         {/* details */}
@@ -157,7 +203,7 @@ const ViewBioData = () => {
        <div className=" flex flex-col justify-center">
         <p className="text-center 2xl:block hidden text-2xl spacing w-max mx-auto">premium</p>
         <p className="bg-[#f06598] 2xl:block hidden mb-5 h-1 mx-auto mt-[2%] w-[80%]"></p>
-        <button onClick={()=>{handlePremium(data?.biodataId)}} className="w-[120%] -left-[10%] rounded-md mr-[10%] spacing bg-[#f06598] drop-shadow-xl shadow-xl fixed -bottom-[10%] hover:bg-[#e25488] py-2">Make Biodata to premium</button>
+        <button onClick={handleClickOpen} className="w-[120%] -left-[10%] rounded-md mr-[10%] spacing bg-[#f06598] drop-shadow-xl shadow-xl fixed -bottom-[10%] hover:bg-[#e25488] py-2">Make Biodata to premium</button>
        </div>
         </div>
         </div>
