@@ -6,6 +6,7 @@ import PremiumMembers from "../../Components/PremiumMembers/PremiumMembers";
 
 
 import ProfilePicture from "../../Components/ProfilePicture/ProfilePicture";
+import SuccessStory from "../../Components/SuccessStory/SuccessStory";
 
 
 
@@ -18,6 +19,7 @@ const HomePage = () => {
            <PremiumMembers></PremiumMembers>
             <HowWebsiteWorks></HowWebsiteWorks>
             <CounterSection></CounterSection>
+            <SuccessStory></SuccessStory>
           
            <Footer></Footer>
           
