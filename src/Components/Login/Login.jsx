@@ -40,10 +40,11 @@ const handleGoogle = () => {
                 email:res?.user?.email,
                 name:res?.user?.displayName
               }
-            axiosPublic.post(`/user/${res?.body?.email}`, userInfo)
+            axiosPublic.post(`/user/${res?.user?.email}`, userInfo)
             .then(res => {
                 console.log(res?.data)
             navigate(location?.state ? location?.state : '/')
+            window.location.reload(false)
         })}
         // navigate(location?.state ? location?.state : '/')
     })
@@ -68,6 +69,7 @@ const handleGoogle = () => {
             console.log(res)
             if(res){
                 navigate(location?.state ? location?.state : '/')
+               window.location.reload(false)
             }
         })
         .catch(error => {

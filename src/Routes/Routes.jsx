@@ -17,6 +17,7 @@ import CheckOutPage from "../Pages/CheckOutPage/CheckOutPage";
 import ContactRequestPage from "../Pages/ContactRequestPage/ContactRequestPage";
 import AdminDashboardPage from "../Pages/AdminDashboardPage/AdminDashboardPage";
 import ManageUsersPage from "../Pages/ManageusersPage/ManageUsersPage";
+import ApprovedPremiumPage from "../Pages/ApprovedPremiumPage/ApprovedPremiumPage";
 
 
 const Router = createBrowserRouter([
@@ -83,12 +84,16 @@ const Router = createBrowserRouter([
        },
       //  admin
       {
-        path:'dashboardAdmin',
+        path:'/dashboard',
         element : <AdminDashboardPage></AdminDashboardPage>
       },
       {
         path:'manageUsers',
         element:<ManageUsersPage></ManageUsersPage>
+      },
+      {
+        path:'approvedPremium',
+        element:<ApprovedPremiumPage></ApprovedPremiumPage>
       }
     ]
     

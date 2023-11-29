@@ -1,4 +1,5 @@
 import Banner from "../../Components/Banner/Banner";
+import CounterSection from "../../Components/CounterSection/CounterSection";
 import Footer from "../../Components/Footer/Footer";
 import HowWebsiteWorks from "../../Components/HowWebsiteWorks/HowWebsiteWorks";
 import PremiumMembers from "../../Components/PremiumMembers/PremiumMembers";
@@ -16,6 +17,7 @@ const HomePage = () => {
            <Banner></Banner>
            <PremiumMembers></PremiumMembers>
             <HowWebsiteWorks></HowWebsiteWorks>
+            <CounterSection></CounterSection>
           
            <Footer></Footer>
           

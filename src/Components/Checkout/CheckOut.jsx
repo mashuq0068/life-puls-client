@@ -38,10 +38,10 @@ const CheckOut = () => {
    
     }
   
-    if(data && requested){
+    
        
 
-      
+      if(data && requested){
         const paymentInfo = {
             selfBiodataId : data?.biodataId,
             selfEmail: data?.email,
@@ -53,7 +53,8 @@ const CheckOut = () => {
             status : "pending"
 
         }
-        if(data && requested){
+   
+        if(paymentInfo){
     return (
         <div className="mt-[10%] w-max mx-auto">
            <div className=" flex flex-col  items-center">
@@ -111,13 +112,15 @@ const CheckOut = () => {
  </div>
         </div>
     )}
-    else{
-        return(
-            <div>
-                <p className="2xl:text-3xl text-2xl font-bold spacing text-center text-gray-600 mt-[20%]">May be You don not created any biodata.</p>
-            </div>
-        )
-    }
-}};
+    
+}
+else{
+  return(
+      <div>
+          <p className="2xl:text-3xl text-2xl font-bold spacing text-center text-gray-600 mt-[20%]">May be You did not created any biodata.And We need your biodata Id</p>
+      </div>
+  )
+}
+};
 
 export default CheckOut;

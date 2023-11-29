@@ -1,30 +1,28 @@
 import { FaUserGraduate } from "react-icons/fa";
 import { FaMale } from "react-icons/fa";
 import { FaFemale } from "react-icons/fa";
-import { MdOutlineWorkspacePremium } from "react-icons/md";
+
 import { TfiWallet } from "react-icons/tfi";
 import useAllCounts from "../../Hooks/useAllCounts";
-import useCheckAdmin from "../../Hooks/useCheckAdmin";
 
 
 
-
-const AdminHome = () => {
+const CounterSection = () => {
    
     // const {customers , products , orders , revenue} = counts
 const{allCounts} = useAllCounts()
 console.log(allCounts)
-const {isAdmin} = useCheckAdmin()
-
     
-  if(allCounts && isAdmin){
+  if(allCounts){
     return (
-        <div className={`w-[75vw]  px-[10%] py-[5%] ${ isAdmin?.admin === true ? "block" : "hidden"}`}>
+        <div className="w-[75vw] mx-auto px-[10%] py-[5%] ">
             {/* one grid */}
-            <div className="grid grid-cols-3 gap-[5%]">
+            <h3 className="md:mt-36 mt-[170vh] spacing text-center 2xl:text-3xl font-bold text-2xl">Success Counter</h3>
+       <p className=" bg-[#f06598]  mb-[3%] h-1 mt-[1vh] mx-auto w-[32%]"></p>
+            <div className="grid grid-cols-2 w-[70%] mx-auto gap-[5%]">
            
             {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
+           <div className="px-[3%]  spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
            <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
             <p className=" bg-[#f06598] mb-[20%]  h-1 mt-[1vh] w-[100%]"></p>
@@ -48,9 +46,9 @@ const {isAdmin} = useCheckAdmin()
 
            </div>
 
-           </div>
+           {/* </div>
             {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
+           {/* <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
            <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata</h3>
             <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
@@ -59,7 +57,7 @@ const {isAdmin} = useCheckAdmin()
            <FaFemale className=" text-4xl 2xl:text-5xl" />
            <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
 
-           </div>
+           </div>  */}
 
            </div>
           
@@ -70,22 +68,22 @@ const {isAdmin} = useCheckAdmin()
         {/* two grid */}
         <div className="w-[70%] mx-auto mt-[5%] gap-[5%] grid grid-cols-2">
              {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
+             <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Premium Biodata</h3>
+           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata</h3>
             <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
-           <MdOutlineWorkspacePremium className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.premiumBiodata}</p>
+           <FaFemale className=" text-4xl 2xl:text-5xl" />
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
 
            </div>
-
            </div>
+           
              {/* first */}
            <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Revenue</h3>
+           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Marriage</h3>
             <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
@@ -102,4 +100,4 @@ const {isAdmin} = useCheckAdmin()
     );
 }};
 
-export default AdminHome;
+export default CounterSection;
