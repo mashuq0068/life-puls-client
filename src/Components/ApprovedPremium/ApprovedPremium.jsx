@@ -18,7 +18,7 @@ const ApprovedPremium = () => {
     const axiosSecure = useAxiosSecure()
     // const{user} = useAuth()
     const {premiumRequests , refetch} = usePremiums()
-    const [isButtonDisabled , setIsButtonDisabled] = useState(false)
+    // const [isButtonDisabled , setIsButtonDisabled] = useState(false)
     const [alert , setAlert] = useState(false)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -54,7 +54,7 @@ const ApprovedPremium = () => {
         .then(res => {
             if(res?.data?.modifiedCount > 0){
             handleOpen()
-            setIsButtonDisabled(true)
+            // setIsButtonDisabled(true)
             refetch()
             return
             }
@@ -137,8 +137,7 @@ const ApprovedPremium = () => {
             
              <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">
                 <button onClick={()=>{handlePremium(request?.email)}} 
-                disabled={isButtonDisabled}
-               className={`bg-[#f06598] ${isButtonDisabled && "bg-rose-300 hover:bg-rose-300"} hover:bg-[#d34478] px-3 py-2 rounded-md spacing drop-shadow-xl shadow-xl text-black 2xl:text-xl`}>
+               className={`bg-[#f06598]  hover:bg-[#d34478] px-3 py-2 rounded-md spacing drop-shadow-xl shadow-xl text-black 2xl:text-xl`}>
                 Approved Premium
                 
                 </button>

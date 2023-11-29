@@ -22,17 +22,18 @@ console.log(allCounts)
             <div className="grid grid-cols-2 w-[70%] mx-auto gap-[5%]">
            
             {/* first */}
-           <div className="px-[3%]  spacing py-[15%] drop-shadow-xl  shadow-2xl">
+          
+             {/* first */}
+             <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
-            <p className=" bg-[#f06598] mb-[20%]  h-1 mt-[1vh] w-[100%]"></p>
+           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata</h3>
+            <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
-           <FaUserGraduate className=" text-3xl 2xl:text-4xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.totalBiodata}</p>
+           <FaFemale className=" text-4xl 2xl:text-5xl" />
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
 
            </div>
-
            </div>
             {/* first */}
            <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
@@ -66,18 +67,19 @@ console.log(allCounts)
         </div>
         {/* firend */}
         {/* two grid */}
-        <div className="w-[70%] mx-auto mt-[5%] gap-[5%] grid grid-cols-2">
+        <div className="w-[100%] mx-auto mt-[5%] gap-[5%] grid grid-cols-2">
              {/* first */}
-             <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
+             <div className="px-[3%]  spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata</h3>
-            <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
+           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
+            <p className=" bg-[#f06598] mb-[20%]  h-1 mt-[1vh] w-[100%]"></p>
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
-           <FaFemale className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
+           <FaUserGraduate className=" text-3xl 2xl:text-4xl" />
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.totalBiodata}</p>
 
            </div>
+
            </div>
            
              {/* first */}
@@ -87,8 +89,8 @@ console.log(allCounts)
             <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
            </div>
            <div className="flex  justify-center items-center gap-[20%] ">
-           <TfiWallet className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">${allCounts?.contactRequests*500}</p>
+         <img className="w-[13%]" src="https://clipart-library.com/images_k/wedding-party-silhouette-vector/wedding-party-silhouette-vector-25.png" alt="" />
+           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.successStories}</p>
 
            </div>
 
@@ -97,6 +99,7 @@ console.log(allCounts)
             
         </div>
         </div>
+        
     );
 }};
 
