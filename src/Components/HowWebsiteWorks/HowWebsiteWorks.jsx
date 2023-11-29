@@ -3,11 +3,11 @@
 const HowWebsiteWorks = () => {
   return (
     <div>
-       <h3 className="mt-36 spacing text-center 2xl:text-3xl font-bold text-2xl"> How Website Works</h3>
+       <h3 className="md:mt-36 mt-[170vh] spacing text-center 2xl:text-3xl font-bold text-2xl"> How Website Works</h3>
        <p className=" bg-[#f06598] mb-[3%] h-1 mt-[1vh] mx-auto w-[23%]"></p>
        {/* <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1%] mx-auto w-[23%]"></p> */}
        {/* main div */}
-       <div className="w-[70%]  mx-auto  grid grid-cols-3 gap-[5%] ">
+       <div className="lg:w-[70%] md:w-[60%] w-[90%] grid-cols-1 mx-auto  grid lg:grid-cols-3 gap-[5%] ">
         {/* one */}
        <div className="spacing text-center 2xl:text-lg">
      

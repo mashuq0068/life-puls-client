@@ -7,7 +7,7 @@ const useAxiosSecure = () => {
     const {logOutUser} = useAuth()
     const navigate = useNavigate()
     const axiosSecure = axios.create({
-        baseURL:'http://localhost:5000'
+        baseURL:'https://life-puls-server.vercel.app'
     })
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('token')

@@ -260,7 +260,7 @@ const Navbar = (props) => {
  }
 >
   <NavLink
-
+  onClick={handleReload}
    to={'/'}>
     home
   </NavLink>

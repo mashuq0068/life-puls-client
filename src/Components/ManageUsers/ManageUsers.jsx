@@ -10,36 +10,18 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import useUsers from "../../Hooks/useUsers";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 // import useSearchData from "../../Hooks/useSearchData";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../Hooks/useAuth";
+
 // import { useQuery } from "@tanstack/react-query";
 
 
 
 
 const ManageUsers = () => {
-    // const axiosSecure = useAxiosSecure()
-    // const{user} = useAuth()
-    const [searchName , setSearchName] = useState("")
+    
+   
     const {users , refetch} = useUsers()
     const axiosSecure  =useAxiosSecure()
-    // const {searchData} = useSearchData(searchName)
-    // const axiosSecure = useAxiosSecure()
-        const {loading} = useAuth()
-         
-          const { data : searchData } = useQuery({
-              queryKey:["search"],
-              queryFn : async()=>{
-                  const response = await axiosSecure.get(`/userByName/${searchName}`)
-                  return response.data
-      
-              },
-              enabled:!loading
-            
-          })
-          console.log(searchData)
-    
+  
     console.log(users)
   
     const [open, setOpen] = React.useState(false);
@@ -92,10 +74,7 @@ const ManageUsers = () => {
     e.preventDefault()
     const name = e.target.name.value
     console.log(name)
-    if(name){
-        
-       setSearchName(name)
-    }
+   
 
 
  }
