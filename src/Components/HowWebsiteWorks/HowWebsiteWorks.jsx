@@ -3,8 +3,8 @@
 const HowWebsiteWorks = () => {
   return (
     <div>
-       <h3 className="md:mt-36 mt-[170vh] spacing text-center 2xl:text-3xl font-bold text-2xl"> How Website Works</h3>
-       <p className=" bg-[#f06598] mb-[3%] h-1 mt-[1vh] mx-auto w-[23%]"></p>
+       <h3 className="lg:mt-36 mt-[170vh] md:mt-[60vh] spacing text-center 2xl:text-3xl font-bold text-2xl"> How Website Works</h3>
+       <p className=" bg-[#f06598] mb-[3%] h-1 mt-[1vh] mx-auto w-[40%] lg:w-[23%]"></p>
        {/* <p className=" bg-[#f06598] mb-[5%] h-1 mt-[1%] mx-auto w-[23%]"></p> */}
        {/* main div */}
        <div className="lg:w-[70%] md:w-[60%] w-[90%] grid-cols-1 mx-auto  grid lg:grid-cols-3 gap-[5%] ">

@@ -128,6 +128,7 @@ const Dashboard = () => {
         <NavLink className='' to="/dashboard/view">View Biodata</NavLink>
         <NavLink className='' to="/dashboard/contactRequest">My Contact Request</NavLink>
         <NavLink onClick={handleReload} className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
+        <NavLink  className='' to="/dashboard/gotMarried">Got Married</NavLink>
         <Button
           onClick={handleLogout}
           sx={{

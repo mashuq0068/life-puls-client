@@ -18,6 +18,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 import toast from 'react-hot-toast';
+import { useMediaQuery } from '@mui/material';
 // import { useState } from 'react';
 
 
@@ -31,7 +32,7 @@ const Navbar = (props) => {
   const handleReload = () => {
     window.location.reload(false);
   }
-
+  const prefersTablet = useMediaQuery('(max-width: 900px)');
   
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -71,7 +72,7 @@ const Navbar = (props) => {
     const drawer = (
         <Drawer
           container={container}
-          variant="temporary"
+          variant={prefersTablet ? 'temporary' : 'permanent'}
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{

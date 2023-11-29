@@ -15,11 +15,11 @@ console.log(allCounts)
     
   if(allCounts){
     return (
-        <div className="w-[75vw] mx-auto px-[10%] py-[5%] ">
+        <div className="lg:w-[75vw] mx-auto px-[10%] py-[5%] ">
             {/* one grid */}
-            <h3 className="md:mt-36 mt-[170vh] spacing text-center 2xl:text-3xl font-bold text-2xl">Success Counter</h3>
-       <p className=" bg-[#f06598]  mb-[3%] h-1 mt-[1vh] mx-auto w-[32%]"></p>
-            <div className="grid grid-cols-2 w-[70%] mx-auto gap-[5%]">
+            <h3 className="md:mt-36 mt-[40vh]  spacing text-center 2xl:text-3xl font-bold text-2xl">Success Counter</h3>
+       <p className=" bg-[#f06598] lg:mb-0 mb-[10vh]  h-1 mt-[1vh] md:w-[50%] mx-auto w-[90%] lg:w-[32%]"></p>
+            <div className="grid grid-cols-1 md:grid-cols-2 w-[70%] mx-auto gap-[5%]">
            
             {/* first */}
           
@@ -67,7 +67,7 @@ console.log(allCounts)
         </div>
         {/* firend */}
         {/* two grid */}
-        <div className="w-[100%] mx-auto mt-[5%] gap-[5%] grid grid-cols-2">
+        <div className="w-[100%] mx-auto mt-[5%] gap-[5%] grid grid-cols-1 md:grid-cols-2">
              {/* first */}
              <div className="px-[3%]  spacing py-[15%] drop-shadow-xl  shadow-2xl">
            <div className="w-max mx-auto">

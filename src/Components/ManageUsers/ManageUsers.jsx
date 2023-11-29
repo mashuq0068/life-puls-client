@@ -1,4 +1,4 @@
-import { Container, Modal, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { CircularProgress, Container, Modal, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import Paper from '@mui/material/Paper';
 
 
@@ -9,6 +9,9 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 // import useAuth from "../../Hooks/useAuth";
 import useUsers from "../../Hooks/useUsers";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../Hooks/useAuth";
 // import useSearchData from "../../Hooks/useSearchData";
 
 // import { useQuery } from "@tanstack/react-query";
@@ -18,12 +21,25 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const ManageUsers = () => {
     
-   
+   const [searchName ,setSearchName ] = useState("")
     const {users , refetch} = useUsers()
+    const [Search , setSearch] = useState(false)
     const axiosSecure  =useAxiosSecure()
+    const {loading} = useAuth()
   
     console.log(users)
+    
+  const {data : searchedUser  , isLoading , refetch : refetchSearch} = useQuery({
+    queryKey:['searchedUser'],
   
+    queryFn:async()=>{
+      const res = await  axiosSecure.get(`/user/${searchName}`)
+      return res?.data
+   
+  },
+    enabled : !loading && Search
+  })
+  console.log(searchedUser)
     const [open, setOpen] = React.useState(false);
     const [openPremium, setOpenPremium] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -70,17 +86,41 @@ const ManageUsers = () => {
         }
     })
   } 
- const handleSubmit = (e) => {
+ const handleSearch = (e) => {
     e.preventDefault()
     const name = e.target.name.value
-    console.log(name)
-   
+    setSearchName("")
+    if(name){
+      console.log(name)
+     setSearchName(name)
+     setSearch(true)
+    //  refetchSearch()
+    // window.location.reload(false)
 
+    }
+  
 
  }
-//    if(isLoading || isPending){
-//     return <p>loading...</p>
-//    }
+
+if(isLoading ){
+  return (
+    <Box
+    sx={{
+      display: 'flex',
+      position: 'fixed',
+      top: '50%',
+      left: '57%',
+    }}
+  >
+    <CircularProgress
+
+      sx={{
+        color: '#fda3c4',
+      }}
+    />
+  </Box>
+  )
+}
     if(users ){
     return (
         <>
@@ -117,7 +157,7 @@ const ManageUsers = () => {
      </Typography>
     </Box>
   </Modal>
-  <form onSubmit={handleSubmit} className="sticky w-[50vw] drop-shadow-xl shadow-xl mx-auto left-[30vw] top-0">
+  <form onSubmit={handleSearch} className="sticky w-[50vw] drop-shadow-xl shadow-xl mx-auto left-[30vw] top-0">
            <div className=" flex">
            {/* <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
                Search
@@ -164,7 +204,48 @@ const ManageUsers = () => {
              
              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
            >   */}
-             {users?.map((user) => 
+          {     
+          Search && searchedUser ? 
+       
+          searchedUser?.map((user) => 
+          <TableRow
+           key={user?._id}
+           
+          sx={ { '&:last-child td, &:last-child th': { border: 0  },fontSize:'19px' ,  
+          '@media (min-width: 1700px)': {
+            fontSize: '19px',
+        },}
+         
+        
+        }
+        >  
+         <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.name}</TableCell>
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.email}</TableCell>
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px' , display:'flex' , justifyContent:'space-between' , alignItems:'center'}} align="center">
+        {user?.role === "admin" ? <p className="text-center w-max ml-[10%] spacing text-black font-bold">Admin</p> : 
+        <button onClick={()=>{handleAdmin(user?._id)}}
+      className="bg-[#fc7aaa] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Admin</button>
+      }
+         {user?.isPremium ? <p className="text-center w-max mr-[10%] spacing text-black font-bold">Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
+      
+      className="bg-[#fc7aaa] ml-[5%] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Premium</button>}
+         </TableCell>
+         {/* <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.mobileNumber}</TableCell>
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.email}</TableCell>
+        
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center"><button 
+      
+           className="bg-[#f06598] hover:bg-[#d34478] px-3 py-2 rounded-md drop-shadow-xl shadow-xl text-black 2xl:text-xl"><RiDeleteBin6Line /></button></TableCell> */}
+         </TableRow>
+         )
+          
+          
+          
+          
+          
+          : 
+          
+          users?.map((user) => 
               <TableRow
                key={user?._id}
                
