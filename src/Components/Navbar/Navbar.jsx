@@ -170,7 +170,7 @@ const Navbar = (props) => {
        {/* <Toaster position='top-center' />     */}
       <Box    sx={{ display: 'flex',   backgroundColor: "transparent",   }}>
         <CssBaseline/>
-        <AppBar sx={{backgroundColor: "transparent" ,  marginLeft:'auto', boxShadow:'none', color:'black' ,zIndex : 30 }} component="nav">
+        <AppBar id='nav' sx={{backgroundColor: "transparent" ,  marginLeft:'auto', boxShadow:'none', color:'black' ,zIndex : 30 }} component="nav">
           <Toolbar sx={{
     backgroundColor: 'transparent',
     width: '100%', 

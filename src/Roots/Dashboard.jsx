@@ -182,7 +182,7 @@ const Dashboard = () => {
        <NavLink className='' to="/dashboard">Admin Dashboard</NavLink>
         <NavLink className='' to="/dashboard/manageUsers">Manage Users</NavLink>
         <NavLink className='' to="/dashboard/approvedPremium">Approved premium</NavLink>
-        <NavLink onClick={handleReload} className='' to="/dashboard/approvedContactRequest">Approved Contact Request</NavLink>
+        <NavLink  className='' to="/dashboard/approvedContactRequest">Approved Contact Request</NavLink>
         <Button
           onClick={handleLogout}
           sx={{

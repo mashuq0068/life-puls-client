@@ -18,6 +18,7 @@ import ContactRequestPage from "../Pages/ContactRequestPage/ContactRequestPage";
 import AdminDashboardPage from "../Pages/AdminDashboardPage/AdminDashboardPage";
 import ManageUsersPage from "../Pages/ManageusersPage/ManageUsersPage";
 import ApprovedPremiumPage from "../Pages/ApprovedPremiumPage/ApprovedPremiumPage";
+import ApprovedContactRequestPage from "../Pages/ApprovedContactRequestPage/ApprovedContactRequestPage";
 
 
 const Router = createBrowserRouter([
@@ -94,6 +95,10 @@ const Router = createBrowserRouter([
       {
         path:'approvedPremium',
         element:<ApprovedPremiumPage></ApprovedPremiumPage>
+      },
+      {
+        path:'approvedContactRequest',
+        element:<ApprovedContactRequestPage></ApprovedContactRequestPage>
       }
     ]
     

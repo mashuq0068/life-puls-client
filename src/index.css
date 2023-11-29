@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.active{
+#nav.active{
   color: black;
   text-decoration: none; /* Remove default underline */
   border-bottom: 2px solid black; /* Set the thickness and color of the underline */
@@ -94,7 +94,14 @@ body{
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 } */
-
+#dashboard .active {
+  background-color: #f06598;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  border-radius: 6px 0px 0px 6px;
+}
 @media (max-width:1540px) {
   .spacing{
     letter-spacing: normal;

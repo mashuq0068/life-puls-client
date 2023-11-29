@@ -47,8 +47,10 @@ const handleGoogle = () => {
             axiosPublic.post(`/user/${res?.user?.email}`, userInfo)
             .then(res => {
                 console.log(res?.data)
+                if(res?.data){
             navigate(location?.state ? location?.state : '/')
             window.location.reload(false)
+                }
         })}
         // navigate(location?.state ? location?.state : '/')
     })
