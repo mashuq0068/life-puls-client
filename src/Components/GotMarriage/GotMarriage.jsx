@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../Hooks/useAuth";
+
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { Box, CircularProgress, Modal, Typography } from "@mui/material";
-// import React, { useEffect, useState } from "react";
-// import useOneBioData from "../../Hooks/useOneBiodata";
+import { Box,  Modal, Typography } from "@mui/material";
+
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import React from "react";
 
@@ -11,41 +10,7 @@ import React from "react";
 
 const GotMarried = () => {
   const axiosSecure = useAxiosSecure()
-    const {user} = useAuth()
-    // const [loading , setLoading] = useState(true)
-    // const {data , isLoading , isPending} = useOneBioData()
-    // console.log(data)
-    // console.log(data?.DateOfBirth)
-    // const [data , setData] = useState([])
   
-    // useEffect(()=>{
-    //      axiosSecure.get(`/biodata/${user?.email}`)
-    //      .then(res => {
-    //       if(res?.data){
-    //         setData(res.data)
-    //         setLoading(false)
-    //       }
-    //       setLoading(false)
-    //      })
-    // },[])
-    // const {
-    //   DateOfBirth,
-    //   age,
-    //   biodataType,
-    //   division,
-    //   email,
-    //   expectedPartnerAge,
-    //   expectedPartnerHeight,
-    //   expectedPartnerWeight,
-    //   fathersName,
-    //   height,
-    //   mobileNumber,
-    //   mothersName,
-    //   name,
-    //   occupation,
-    //   profileLink,
-    //   race,
-    //   weight} = data
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -94,9 +59,26 @@ const GotMarried = () => {
       })
       const onSubmit = (data) => {
        console.log(data)
+       
        if(data){
-        console.log(data)
-        handleOpen()
+        const storyInfo = {
+          selfBiodataId : data?.selfBiodataNumber,
+          partnerBiodataId : data?.partnerBiodataNumber,
+          image : data?.image,
+          marriageDate: data?.marriageDate,
+          reviewStars : data?.rating,
+          successStory: data?.story,
+          gender:data?.gender
+             
+         }
+        console.log(storyInfo)
+        axiosSecure.post('/successStory' , storyInfo)
+        .then(res => {
+          if(res?.data?.insertedId){
+            handleOpen()
+          }
+        })
+        
        }
       }
 //      
@@ -114,7 +96,7 @@ const GotMarried = () => {
             Wow!
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-           You have successfully published your biodata
+           You have successfully published your story
           </Typography>
         </Box>
       </Modal>
@@ -141,6 +123,7 @@ const GotMarried = () => {
         />
         {errors.selfBiodataNumber && <span className=" text-red-600 spacing"> Self Biodata Number is required </span>}
       </div>
+      
       <div className="mb-5">
         <label
          
@@ -159,6 +142,51 @@ const GotMarried = () => {
       <div className="mb-5">
         <label
          
+          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+        >
+          Marriage Date
+        </label>
+        <input
+         {...register("marriageDate" , {required : true})}
+          type="date"
+          placeholder="Marriage Date"
+          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+        />
+        {errors.marriageDate && <span className=" text-red-600 spacing"> Marriage Date Number is required </span>}
+      </div>
+      <div className="mb-5">
+        <label
+         
+          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+        >
+         Rating
+        </label>
+        <input
+         {...register("rating" , {required : true})}
+          type="number"
+          placeholder="Rating"
+          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+        />
+        {errors.rating && <span className=" text-red-600 spacing"> Rating is required </span>}
+      </div>
+      <div className="mb-5">
+        <label
+         
+          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+        >
+        Self Gender
+        </label>
+        <select {...register("gender" , {required : true})}
+          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" name="" id="">
+          <option value=""></option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        {errors.gender && <span className=" text-red-600 spacing"> Gender is required </span>}
+      </div>
+      <div className="mb-5">
+        <label
+         
           className="mb-3 block spacing text-base 2xl:text-lg font-medium text-[#07074D]"
         >
          Couple or single Image Link
@@ -171,13 +199,29 @@ const GotMarried = () => {
         />
         {errors.image && <span className=" text-red-600 spacing"> image is required </span>}
       </div>
+      <div className="mb-5">
+        <label
+         
+          className="mb-3 block spacing text-base 2xl:text-lg font-medium text-[#07074D]"
+        >
+         Success Story
+        </label>
+        <textarea
+         {...register("story" , {required : true})}
+
+          type="text"
+          placeholder="Success Story"
+          className="w-full rounded-md border h-[30vh] spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+        />
+        {errors.story && <span className=" text-red-600 spacing"> story is required </span>}
+      </div>
       
     
         <button
        
-          className="hover:shadow-form rounded-md bg-[#ec6b9b] py-3 px-8 text-base font-semibold uppercase outline-none"
+          className="hover:shadow-form spacing rounded-md bg-[#ec6b9b] py-3 px-8 text-base font-semibold uppercase outline-none"
         >
-         Save && publish biodata
+        Submit
         </button>
     
     </form>

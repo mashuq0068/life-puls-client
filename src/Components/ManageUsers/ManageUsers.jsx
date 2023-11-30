@@ -30,7 +30,7 @@ const ManageUsers = () => {
     console.log(users)
     
   const {data : searchedUser  , isLoading , refetch : refetchSearch} = useQuery({
-    queryKey:['searchedUser'],
+    queryKey:['searchedUser' , searchName],
   
     queryFn:async()=>{
       const res = await  axiosSecure.get(`/user/${searchName}`)
@@ -71,6 +71,8 @@ const ManageUsers = () => {
     }
  })
   }
+  console.log(searchName)
+  console.log(Search)
    
   const handlePremium = (email , id) => {
     axiosSecure.patch(`/biodata/premium/${email}`)
@@ -86,16 +88,18 @@ const ManageUsers = () => {
         }
     })
   } 
+  // setSearch(false)
+  // setSearch("")
  const handleSearch = (e) => {
+    
     e.preventDefault()
     const name = e.target.name.value
-    setSearchName("")
+    
     if(name){
       console.log(name)
      setSearchName(name)
      setSearch(true)
-    //  refetchSearch()
-    // window.location.reload(false)
+    
 
     }
   

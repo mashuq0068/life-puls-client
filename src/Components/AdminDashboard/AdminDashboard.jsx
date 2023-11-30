@@ -5,6 +5,7 @@ import { MdOutlineWorkspacePremium } from "react-icons/md";
 import { TfiWallet } from "react-icons/tfi";
 import useAllCounts from "../../Hooks/useAllCounts";
 import useCheckAdmin from "../../Hooks/useCheckAdmin";
+import AdminPieChart from "../PieChart/PieChart";
 
 
 
@@ -19,6 +20,7 @@ const {isAdmin} = useCheckAdmin()
     
   if(allCounts && isAdmin){
     return (
+      <>
         <div className={`w-[75vw]  px-[10%] py-[5%] ${ isAdmin?.admin === true ? "block" : "hidden"}`}>
             {/* one grid */}
             <div className="grid grid-cols-3 gap-[5%]">
@@ -99,6 +101,10 @@ const {isAdmin} = useCheckAdmin()
             
         </div>
         </div>
+       <div className=" w-max mx-auto">
+       <AdminPieChart></AdminPieChart>
+       </div>
+        </>
     );
 }};
 

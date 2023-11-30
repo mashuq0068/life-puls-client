@@ -20,6 +20,7 @@ import ManageUsersPage from "../Pages/ManageusersPage/ManageUsersPage";
 import ApprovedPremiumPage from "../Pages/ApprovedPremiumPage/ApprovedPremiumPage";
 import ApprovedContactRequestPage from "../Pages/ApprovedContactRequestPage/ApprovedContactRequestPage";
 import GotMarriagePage from "../Pages/GotMarriedPage/GotMarriagePage";
+import AdminSuccessPage from "../Pages/AdminSuccessPage/AdminSuccessPage";
 
 
 const Router = createBrowserRouter([
@@ -105,6 +106,10 @@ const Router = createBrowserRouter([
         path:'approvedContactRequest',
         element:<ApprovedContactRequestPage></ApprovedContactRequestPage>
       },
+      {
+        path:'successStories',
+        element:<AdminSuccessPage></AdminSuccessPage>
+      }
     ]
     
    }
