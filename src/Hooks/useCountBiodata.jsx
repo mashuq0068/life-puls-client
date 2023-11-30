@@ -1,35 +1,35 @@
-import { useState, useEffect } from 'react';
+
 import useAxiosPublic from './useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { Box } from '@mui/system';
+import { CircularProgress } from '@mui/material';
 
 const useCountBiodata = () => {
   const axiosPublic = useAxiosPublic();
-  const [biodataCount, setBiodataCount] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchCountBiodata = async () => {
-      try {
-        const response = await axiosPublic.get('/countBiodata');
-        setBiodataCount(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching countBiodata:', error);
-        setIsError(true);
-        setIsLoading(false);
-      }
-    };
-
-    fetchCountBiodata();
-  }, []);
-
-  if (isLoading) {
-    return 'Loading...';
-  }
-
-  if (isError) {
-    return 'Error fetching countBiodata';
-  }
+ 
+  const {data : biodataCount  , isPending , isLoading} = useQuery({
+    queryKey:['biodataCount'],
+   queryFn  :async() => {
+    const response = await axiosPublic.get('/countBiodata')
+    return response?.data
+   }
+})
+ if(isPending || isLoading) {
+    <Box
+    sx={{
+      display: 'flex',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+    }}
+  >
+    <CircularProgress
+      sx={{
+        color: '#fda3c4',
+      }}
+    />
+  </Box>
+ }
 
   return { biodataCount };
 };

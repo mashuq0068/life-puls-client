@@ -2,7 +2,7 @@ import { FaUserGraduate } from "react-icons/fa";
 import { FaMale } from "react-icons/fa";
 import { FaFemale } from "react-icons/fa";
 
-import { TfiWallet } from "react-icons/tfi";
+// import { TfiWallet } from "react-icons/tfi";
 import useAllCounts from "../../Hooks/useAllCounts";
 
 

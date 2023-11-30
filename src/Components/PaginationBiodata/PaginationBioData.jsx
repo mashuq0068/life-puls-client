@@ -1,23 +1,43 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import BioData from "../BioData/BioData";
 import useCountBiodata from "../../Hooks/useCountBiodata";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import { Box } from "@mui/system";
+import { CircularProgress } from "@mui/material";
 
 
 const PaginationBioData = () => {
     const axiosPublic = useAxiosPublic()
-    const [data , setData] = useState([])
+   
     const [perPageData , setPerPageData] = useState(6)
     const [selectedPage , setSelectedPage] = useState(0)
-    useEffect(() => {
-        axiosPublic.get(`/paginationBiodata?skipPages=${selectedPage}&pageData=${perPageData}`)
-        .then(res => {
-            console.log(res.data)
-            if(res.data){
-                setData(res.data)
-            }
-        })
-    },[selectedPage , perPageData])
+  
+    const {data  , isPending , isLoading} = useQuery({
+        queryKey:['biodataCount', perPageData , selectedPage],
+       queryFn  :async() => {
+        const response = await axiosPublic.get(`/paginationBiodata?skipPages=${selectedPage}&pageData=${perPageData}`)
+        return response?.data
+       },
+    
+    
+    })
+     if(isPending || isLoading) {
+        <Box
+        sx={{
+          display: 'flex',
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+        }}
+      >
+        <CircularProgress
+          sx={{
+            color: '#fda3c4',
+          }}
+        />
+      </Box>
+     }
     const handlePageDataOptions =(e) => {
         setPerPageData(e.target.value)
         console.log(e.target.value)
