@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +19,7 @@
 }
 body{
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 @keyframes height {
   from{
@@ -104,13 +107,13 @@ body{
 }
 @media (max-width:1540px) {
   .spacing{
-    letter-spacing: normal;
+    letter-spacing: 0px;
   }
   
 }
 @media (max-width:840px) {
   .spacing{
-    letter-spacing: 3px;
+    letter-spacing: 0px;
   }
   
 }

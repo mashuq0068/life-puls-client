@@ -13,10 +13,10 @@ const PremiumMembers = () => {
   console.log(filteredByPremium)
   if(filteredByPremium){
     return (
-        <div data-aos-duration="1000" data-aos="fade-up" className='mb-[15%]'>
-        <h3 className="mt-36 spacing  text-center 2xl:text-3xl font-bold text-2xl">Top Premium Members</h3>
-       <p className=" bg-[#f06598] mb-[3%] h-1 mt-[1vh] mx-auto w-[50%] lg:w-[23%]"></p>
-       <div className='2xl:w-[75vw]  mt-[20%] md:mt-[15%] lg:mt-[8%] 2xl:mt-0  px-[3%] md:grid-cols-2 grid-cols-1 mx-auto grid lg:grid-cols-3 gap-[5%] md:col-gap-[30%] lg:gap-[5%]'>
+        <div data-aos-duration="1000" data-aos="fade-up" className='lg:mb-[15%] mb-[5vh]'>
+        <h3 className="md:mt-36 mt-20 spacing  text-center 2xl:text-3xl font-bold text-xl">Top Premium Members</h3>
+       <p className=" bg-[#f06598] mb-[3%] h-1 mt-[1vh] mx-auto w-[80%] md:w-[50%] lg:w-[23%]"></p>
+       <div className='2xl:w-[75vw]  mt-[10vh] md:mt-[7%] lg:mt-[10vh] 2xl:mt-0  px-[3%] md:grid-cols-2 grid-cols-1 mx-auto grid lg:grid-cols-3 gap-[5vh] md:col-gap-[30%] lg:gap-[5%]'>
         {filteredByPremium.sort((a , b) => a.age - b.age)?.slice(0,6)?.map(biodata => <BioData key={biodata?._id} biodata = {biodata}></BioData>)}
        </div>
         </div>

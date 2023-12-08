@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { Box, CircularProgress, Modal, Typography } from "@mui/material";
@@ -164,39 +164,93 @@ const EditBioData = () => {
     //   race,
     //   weight} = data
     
-   const {
-        register,
-        handleSubmit,
+  //  const {
+  //       register,
+  //       handleSubmit,
         
-        formState: { errors },
-      } = useForm({
-        defaultValues:{
-          DateOfBirth : biodata?.DateOfBirth,
-          age: biodata?.age,
-          biodataType:biodata?.biodataType,
-          division:biodata?.division,
-          email: biodata?.email,
-          expectedPartnerAge:biodata?.expectedPartnerAge,
-          expectedPartnerHeight : biodata?.expectedPartnerHeight,
-          expectedPartnerWeight:biodata?.expectedPartnerWeight,
-          fathersName:biodata?.fathersName,
-          height:biodata?.height,
-          mobileNumber: biodata?.mobileNumber,
-          mothersName :biodata?.mothersName,
-          name:biodata?.name,
-          occupation: biodata?.occupation,
-          profileLink : biodata?.profileLink,
-          race: biodata?.race,
-          weight : biodata?.weight
+  //       formState: { errors },
+  //     } = useForm({
+  //       defaultValues:{
+  //         DateOfBirth : biodata?.DateOfBirth,
+  //         age: biodata?.age,
+  //         biodataType:biodata?.biodataType,
+  //         division:biodata?.division,
+  //         email: biodata?.email,
+  //         expectedPartnerAge:biodata?.expectedPartnerAge,
+  //         expectedPartnerHeight : biodata?.expectedPartnerHeight,
+  //         expectedPartnerWeight:biodata?.expectedPartnerWeight,
+  //         fathersName:biodata?.fathersName,
+  //         height:biodata?.height,
+  //         mobileNumber: biodata?.mobileNumber,
+  //         mothersName :biodata?.mothersName,
+  //         name:biodata?.name,
+  //         occupation: biodata?.occupation,
+  //         profileLink : biodata?.profileLink,
+  //         race: biodata?.race,
+  //         weight : biodata?.weight
 
-        }
+  //       }
       
-      })
-      const onSubmit = (data) => {
-       console.log(data)
-       if(data)
-        {
-        axiosSecure.put('/biodata' , data)
+  //     })
+  //     const onSubmit = (data) => {
+  //      console.log(data)
+  //      if(data)
+  //       {
+  //       axiosSecure.put('/biodata' , data)
+  //       .then(res => {
+  //           console.log(res.data)
+  //           if(res.data){
+  //           handleOpen()
+  //           }
+            
+  //       })
+  //      }
+  //     }
+  //     if(loading){
+  //       return(
+  //         <Box
+  //   sx={{
+  //     display: 'flex',
+  //     position: 'fixed',
+  //     top: '50%',
+  //     left: '50%',
+  //   }}
+  // >
+  //   <CircularProgress
+  //     sx={{
+  //       color: '#fda3c4',
+  //     }}
+  //   />
+  // </Box>
+  //       )
+  //     }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const email = form.email.value
+    const DateOfBirth = form.DateOfBirth.value
+    const age = form.age.value
+    const biodataType= form.biodataType.value
+    const division= form.division.value
+    const expectedPartnerAge = form.expectedPartnerAge.value
+    const expectedPartnerHeight = form.expectedPartnerHeight.value
+    const expectedPartnerWeight = form.expectedPartnerWeight.value
+    const fathersName= form.fathersName.value
+    const height = form.height.value
+    const mobileNumber = form.number.value
+    const mothersName = form.email.value
+    const name = form.name.value
+    const occupation = form.occupation.value
+    const  profileLink = form.profileLink.value
+    const race = form.race.value
+     const weight = form.weight.value
+    const biodataInfo = {
+      email,DateOfBirth,age,biodataType,division,expectedPartnerAge,expectedPartnerHeight,expectedPartnerWeight,fathersName,height,mobileNumber,mothersName,name,occupation,profileLink,race,weight
+    }
+     console.log(biodataInfo)
+
+  if(biodataInfo){
+    axiosSecure.put('/biodata' , biodataInfo)
         .then(res => {
             console.log(res.data)
             if(res.data){
@@ -204,27 +258,10 @@ const EditBioData = () => {
             }
             
         })
-       }
-      }
-      if(loading){
-        return(
-          <Box
-    sx={{
-      display: 'flex',
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-    }}
-  >
-    <CircularProgress
-      sx={{
-        color: '#fda3c4',
-      }}
-    />
-  </Box>
-        )
-      }
-      if(biodata){
+  }
+    
+  }
+     
     return (
         <>
          <Modal
@@ -247,10 +284,7 @@ const EditBioData = () => {
 <div className="flex items-center w-full justify-center p-12">
  
   <div className="mx-auto w-full max-w-[550px]">
-    <form onSubmit={
-      handleSubmit(onSubmit)
-     
-      } className="mt-[10%]">
+    <form onSubmit={handleSubmit} className="mt-[10%]">
       <div className="mb-5">
         <label
          
@@ -259,14 +293,14 @@ const EditBioData = () => {
          Biodata Type
         </label>
         <select placeholder="Full Name"
-        {...register("biodataType" , { required: !biodata ? true : false})}
-         
+        required
+          name="biodataType"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" >
             <option value={biodata?.biodataType}>{biodata?.biodataType}</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select>
-        {(errors.biodataType && !biodata) && <span className="text-red-600">Biodata Type is required</span>}
+        
       
       </div>
       <div className="mb-5">
@@ -277,7 +311,8 @@ const EditBioData = () => {
           Name
         </label>
         <input
-         {...register("name")}
+        //  {...register("name")}
+        name="name"
           type="text"
           defaultValue ={biodata?.name}
           placeholder="Name"
@@ -293,9 +328,9 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("profileLink")}
+          // {...register("profileLink")}
           defaultValue ={biodata?.profileLink}
-        
+         name="profileLink"
           placeholder="Profile Image Link"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
@@ -309,8 +344,8 @@ const EditBioData = () => {
         </label>
         <input
           type="date"
-         
-          {...register("DateOfBirth" , {required: !biodata ? true : false})}
+          name="DateOfBirth"
+          // {...register("DateOfBirth" , {required: !biodata ? true : false})}
           defaultValue={
             biodata?.DateOfBirth
           }
@@ -318,7 +353,7 @@ const EditBioData = () => {
           placeholder="Date of Birth"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.DateOfBirth && !biodata) && <span className="text-red-600">Date of Birth is required</span>}
+      
       </div>
       <div className="mb-5">
         <label
@@ -329,15 +364,14 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-       
-          {...register("height" , {required: !biodata ? true : false})}
+         name="height"
+          // {...register("height" , {required: !biodata ? true : false})}
           placeholder="Height"
           required
           defaultValue={biodata?.height}
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.height && !biodata) && <span className="text-red-600">Height is required</span>}
-      </div>
+         </div>
       <div className="mb-5">
         <label
          
@@ -347,14 +381,14 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("weight" , {required: !biodata ? true : false})}
+          // {...register("weight" , {required: !biodata ? true : false})}
+          name="weight"
           defaultValue={biodata?.weight}
          required
           placeholder="Weight"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.weight && !biodata ) &&<span className="text-red-600">Weight is required</span>}
-      </div>
+         </div>
       <div className="mb-5">
         <label
          
@@ -364,10 +398,10 @@ const EditBioData = () => {
         </label>
         <input
           type="number"
-          {...register("age")}
+          // {...register("age")}
           defaultValue={biodata?.age}
           
-         
+         name="age"
           placeholder="Age"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
@@ -381,17 +415,16 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("occupation" , {required: !biodata ? true : false})}
+          // {...register("occupation" , {required: !biodata ? true : false})}
           defaultValue={biodata?.occupation}
           required
-      
+         name="occupation"
         
          
           placeholder="Occupation"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.occupation && !biodata )&& <span className="text-red-600">Occupation is required</span>}
-      </div>
+         </div>
       <div className="mb-5">
         <label
          
@@ -401,13 +434,14 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("race" , {required: !biodata ? true : false})}
+          // {...register("race" , {required: !biodata ? true : false})}
          defaultValue={biodata?.race}
           required
+          name="race"
           placeholder="Race"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {( errors.race && !biodata) && <span className="text-red-600">Race is required</span>}
+      
       </div>
       <div className="mb-5">
         <label
@@ -418,9 +452,9 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("fathersName")}
+          // {...register("fathersName")}
           defaultValue={biodata?.fathersName}
-         
+          name="fathersName"
           placeholder="Fathers Name"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
@@ -435,7 +469,8 @@ const EditBioData = () => {
         <input
           type="text"
         
-          {...register("mothersName")}
+          // {...register("mothersName")}
+          name="mothersName"
           defaultValue={biodata?.mothersName}
           placeholder="Mothers Name"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
@@ -448,9 +483,9 @@ const EditBioData = () => {
         >
        Permanent Division Name
         </label>
-       <select name="" id=""
-        {...register("division" , {required: !biodata ? true : false})}
-       
+       <select name="division" id=""
+        // {...register("division" , {required: !biodata ? true : false})}
+         required
          placeholder="Permanent Division Name"
          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md">
         <option value={biodata?.division}>{biodata?.division}</option>
@@ -463,8 +498,7 @@ const EditBioData = () => {
         <option value="Sylhet">Sylhet</option>
         <option value="Rangpur">Rangpur</option>
        </select>
-       {(errors.division && !biodata)&& <span className="text-red-600">Division is required</span>}
-      </div>
+       </div>
       <div className="mb-5">
         <label
          
@@ -474,8 +508,8 @@ const EditBioData = () => {
         </label>
         <input
           type="number"
-        
-          {...register("expectedPartnerAge")}
+          name="expectedPartnerAge"
+          // {...register("expectedPartnerAge")}
          defaultValue={biodata?.expectedPartnerAge}
           placeholder="Expected Partner Age"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
@@ -490,13 +524,14 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("expectedPartnerHeight" , {required: !biodata ? true : false})}
+          name="expectedPartnerHeight"
+          // {...register("expectedPartnerHeight" , {required: !biodata ? true : false})}
           required
          defaultValue={biodata?.expectedPartnerHeight}
           placeholder="Expected Partner Height"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.expectedPartnerHeight && !biodata) && <span className="text-red-600">Expected Partner Height is required</span>}
+         
       </div>
       <div className="mb-5">
         <label
@@ -507,14 +542,16 @@ const EditBioData = () => {
         </label>
         <input
           type="text"
-          {...register("expectedPartnerWeight" , {required: !biodata ? true : false})}
+          name="expectedPartnerWeight"
+    
+          // {...register("expectedPartnerWeight" , {required: !biodata ? true : false})}
           defaultValue={biodata?.expectedPartnerWeight}
          required
          
           placeholder="Expected Partner Weight"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.expectedPartnerWeight&& !biodata) && <span className="text-red-600">Expected Partner Weight is required</span>}
+        
       </div>
       <div className="mb-5">
         <label
@@ -525,7 +562,8 @@ const EditBioData = () => {
         </label>
         <input
           type="email"
-          {...register("email")}
+          // {...register("email")}
+          name="email"
          readOnly
          defaultValue={user?.email}
           placeholder="Age"
@@ -540,15 +578,15 @@ const EditBioData = () => {
        Mobile Number
         </label>
         <input
-          type="number"
-          {...register("mobileNumber" , {required: !biodata ? true : false})}
+          // type="number"
+          // {...register("mobileNumber" , {required: !biodata ? true : false})}
           defaultValue={biodata?.mobileNumber}
-         
+         name="number"
          required
           placeholder="Mobile Number"
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-         {(errors.mobileNumber && !biodata) && <span className="text-red-600">Mobile Number Height is required</span>}
+         
       </div>
       
     
@@ -564,7 +602,7 @@ const EditBioData = () => {
 </div>
 </div>
 </>
-    )}
+    )
 };
 
 export default EditBioData;

@@ -189,7 +189,7 @@ const AllBioData = () => {
               </div>
               {/* biodata */}
               <div>
-              <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
+              <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[3vh] gap-x-[5%]">
             {filterSectionData?.length === 0 ? 
             <div>
               <p>No Biodata Like that</p>

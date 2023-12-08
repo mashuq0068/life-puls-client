@@ -26,15 +26,16 @@ const SuccessStory = () => {
     if(ascendingOrder){
     return (
         <>
-           <h3 className="md:mt-36 mt-[20vh]  spacing text-center 2xl:text-3xl font-bold text-2xl">Success Story</h3>
-       <p className=" bg-[#f06598]  mb-[3%] h-1 mt-[1vh] mx-auto w-[60%] md:w-[16%]"></p>
+           <h3 className="lg:mt-36 mt-[15vh] md:mt-[15vh] spacing text-center 2xl:text-3xl font-bold text-2xl">Success Story</h3>
+       <p className=" bg-[#f06598]  mb-[3%] h-1 mt-[1vh] mx-auto w-[60%] md:w-[36%] lg:w-[18%]"></p>
          
         
         <div className="flex lg:mb-[10vh] mb-[40vh] drop-shadow-xl shadow-lg shadow-black flex-col lg:w-[70%] md:w-[90%] mx-auto md:h-auto   lg:text-left text-center  lg:flex-row gap-20 mt-20 items-center px-[2%]">
         <AwesomeSlider 
         animation="fallAnimation"
-        className='lg:h-auto md:h-[140vh] h-[170vh]'
+        className='lg:h-auto h-[125vh]'
     play={true}
+    
     cancelOnInteraction={false} 
     interval={2000}
   >
@@ -60,7 +61,7 @@ const SuccessStory = () => {
       <Rating name="read-only" value={successStory?.reviewStars} readOnly />
      
     </Box>
-        <p className='w-[60%] mx-auto text-left md:text-center'><span className='font-semibold'>Story : </span> {successStory?.successStory}</p>
+        <p className='lg:w-[60%] md:w-[80%] w-[90%] mx-auto text-left md:text-center'><span className='font-semibold'>Story : </span> {successStory?.successStory}</p>
       </div>
       )}
         
