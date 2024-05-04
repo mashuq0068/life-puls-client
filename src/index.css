@@ -1,79 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-#nav.active{
+
+#nav.active {
   color: black;
-  text-decoration: none; /* Remove default underline */
-  border-bottom: 2px solid black; /* Set the thickness and color of the underline */
-  border-bottom-width: 2px; /* Adjust the thickness to make the underline bold */
-  padding-bottom: 2px; /* Adjust the padding to create a gap between text and underline */
-  font-weight: bold; 
-  
+  text-decoration: none;
+  /* Remove default underline */
+  border-bottom: 2px solid black;
+  /* Set the thickness and color of the underline */
+  border-bottom-width: 2px;
+  /* Adjust the thickness to make the underline bold */
+  padding-bottom: 2px;
+  /* Adjust the padding to create a gap between text and underline */
+  font-weight: bold;
+
 }
 
-.spacing{
-  letter-spacing: 3px;
+.spacing {
+  letter-spacing: 1px;
 
 }
-body{
+
+body {
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
+
+.custom-rotation {
+  transform: rotate(170deg);
+}
+
 @keyframes height {
-  from{
-   height: 10%;
+  from {
+    height: 10%;
   }
-  to{
+
+  to {
     height: 145%;
   }
 }
-.animate-height{
+
+.animate-height {
   animation-name: height;
-  animation-duration:3s;
+  animation-duration: 3s;
 
 }
+
 .profile-picture {
   height: 40px;
   width: 40px;
-  border-radius: 50%; 
-  overflow: hidden; 
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 
 .rounded-profile {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 .biodata-picture {
   height: 140px;
   width: 140px;
-  border-radius: 50%; 
-  overflow: hidden; 
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 
 .biodata-profile {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .details-picture {
   height: 240px;
   width: 240px;
-  border-radius: 50%; 
-  overflow: hidden; 
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 
 .details-profile {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 /* .StripeElement {
   box-sizing: border-box;
   height: 40px;
@@ -105,24 +121,27 @@ body{
   font-weight: 500;
   border-radius: 6px 0px 0px 6px;
 }
+
 @media (max-width:1540px) {
-  .spacing{
+  .spacing {
     letter-spacing: 0px;
   }
-  
+
 }
+
 @media (max-width:840px) {
-  .spacing{
+  .spacing {
     letter-spacing: 0px;
   }
-  
+
 }
+
 @media (max-width:840px) {
   .profile-picture {
     height: 30px;
     width: 30px;
-    border-radius: 50%; 
-    overflow: hidden; 
+    border-radius: 50%;
+    overflow: hidden;
   }
-  
+
 }

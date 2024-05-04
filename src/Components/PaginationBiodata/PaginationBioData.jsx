@@ -33,7 +33,7 @@ const PaginationBioData = () => {
       >
         <CircularProgress
           sx={{
-            color: '#fda3c4',
+            color: '#f06598',
           }}
         />
       </Box>
@@ -52,7 +52,7 @@ const PaginationBioData = () => {
      const totalPage = (biodataCount && biodataCount.count) ? Math.ceil(biodataCount.count / perPageData) : 0;
      const pages = [...Array(totalPage).keys()]
     return (
-     <div className="">
+     <div className="lg:block hidden">
         <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl">All Biodata</h3>
         <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">

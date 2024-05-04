@@ -107,7 +107,7 @@ const BioDataDetails = () => {
           >
             <CircularProgress
               sx={{
-                color: '#fda3c4',
+                color: '#f06598',
               }}
             />
           </Box>
@@ -136,80 +136,80 @@ const BioDataDetails = () => {
           </Typography>
         </Box>
       </Modal>
-    <div className="mt-[8%] px-[10%] flex justify-between ">
+    <div className="lg:mt-[8%] px-[3%]  mt-[35vh] md:px-[10%] lg:flex-row flex-col flex justify-between ">
         {/* details */}
        
-        <div className=" text-lg relative h-max space-y-3 drop-shadow-xl shadow-black shadow-xl px-[10%] mt-[10%] 2xl:mt-[5%] p-[5%] ">
-      <div className="details-picture absolute -top-[10%] left-[20%] 2xl:left-[30%] drop-shadow-xl shadow-xl shadow-black">
+        <div className=" text-lg relative h-max space-y-3 drop-shadow-xl lg:shadow-black shadow-xl px-[10%] mt-[10%] 2xl:mt-[5%] p-[5%] ">
+      <div className="details-picture absolute -top-[16%] lg:-top-[15%] 2xl:-top-[10%] left-[20%] xl:left-[25%] md:left-[30%]  2xl:left-[30%] drop-shadow-xl shadow-xl shadow-black">
       <img className="details-profile" src={data?.profileLink} alt="" />
      
      
       </div>
-      <p className="absolute top-[17%]  bg-[#f06598] mb-5 h-1 mx-auto mt-[20vh] w-[20vw]"></p>
-      <p className="text-center absolute spacing text-xl  text-black left-[37%] top-[13%] font-bold mb-[5%]">Profile-Info</p>
-        <p className="spacing text-gray-600 pt-[25vh]"><span className="font-bold text-black">Biodata Type</span> : {data?.biodataType}</p>
-        <p className="spacing text-gray-600"><span className="font-bold text-black">Biodata Name</span> : {data?.name}</p>
+      <p className="absolute top-[17%]  bg-[#f06598]  mb-5 h-1 mx-auto lg:left-[20%] md:left-[33%]  left-[20%] w-[60vw]  2xl:mt-[20vh] md:w-[20vw]"></p>
+      <p className="text-center absolute spacing text-xl  text-black left-[37%] top-[13%] lg:font-bold mb-[5%]">Profile-Info</p>
+        <p className="spacing text-gray-600 pt-[40vh] lg:pt-[25vh]"><span className="lg:font-bold text-black">Biodata Type</span> : {data?.biodataType}</p>
+        <p className="spacing text-gray-600"><span className="lg:font-bold text-black">Biodata Name</span> : {data?.name}</p>
         <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Date of Birth</span>: {data?.DateOfBirth}
+        <span className="lg:font-bold text-black">Date of Birth</span>: {data?.DateOfBirth}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Age</span>: {data?.age}
+        <span className="lg:font-bold text-black">Age</span>: {data?.age}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Biodata ID</span>: {data?.biodataId}
-      </p>
-    
-      <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Permanent Division</span>: {data?.division}
+        <span className="lg:font-bold text-black">Biodata ID</span>: {data?.biodataId}
       </p>
     
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Expected Partner Age</span>: {data?.expectedPartnerAge}
+        <span className="lg:font-bold text-black">Permanent Division</span>: {data?.division}
+      </p>
+    
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Expected Partner Age</span>: {data?.expectedPartnerAge}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Expected Partner Height</span>: {data?.expectedPartnerHeight}
+        <span className="lg:font-bold text-black">Expected Partner Height</span>: {data?.expectedPartnerHeight}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Expected Partner Weight</span>: {data?.expectedPartnerWeight}
+        <span className="lg:font-bold text-black">Expected Partner Weight</span>: {data?.expectedPartnerWeight}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Fathers Name</span>: {data?.fathersName}
+        <span className="lg:font-bold text-black">Fathers Name</span>: {data?.fathersName}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Height</span>: {data?.height}
-      </p>
-      
-      <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Mothers Name</span>: {data?.mothersName}
-      </p>
-      
-      <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Occupation</span>: {data?.occupation}
+        <span className="lg:font-bold text-black">Height</span>: {data?.height}
       </p>
       
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Race</span>: {data?.race}
+        <span className="lg:font-bold text-black">Mothers Name</span>: {data?.mothersName}
+      </p>
+      
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Occupation</span>: {data?.occupation}
+      </p>
+      
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Race</span>: {data?.race}
       </p>
       <p className="spacing text-gray-600">
-        <span className="font-bold text-black">Weight</span>: {data?.weight}
+        <span className="lg:font-bold text-black">Weight</span>: {data?.weight}
       </p>
     { premium?.isPremium && <div>
-     <p className="text-center spacing text-xl pt-[4%] text-black font-bold">Contact</p>
+     <p className="text-center spacing text-xl pt-[4%] text-black lg:font-bold">Contact</p>
       <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
       <p className="spacing text-center text-gray-600 pt-[2%]">
-        <span className="font-bold text-black">Email</span>: {data?.email}
+        <span className="lg:font-bold text-black">Email</span>: {data?.email}
       </p>
       <p className="spacing  text-gray-600 mt-3">
-        <span className="font-bold text-black">Mobile Number</span>: {data?.mobileNumber}
+        <span className="lg:font-bold text-black">Mobile Number</span>: {data?.mobileNumber}
       </p>
      </div>}
       <div className="flex flex-col pt-[10%] gap-5">
         <button id="favorite" onClick={()=>{
           handleFavorite(data?.name , data?.biodataId , data?.division , data?.occupation)
-        }} className={` font-semibold ${hoverBg} px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
+        }} className={` 2xl:font-semibold ${hoverBg} md:px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
         { premium?.isPremium || <button onClick={()=>{
           handleContactRequest(data?.biodataId)
-        }} className="font-semibold  px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
+        }} className="2xl:font-semibold  md:px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
       </div>
         </div>
         {/* similar biodata */}
@@ -222,7 +222,7 @@ const BioDataDetails = () => {
        </div> */}
         {/* </div> */}
         
-        <div>
+        <div className=" lg:mt-0 mt-[10vh]">
         <BioDataDetailsSimilar  biodata = {data}></BioDataDetailsSimilar>
         </div>
     </div>

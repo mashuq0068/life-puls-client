@@ -117,11 +117,11 @@ const Dashboard = () => {
   // };
 
   return (
-    <div>
+    <div className=' overflow-hidden'>
          {/* user */}
    { !isAdmin?.admin ? <div className=" flex  ">
    
-     <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+     <div className=' z-10  overflow-hidden w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
       <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
        
        <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
@@ -175,15 +175,15 @@ const Dashboard = () => {
 
 
         //  {/* admin*/}
-    :<div className=" flex  ">
+    :<div className=" flex  overflow-hidden ">
    
-     <div className=' z-10  w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+     <div className=' z-10  overflow-hidden w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
       <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
        
-       <NavLink className='' to="/dashboard">Admin Dashboard</NavLink>
+       <NavLink className='' to="/dashboard/admin">Admin Dashboard</NavLink>
         <NavLink className='' to="/dashboard/manageUsers">Manage Users</NavLink>
-        <NavLink className='' to="/dashboard/approvedPremium">Approved premium</NavLink>
-        <NavLink  className='' to="/dashboard/approvedContactRequest">Approved Contact Request</NavLink>
+        <NavLink className='' to="/dashboard/approvedPremium"> Premium Requests</NavLink>
+        <NavLink  className='' to="/dashboard/approvedContactRequest">Contact Request</NavLink>
         <NavLink  className='' to="/dashboard/successStories">Success Stories</NavLink>
         <Button
           onClick={handleLogout}
@@ -214,6 +214,9 @@ const Dashboard = () => {
         </Button>
 
       </div>
+      {/* <div className='w-[30vw] custom-rotation h-[20vh] absolute -bottom-[10vh]  bg-[#f06598] '>
+
+      </div> */}
      
       
       

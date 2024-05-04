@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 
 import {loadStripe} from '@stripe/stripe-js';
@@ -31,7 +31,7 @@ const CheckOut = () => {
       >
         <CircularProgress
           sx={{
-            color: '#fda3c4',
+            color: '#f06598',
           }}
         />
         </Box>
@@ -56,12 +56,17 @@ const CheckOut = () => {
    
         if(paymentInfo){
     return (
-        <div className="mt-[10%] w-max mx-auto">
+      <>
+      <div className=" font-medium px-[5%] text-center text-xl mt-[30vh] lg:hidden block">
+            You can not checkout from your mobile or tablet
+            
+           </div>
+        <div className="mt-[10%] lg:block hidden  w-max mx-auto">
            <div className=" flex flex-col  items-center">
            <h1 className="2xl:text-3xl text-2xl font-bold spacing">CheckOut-500 TK</h1>
            <p className=" bg-[#f06598] mb-[5%]  h-1 mt-[1vh] mx-auto w-[18vw]"></p>
            </div>
-           <form className="flex ml-[10%] gap-[2%]">
+           <form className="flex ml-[10%] flex-wrap gap-[2%]">
            <div>
            <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
                 Biodata Id
@@ -105,12 +110,14 @@ const CheckOut = () => {
         />
            </div>
            </form>
+           
  <div className="mt-[4%]">
  <Elements stripe={stripePromise} >
      <PaymentForm paymentInfo = {paymentInfo}></PaymentForm>
   </Elements>
  </div>
         </div>
+        </>
     )}
     
 }

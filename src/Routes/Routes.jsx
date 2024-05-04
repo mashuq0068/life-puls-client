@@ -91,7 +91,7 @@ const Router = createBrowserRouter([
        },
       //  admin
       {
-        path:'/dashboard',
+        path:'admin',
         element : <AdminDashboardPage></AdminDashboardPage>
       },
       {

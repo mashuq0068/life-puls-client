@@ -119,7 +119,7 @@ if(isLoading ){
     <CircularProgress
 
       sx={{
-        color: '#fda3c4',
+        color: '#f06598',
       }}
     />
   </Box>

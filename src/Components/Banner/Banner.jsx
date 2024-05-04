@@ -1,6 +1,15 @@
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import "./Banner.css"
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import bgBanner from "../../../public/images/bg-beautiful.png"
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 
 
 const Banner = () => {
@@ -9,52 +18,149 @@ const Banner = () => {
     },[])
     return (
         <>
-        <div className="bg-[#fda3c4] hidden md:flex  justify-center h-[120vh] w-full">
-           <div  data-aos-duration="1500" data-aos="fade-left" className="md:h-[60%] relative mt-[10%] flex justify-center items-center  bg-[#ff9ec1] w-[70%] md:w-[70%]  drop-shadow-xl shadow-black shadow-lg" >
-             <img className="md:h-[115%]  -mt-[8%]" src="https://i.ibb.co/yfdXV9Y/depositphotos-200340872-stock-photo-attractive-young-male-female-models-removebg-preview.png" alt="" />
-             <div data-aos-duration="2500" data-aos="fade-left" className=" absolute  uppercase  right-[7%] top-[30%] font-bold 2xl:text-3xl lg:text-2xl spacing lg:block hidden ">
-              <p className=" spacing">Find Your Life Partner</p>
-              <hr className="mt-[5%] mb-[5%] border-2 border-black"/>
-              <p>With Life Puls</p>
-              <hr className="mt-[5%] mb-[5%] border-2 border-black"/>
-           </div>
-           <div className="absolute md:-left-[8%] lg:left-[5%]   uppercase font-bold -left-[16%] rotate-90 2xl:left-[1%] lg:top-[50%]   2xl:text-4xl lg:text-2xl spacing ">
-            <p>Best Platform</p>
-           </div>
-           <div className="absolute lg:block hidden animate-height right-0 h-[145%] w-[50%] rotate-90">
-            
-          <hr  className="border border-white h-full w-full"/>
-         
+      
+        <div
+         style={{
+            backgroundImage: `url(${bgBanner})`
+         }} className=" h-[100vh]   w-full flex xl:mb-[650px] 2xl:mb-[550px]  lg:flex-col    flex-col-reverse items-center">
+            <div className="hero1">
+      <div className="container ">
+        <div>
+          <h1 className="title text-center">
+           Partnering for a Lifetime? It captures the essence of your website's goal of helping life partners find each other for a lifelong journey together.
+          </h1>
+          <div className="hero_buttons_container">
+            <button href="/book-a-demo"><button className="home1_primary_button text-xl btn btn-primary ">Get started</button></button>
+            {/* <button className="home1_primary_button">Let’s Get started</button> */}
+          </div>
+        </div>
+      </div>
+      {/* <Image
+        className="hero1_right_image"
+        src={groupImage}
+        alt="group image"
+      ></Image>
+      <Image className="hero1_left_image" src={polygon} alt="polygon"></Image> */}
+    </div>
+      
+             <div className="hero1_slider">
+      <div className="container">
+        <div className="swipe-container" style={{ position: "relative" }}>
+          <Swiper
+            spaceBetween={20}
+            navigation={{
+              nextEl: ".hero_slide_next",
+              prevEl: ".hero_slide_prev",
+            }}
+            autoplay={{
+              delay: 2500,
+            }}
+            modules={[Autoplay, Navigation, Pagination]}
+            className="mySwiper"
+            style={{ position: "relative" }}
+          >
+            <SwiperSlide>
+              <img
+                className="slider_image"
+                src="https://i.pinimg.com/originals/0b/76/17/0b7617c02b2356156ff6d44d551d916e.jpg"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className="slider_image"
+                src="https://wallpapercave.com/wp/wp2707892.jpg"
+                alt=""
+              />
+            </SwiperSlide>
+          </Swiper>
+          <div>
+            <div className="hero_slide_next  hero_slider_navigator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <path
+                  d="M26 34L36 24L26 14"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 34L22 24L12 14"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div className="hero_slide_prev hero_slider_navigator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <path
+                  d="M22 34L12 24L22 14"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M36 34L26 24L36 14"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
 
-           </div>
-         
-           <div className="absolute -left-[19%] md:-left-[17%] md:w-[50%] md:h-[10%]  lg:-left-[5%] lg:h-[20%] w-[70%] h-[10%] lg:w-[40%] rotate-90">
-            
-          <hr  className="border border-white h-full w-full"/>
-
-           </div>
-           </div>
-           <div data-aos-duration="2500" data-aos="fade-left" className=" lg:hidden block absolute -bottom-[10%] md:-bottom-[20%] uppercase pt-[50%] font-bold 2xl:text-3xl lg:text-2xl spacing  ">
-              <p className=" spacing">Find Your Life Partner</p>
-              <hr className="mt-[5%] mb-[5%] border-2 border-black"/>
-              <p>With Life Puls</p>
-              <hr className="mt-[5%] mb-[5%] border-2 border-black"/>
-           </div>
+          {/* <div className="slider_footer_card">
+            <div className="slider_footer_card_container">
+              <ul>
+                <li>Focuses on school systems to automate their process</li>
+                <li>Provide robust features to schools and students.</li>
+                <li>
+                  Prioritize and focus on students to learn, engage, and give
+                  mobility experience
+                </li>
+              </ul>
+              <button>
+                See More
+                <span>
+                  <svg
+                    width="17"
+                    height="12"
+                    viewBox="0 0 17 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.8222 0L9.64837 1.16829L13.4611 4.97143H0V6.62857H13.4611L9.64004 10.4317L10.8222 11.6L16.6495 5.8L10.8222 0Z"
+                      fill="#27AC1F"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div> */}
+        </div>
+      </div>
+    </div>
+          
         
         </div>
-        <div className=" md:hidden block bg-[#ff9ec1] pt-[10vh]">
-            <div className="bg-[#ff9ec1] w-[80%] mx-auto drop-shadow-xl shadow-xl ">
-                <img src="https://i.ibb.co/yfdXV9Y/depositphotos-200340872-stock-photo-attractive-young-male-female-models-removebg-preview.png" alt="" />
-
-            </div>
-         <div className="mt-[7vh] pb-[7vh] ">
-         <p className="text-center font-bold uppercase spacing">Find Your Life Partner</p>
-              <hr className="mt-[5%] mb-[5%] w-[70%] mx-auto border border-black"/>
-              <p className=" text-center font-bold uppercase spacing">With Life Puls</p>
-              <hr className="mt-[5%] mb-[5%] border w-[80%] mx-auto border-black"/>
-
-         </div>
-        </div>
+       
         </>
     ); 
 };
