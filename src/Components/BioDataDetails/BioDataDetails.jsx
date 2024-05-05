@@ -22,7 +22,7 @@ const BioDataDetails = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [bg, setBg] = useState('bg-[#f178a5]')
+  const [bg, setBg] = useState('bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium')
   const [hoverBg, setHoverBg] = useState('hover:bg-[#f06598]')
   const [isAlert, setIsAlert] = useState(false)
   const { premium } = useCheckPremium()
@@ -65,6 +65,7 @@ const BioDataDetails = () => {
       .then(res => {
 
         if (res?.data?.insertedId) {
+          console.log(res?.data?.insertedId);
           const favorite = document.getElementById('favorite')
           if (!favorite.disabled) {
             handleOpen()
@@ -111,7 +112,7 @@ const BioDataDetails = () => {
   return (
     <>
       {isAlert ?
-        <Alert variant="filled" sx={{ position: "fixed", top: "10%", fontSize: '19px' }} severity="warning">
+        <Alert variant="filled" sx={{ position: "fixed", top: "10%", right:"10%", fontSize: '19px' }} severity="warning">
           This has been already included to favorites
         </Alert> : ""}
       <Modal
@@ -217,8 +218,7 @@ const BioDataDetails = () => {
         <span className="lg:font-bold text-black">Weight</span>: {data?.weight}
       </p>
     { premium?.isPremium && <div>
-     <p className="text-center spacing text-xl pt-[4%] text-black lg:font-bold">Contact</p>
-      <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
+    
       <p className="spacing text-center text-gray-600 pt-[2%]">
         <span className="lg:font-bold text-black">Email</span>: {data?.email}
       </p>
@@ -229,10 +229,10 @@ const BioDataDetails = () => {
       <div className="flex flex-col pt-[10%] gap-5">
         <button id="favorite" onClick={()=>{
           handleFavorite(data?.name , data?.biodataId , data?.division , data?.occupation)
-        }} className={` 2xl:font-semibold ${hoverBg} md:px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
+        }} className={`  ${hoverBg} md:px-4 py-2  spacing text-black drop-shadow-xl  flex items-center justify-center gap-2 ${bg} rounded-lg shadow-xl spacing`}><MdOutlineFavoriteBorder className="text-xl" /> Add to Favorite</button>
         { premium?.isPremium || <button onClick={()=>{
           handleContactRequest(data?.biodataId)
-        }} className="2xl:font-semibold  md:px-4 py-2 hover:bg-[#f06598] spacing text-black drop-shadow-xl   bg-[#f178a5] flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
+        }} className="  md:px-4 py-2 hover:bg-[#f06598] bg-gradient-to-r from-teal-500 to-teal-700 text-white font-medium spacing  drop-shadow-xl rounded-lg   flex  justify-center items-center gap-2 shadow-xl spacing"><MdAddIcCall className="text-xl" />  Request Contact Information</button>}
       </div>
         </div> 
         </div>

@@ -1,58 +1,106 @@
 const AboutUs = () => {
   return (
-    <div className="mt-[5%] lg:w-auto w-[100vw]">
-      <div className="py-16 bg-white">
-        <div className="lg:container shadow-xl lg:m-auto px-6 text-gray-600 md:px-12 xl:px-6">
-          <div className="space-y-6  pb-[5%]  md:space-y-0 flex flex-col justify-center items-center md:gap-6 lg:items-center lg:gap-12">
-            <div className="md:w-5/12 lg:w-5/12">
-              <img
-                src="https://img.freepik.com/free-vector/man-stand-knee-holding-ring-box-making-romantic-proposal-woman-asking-her-marry-him-love-engagement-marriage-concept-characters-loving-relations-cartoon-people-vector-illustration_87771-11839.jpg?size=626&ext=jpg"
-                alt="image"
-                loading="lazy"
-                className="w-full md:w-auto"
-              />
+    <>
+      <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css" />
+      <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
+
+      <section className="relative pt-16 bg-blueGray-50">
+        <div className="container  max-w-[90vw] mx-auto">
+          <div className="flex flex-wrap lg:flex-row flex-col items-center">
+            <div className="w-[90vw] md:w-6/12 lg:w-4/12 lg:px-12 md:px-4 mr-auto ml-auto -mt-78">
+              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-500">
+                <img alt="..." src="https://tse4.mm.bing.net/th?id=OIP.dkBD-tySSh7Dvo4MRCgungHaEo&pid=Api&P=0&h=220" className="w-full align-middle rounded-t-lg" />
+                
+                <blockquote className="relative p-8 mb-4">
+                  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" className="absolute left-0 w-full block h-95-px -top-94-px">
+                    <polygon points="-30,95 583,95 583,65" className="text-pink-500 fill-current"></polygon>
+                  </svg>
+                  <h4 className="text-xl font-semibold text-white">
+                    Create relation with your  partner
+                  </h4>
+                  <p className="text-md  mt-2 font-light  text-white">
+                    We are working hard to find your future husband and wife.
+                    Make your marriage life better to find your perfect partner
+                    from life puls, the whole collection is in your hand.
+                  </p>
+                </blockquote>
+              </div>
             </div>
-            <div className="md:w-7/12 lg:w-6/12">
-              <h2 className="text-2xl text-gray-900 text-center font-bold md:text-4xl">Our Story </h2>
-              <p className="bg-[#f06598] mb-[5%] mx-auto h-1 mt-2 md:hidden lg:block w-[50%]"></p>
-              <p className="mt-6 text-gray-600 ">
-                At Life Puls, we believe in the power of love to transform lives. Our journey began with a simple yet profound vision – to create a platform where individuals could discover meaningful connections and build lifelong partnerships. Over the years, we have evolved into a trusted space, guiding hearts towards companionship and happiness.
-              </p>
-              <p className="mt-4 text-gray-600 ">
-                We are committed to facilitating genuine connections. Our platform goes beyond conventional matchmaking, focusing on understanding individuals on a deeper level. We prioritize compatibility, shared values, and mutual understanding, ensuring that every match has the potential to blossom into a beautiful and lasting relationship.
-              </p>
+
+            <div className="w-full md:w-6/12 px-4">
+              <div className="flex flex-wrap">
+                <div className="w-full md:w-6/12 px-4">
+                  <div className="relative flex flex-col mt-4">
+                    <div className="px-4 py-5 flex-auto">
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-sitemap"></i>
+                      </div>
+                      <h6 className="text-xl mb-1 font-semibold">Find partner</h6>
+                      <p className="mb-4 text-blueGray-500">
+                        This platform help you to find your future husband or wife. Now, you have lots of collection in your hand.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative flex flex-col min-w-0">
+                    <div className="px-4 py-5 flex-auto">
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-drafting-compass"></i>
+                      </div>
+                      <h6 className="text-xl mb-1 font-semibold">
+                        Prevent Late Marriage
+                      </h6>
+                      <p className="mb-4 text-blueGray-500">
+                        Many of us want to marry. But they get late to find someone. So, this platform help you find your choice as fast as possible.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full md:w-6/12 px-4">
+                  <div className="relative flex flex-col min-w-0 mt-4">
+                    <div className="px-4 py-5 flex-auto">
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-newspaper"></i>
+                      </div>
+                      <h6 className="text-xl mb-1 font-semibold">Verification</h6>
+                      <p className="mb-4 text-blueGray-500">
+                        If you want to get rid from fake partner, this website is suggested for your. Because all the details here are verified.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative flex flex-col min-w-0">
+                    <div className="px-4 py-5 flex-auto">
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-file-alt"></i>
+                      </div>
+                      <h6 className="text-xl mb-1 font-semibold">Happy Family</h6>
+                      <p className="mb-4 text-blueGray-500">
+                        We want to make a happy society by creating too many happy families. And we have lots of option to find your best partner.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div className="py-16 bg-white">
-        <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
-          <div className="space-y-6 drop-shadow-xl pb-[5%] shadow-xl md:space-y-0 flex flex-col justify-center items-center md:gap-6 lg:items-center lg:gap-12">
-            <div className="md:w-5/12 mx-auto lg:w-5/12">
-              <img
-                src="https://tse1.explicit.bing.net/th?id=OIP.I8_pJZzDyLmXvMV3QOst6QHaIV&pid=Api&P=0&h=220"
-                alt="image"
-            
-                loading="lazy"
-                className="w-full mx-auto md:w-auto"
-              />
-            </div>
-            <div className="md:w-7/12 lg:w-6/12">
-              <h2 className="text-2xl text-gray-900 text-center font-bold md:text-4xl">Mission Statement</h2>
-              <p className="bg-[#f06598] mb-[5%] h-1 mx-auto mt-2 md:hidden lg:block w-[50%]"></p>
-              <p className="mt-6 text-gray-600 ">
-                Life Puls is more than a matchmaking service; it is a community dedicated to empowering individuals on their journey to find love. We provide a safe and supportive environment where people can explore, connect, and embark on a path to meaningful relationships.
-              </p>
-              <p className="mt-4 text-gray-600 ">
-                Embracing technology, we have redefined the landscape of matchmaking. Our innovative approach combines cutting-edge algorithms with a human touch, allowing us to offer personalized and tailored matchmaking experiences. This blend of science and heart ensures that each match holds the promise of a fulfilling connection.
-              </p>
+      </section>
+      <footer className="relative lg:block md:hidden hidden bg-blueGray-50 pt-8 pb-6 mt-2">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap items-center md:justify-between justify-center">
+            <img width={50}
+              src="https://i.ibb.co/5R6pwng/th-removebg-preview-5.png"
+              alt=""
+
+            />
+            <div className=" w-[100px]  px-4  text-center">
+              <div className="text-sm text-blueGray-500 font-semibold py-1">
+                Made with life puls team
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
+      </footer>
+    </>
   );
 };
 
