@@ -1,3 +1,4 @@
+import { useNavigation } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
 import CounterSection from "../../Components/CounterSection/CounterSection";
 import Footer from "../../Components/Footer/Footer";
@@ -11,9 +12,14 @@ import SuccessStory from "../../Components/SuccessStory/SuccessStory";
 
 
 
+
+
 const HomePage = () => {
+
+ 
     return (
         <div className="">
+           
            <ProfilePicture></ProfilePicture>
            <Banner></Banner>
            <PremiumMembers></PremiumMembers>

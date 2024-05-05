@@ -1,6 +1,6 @@
 
 
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from '@mui/joy/CircularProgress';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';

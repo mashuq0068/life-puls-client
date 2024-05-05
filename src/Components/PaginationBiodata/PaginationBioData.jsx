@@ -4,7 +4,7 @@ import useCountBiodata from "../../Hooks/useCountBiodata";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/system";
-import { CircularProgress } from "@mui/material";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const PaginationBioData = () => {
@@ -46,15 +46,15 @@ const PaginationBioData = () => {
     }
      
      const {biodataCount} = useCountBiodata()
-     console.log(biodataCount)
+  
   
    
      const totalPage = (biodataCount && biodataCount.count) ? Math.ceil(biodataCount.count / perPageData) : 0;
      const pages = [...Array(totalPage).keys()]
     return (
      <div className="lg:block hidden">
-        <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl">All Biodata</h3>
-        <p className=" bg-[#f06598] mb-[5%] h-1 mx-auto w-[50%]"></p>
+        <h3 className=" text-center font-semibold pb-[1%] spacing text-3xl mb-[3%]">All <span className='text-[#f42a41]'>Biodata</span></h3>
+        
        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-y-[1%] gap-x-[5%]">
         {data?.map(biodata => <BioData key={biodata._id} biodata={biodata}></BioData>)}
         
@@ -62,7 +62,7 @@ const PaginationBioData = () => {
        <div className="fixed px-[1%] py-[1%] rounded-lg shadow-black bg-white drop-shadow-xl shadow-xl bottom-[5%] right-[5%] flex gap-1" >
        {pages?.map((page , i) => 
       
-        <button onClick={()=>{setSelectedPage(page)}} className=" focus:border hover:border rounded-lg  bg-glass drop-shadow-xl focus:bg-[#f06598] shadow-xl border hover:bg-[#f06598] border-[#f06598]  px-4 py-2 mr-[2%]" key={i}>{page}</button>
+        <button onClick={()=>{setSelectedPage(page)}} className=" focus:border hover:border rounded-lg  bg-glass drop-shadow-xl focus:bg-gradient-to-r from-rose-500 to-rose-600 hover:text-white hover:font-medium focus:text-white  focus:font-medium shadow-xl border hover:bg-gradient-to-r from-rose-500 to-rose-600 border-rose-600  px-4 py-2 mr-[2%]" key={i}>{page}</button>
        )}
        <select className="bg-glass"  value={perPageData}  onChange={handlePageDataOptions} name="" id="">
                 <option value="6">6</option>

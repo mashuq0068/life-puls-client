@@ -7,7 +7,7 @@ import PaymentForm from "../PayemntForm/PaymentForm";
 import useOneBioData from "../../Hooks/useOneBiodata";
 import useAllBioDataTwo from "../../Hooks/useAllBiodataTwo";
 import { Box } from "@mui/system";
-import { CircularProgress } from "@mui/material";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_KEY)
 

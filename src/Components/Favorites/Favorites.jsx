@@ -1,4 +1,4 @@
-import { CircularProgress, Container, Table } from "@mui/material";
+import {  Container, Table } from "@mui/material";
 import { Box } from "@mui/system";
 import useAuth from "../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
@@ -13,6 +13,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import {   Modal, Typography } from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import React from "react";
+import CircularProgress from '@mui/joy/CircularProgress';
 
 // function createData(name, calories, fat, carbs, protein) {
 //   return { name, calories, fat, carbs, protein };
@@ -65,7 +66,7 @@ const Favorites = () => {
        }
     if(isLoading || loading || isPending){
         return(
-            <Box
+             <Box
             sx={{
               display: 'flex',
               position: 'fixed',
@@ -73,11 +74,7 @@ const Favorites = () => {
               left: '50%',
             }}
           >
-            <CircularProgress
-              sx={{
-                color: '#f06598',
-              }}
-            />
+           <CircularProgress color="danger" size="md" />
           </Box>
         )
     }

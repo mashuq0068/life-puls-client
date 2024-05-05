@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import CircularProgress from '@mui/joy/CircularProgress';
 import { Box } from "@mui/system";
 
 import { useQuery } from "@tanstack/react-query";
@@ -23,7 +23,7 @@ const useContactRequestsByEmail = () => {
     })
     if( isPending){
         return(
-            <Box
+             <Box
             sx={{
               display: 'flex',
               position: 'fixed',
@@ -31,11 +31,7 @@ const useContactRequestsByEmail = () => {
               left: '50%',
             }}
           >
-            <CircularProgress
-              sx={{
-                color: '#f06598',
-              }}
-            />
+           <CircularProgress color="danger" size="md" />
           </Box>
         )
     }

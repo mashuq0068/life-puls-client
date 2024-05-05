@@ -1,10 +1,14 @@
-import AllBioData from "../../Components/AllBioData/AllBioData";
+import { Suspense, lazy } from 'react';
 
+// Lazy load the AllBioData component
+const LazyAllBioData = lazy(() => import('../../Components/AllBioData/AllBioData'));
 
 const BiodatasPage = () => {
     return (
         <div className="pt-[7%]">
-            <AllBioData></AllBioData>
+            <Suspense fallback={<div>Loading...</div>}>
+                <LazyAllBioData />
+            </Suspense>
         </div>
     );
 };

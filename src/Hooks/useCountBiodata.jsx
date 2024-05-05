@@ -2,7 +2,7 @@
 import useAxiosPublic from './useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Box } from '@mui/system';
-import { CircularProgress } from '@mui/material';
+import CircularProgress from '@mui/joy/CircularProgress';
 
 const useCountBiodata = () => {
   const axiosPublic = useAxiosPublic();

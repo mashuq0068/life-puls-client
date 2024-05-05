@@ -30,8 +30,8 @@ const{allCounts} = useAllCounts()
     return (
         <div  className="lg:w-[75vw]  mx-auto  px-[10%] py-[5%] ">
             {/* one grid */}
-            <h3 className="md:mt-32 mt-[20vh] mb-[3%] spacing text-center 2xl:text-3xl font-bold text-2xl"><span className='text-[#f42a41] '>Success </span> Counter</h3>
-     
+            {/* <h3 className="md:mt-32 mt-[20vh] mb-[3%] spacing text-center 2xl:text-3xl font-bold text-2xl"><span className='text-[#f42a41] '>Success </span> Counter</h3>
+      */}
             <div className="w-[85%] relative mx-auto mt-[5%] gap-[5%] grid grid-cols-1 md:grid-cols-2">
            
             {/* first */}
@@ -42,7 +42,8 @@ const{allCounts} = useAllCounts()
               <div className=" space-y-5">
               <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata </h3>
              <div>
-             {isVisible && <CountUp end={7000} duration={5}  className="2xl:text-3xl text-xl text-[#f42a41]   spacing font-semibold"/>}
+             {isVisible && <CountUp end={7000} duration={5}  className="2xl:text-3xl text-xl text-pink-500   spacing font-semibold"/> }
+             <span className="2xl:text-3xl text-xl  text-pink-500   spacing font-semibold">+</span>
              </div>
               </div>
             </div>
@@ -53,7 +54,8 @@ const{allCounts} = useAllCounts()
               <div className=" space-y-5">
               <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Male Biodata</h3>
              <div>
-             {isVisible && <CountUp end={12000} duration={5}  className="2xl:text-3xl text-xl   spacing font-semibold"/>}
+             {isVisible && <CountUp end={12000} duration={5}  className="2xl:text-3xl text-xl text-red-500   spacing font-semibold"/>}
+             <span className="2xl:text-3xl text-xl  text-red-500   spacing font-semibold">+</span>
              </div>
               </div>
             </div>
@@ -71,7 +73,8 @@ const{allCounts} = useAllCounts()
               <div className=" space-y-5">
               <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
              <div>
-             {isVisible && <CountUp end={12000} duration={5}  className="2xl:text-3xl text-xl   spacing font-semibold"/>}
+             {isVisible && <CountUp end={17000} duration={5}  className="2xl:text-3xl text-xl   text-fuchsia-500 spacing font-semibold"/>}
+             <span className="2xl:text-3xl text-xl text-fuchsia-500  spacing font-semibold">+</span>
              </div>
               </div>
             </div>
@@ -82,7 +85,8 @@ const{allCounts} = useAllCounts()
               <div className=" space-y-5">
               <h3 ref={ref}  className=" 2xl:text-2xl text-xl spacing font-semibold">Success Count</h3>
              <div>
-             {isVisible && <CountUp end={12000} duration={5}  className="2xl:text-3xl text-xl   spacing font-semibold"/>}
+             {isVisible && <CountUp end={800} duration={5}  className="2xl:text-3xl text-xl text-teal-500  spacing font-semibold"/>}
+             <span className="2xl:text-3xl text-xl  text-teal-500   spacing font-semibold">+</span>
              </div>
               </div>
             </div>

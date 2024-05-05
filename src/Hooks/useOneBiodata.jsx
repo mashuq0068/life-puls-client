@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
+import CircularProgress from '@mui/joy/CircularProgress';
 
 
 const useOneBioData = () => {
@@ -18,7 +19,7 @@ const useOneBioData = () => {
     })
     if(isLoading || loading || isPending){
         return(
-            <Box
+             <Box
             sx={{
               display: 'flex',
               position: 'fixed',
@@ -26,11 +27,7 @@ const useOneBioData = () => {
               left: '50%',
             }}
           >
-            <CircularProgress
-              sx={{
-                color: '#f06598',
-              }}
-            />
+           <CircularProgress color="danger" size="md" />
           </Box>
         )
     }

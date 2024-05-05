@@ -26,8 +26,12 @@ const Navbar = () => {
   }
   // const {isAdmin} = useCheckAdmin()
   const handleReloadBiodatas = () => {
-    navigate('/biodatas')
-    window.location.reload(false);
+    
+      navigate('/biodatas')
+
+  
+    
+    // window.location.reload(false);
   }
   const handleLogOut = () => {
     logOutUser()
