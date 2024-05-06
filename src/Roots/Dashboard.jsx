@@ -9,6 +9,16 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import useCheckAdmin from '../Hooks/useCheckAdmin';
+import { LuLayoutDashboard } from "react-icons/lu";
+import { FaUsersCog } from "react-icons/fa";
+import { MdOutlineWorkspacePremium } from "react-icons/md";
+import { MdOutlineContactSupport } from "react-icons/md";
+import { LiaHistorySolid } from "react-icons/lia";
+import { CiLogout } from "react-icons/ci";
+import { FaRegEdit } from "react-icons/fa";
+import { GrView } from "react-icons/gr";
+import { MdFavoriteBorder } from "react-icons/md";
+import { GiWineGlass } from "react-icons/gi";
 
 const AlertDialog = ({ open, handleClose }) => {
   const {logOutUser}  = useAuth()
@@ -121,42 +131,20 @@ const Dashboard = () => {
          {/* user */}
    { !isAdmin?.admin ? <div className=" flex  ">
    
-     <div className=' z-10  overflow-hidden w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
-      <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
+     <div style={{
+            backgroundImage: `url(https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
+         }} className=' z-10  overflow-hidden w-[15%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+     <div className=' w-full h-screen bg-black pt-[25%] bg-opacity-50 backdrop-blur'>
+      <div id='dashboard' className="flex flex-col text-white    2xl:text-md  space-y-7  2xl:space-y-12 text-base spacing  ml-[10%] ">
        
-       <NavLink className='' to="/dashboard/edit">Edit Biodata</NavLink>
-        <NavLink className='' to="/dashboard/view">View Biodata</NavLink>
-        <NavLink className='' to="/dashboard/contactRequest">My Contact Request</NavLink>
-        <NavLink onClick={handleReload} className='' to="/dashboard/favorites">My Favorites Biodata </NavLink>
-        <NavLink  className='' to="/dashboard/gotMarried">Got Married</NavLink>
-        <Button
-          onClick={handleLogout}
-          sx={{
-            fontSize:'18px',
-            textAlign: 'left',
-            textBase: '1rem',
-            letterSpacing: '3px',
-            fontWeight: '700',
-            position:'relative',
-            right:'40%',
-           
-            color:'black',
-            textTransform:'capitalize',
-            filter:' drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))',
-            // boxShadow : '0px 0px 1px 1px',
-            '@media (max-width: 1700px)': {
-              // Styles for screens with a maximum width of 1700px
-              fontSize: '15px', 
-              letterSpacing:'0px',
-              fontWeight:'800',
-              position:'relative',
-              right:'40%',// Adjust as needed
-            },
-          }}
-        >
-          Logout
-        </Button>
+       <NavLink className='flex gap-2 items-center' to="/dashboard/edit"><FaRegEdit className='2xl:text-lg' />Edit Biodata</NavLink>
+        <NavLink className='flex gap-2 items-center' to="/dashboard/view"><GrView />View Biodata</NavLink>
+        <NavLink className='flex gap-2 items-center' to="/dashboard/contactRequest"><MdOutlineContactSupport className='2xl:text-lg'/>My Contact Request</NavLink>
+        <NavLink onClick={handleReload} className='flex gap-2 items-center' to="/dashboard/favorites"><MdFavoriteBorder />My Favorite Biodata </NavLink>
+        <NavLink  className='flex gap-2 items-center' to="/dashboard/gotMarried"><GiWineGlass className='2xl:text-lg'/>Got Married</NavLink>
+        <button className='flex gap-2 items-center w-max'   onClick={handleLogout}><CiLogout className='2xl:text-lg font-bold'/>Logout</button>
 
+      </div>
       </div>
      
       
@@ -166,7 +154,7 @@ const Dashboard = () => {
     </div>
     
 {/* outlet */}
-    <div className='relative left-[25%]'>
+    <div className='relative left-[15%] w-[85%]'>
     <Outlet></Outlet>
     </div>
     </div>
@@ -177,46 +165,24 @@ const Dashboard = () => {
         //  {/* admin*/}
     :<div className=" flex  overflow-hidden ">
    
-     <div className=' z-10  overflow-hidden w-[25%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
-      <div id='dashboard' className="flex flex-col 2xl:text-lg space-y-7  2xl:space-y-12 text-base spacing font-bold ml-[10%] mt-[30%]">
+     <div   style={{
+            backgroundImage: `url(https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
+         }} className=' z-10 overflow-hidden w-[15%]    fixed  flex-col drop-shadow-xl shadow-xl  h-screen'>
+     <div className=' w-full h-screen bg-black pt-[25%] bg-opacity-50 backdrop-blur'>
+     <div id='dashboard' className="flex flex-col   text-white    2xl:text-md space-y-7  2xl:space-y-12 text-base  ml-[10%] ">
        
-       <NavLink className='' to="/dashboard/admin">Admin Dashboard</NavLink>
-        <NavLink className='' to="/dashboard/manageUsers">Manage Users</NavLink>
-        <NavLink className='' to="/dashboard/approvedPremium"> Premium Requests</NavLink>
-        <NavLink  className='' to="/dashboard/approvedContactRequest">Contact Request</NavLink>
-        <NavLink  className='' to="/dashboard/successStories">Success Stories</NavLink>
-        <Button
-          onClick={handleLogout}
-          sx={{
-            fontSize:'18px',
-            textAlign: 'left',
-            textBase: '1rem',
-            letterSpacing: '3px',
-            fontWeight: '700',
-            position:'relative',
-            right:'40%',
-           
-            color:'black',
-            textTransform:'capitalize',
-            filter:' drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))',
-            // boxShadow : '0px 0px 1px 1px',
-            '@media (max-width: 1700px)': {
-              // Styles for screens with a maximum width of 1700px
-              fontSize: '15px', 
-              letterSpacing:'0px',
-              fontWeight:'800',
-              position:'relative',
-              right:'40%',// Adjust as needed
-            },
-          }}
-        >
-          Logout
-        </Button>
+       <NavLink className='flex gap-2 items-center' to="/dashboard/admin"><LuLayoutDashboard className='2xl:text-lg'/> Admin Dashboard</NavLink>
+        <NavLink className='flex gap-2 items-center' to="/dashboard/manageUsers"><FaUsersCog  className='2xl:text-lg'/> Manage Users</NavLink>
+        <NavLink className='flex gap-2 items-center' to="/dashboard/approvedPremium"><MdOutlineWorkspacePremium className='2xl:text-lg'/> Premium Requests</NavLink>
+        <NavLink  className='flex gap-2 items-center' to="/dashboard/approvedContactRequest"><MdOutlineContactSupport className='2xl:text-lg'/>Contact Request</NavLink>
+        <NavLink  className='flex gap-2 items-center' to="/dashboard/successStories"><LiaHistorySolid className='2xl:text-lg'/>Success Stories</NavLink>
+        <button className='flex gap-2 items-center w-max'   onClick={handleLogout}><CiLogout className='2xl:text-lg font-bold'/>Logout</button>
+      
+        
 
       </div>
-      {/* <div className='w-[30vw] custom-rotation h-[20vh] absolute -bottom-[10vh]  bg-[#f06598] '>
-
-      </div> */}
+     </div>
+     
      
       
       
@@ -225,7 +191,7 @@ const Dashboard = () => {
     </div>
     
 {/* outlet */}
-    <div className='relative left-[25%]'>
+    <div className='relative left-[15%]'>
     <Outlet></Outlet>
     </div>
     </div>}

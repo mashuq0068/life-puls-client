@@ -10,12 +10,14 @@ import Slide from '@mui/material/Slide';
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useOneBioData from "../../Hooks/useOneBiodata";
 import { TbPremiumRights } from "react-icons/tb";
+import bgBanner from "../../../public/images/bg-beautiful.png"
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Alert, Modal, Typography } from "@mui/material";
 // import { Box } from "@mui/system";
 import useAuth from "../../Hooks/useAuth";
 import React, { useState } from "react";
 import { Box } from '@mui/system';
+import { MdAddIcCall, MdOutlineFavoriteBorder, MdOutlineWorkspacePremium } from 'react-icons/md';
 
 
 
@@ -122,9 +124,9 @@ const ViewBioData = () => {
           
         </Box>
       </Modal> 
-       <div>
+       {/* <div>
     <div className="mt-[12%] px-[10%] w-[80vw] flex justify-between  ">
-        {/* details */}
+      
        
         <div className=" text-lg relative h-max space-y-3 drop-shadow-xl shadow-black shadow-xl px-[10%] mt-[10%] 2xl:mt-[5%] p-[5%] ">
       <div className="details-picture absolute -top-[10%] left-[23%] 2xl:left-[30%] drop-shadow-xl shadow-xl shadow-black">
@@ -206,7 +208,115 @@ const ViewBioData = () => {
         <button onClick={handleClickOpen} className="w-[120%] -left-[10%] rounded-md mr-[10%] spacing bg-[#f06598] drop-shadow-xl shadow-xl fixed -bottom-[10%] hover:bg-[#e25488] py-2">Make Biodata to premium</button>
        </div>
         </div>
+        </div> */}<div style={{
+        backgroundImage: `url(${bgBanner})`
+      }} className=" px-[3%] h-[100vh]    md:px-[10%]  ">
+        {/* details */}
+        <div className=" flex gap-[10%]  justify-between">
+          {/* left */}
+        <div className="">
+        <div className="mt-36 mb-12 max-w-[200px] rounded-lg max-h-[200px] overflow-hidden">
+            <img className="w-[100%] h-[100%] object-cover" src={data?.profileLink} alt="" />
+
+           </div>
+          <div className=" space-y-7">
+          <p className="lg:max-w-[50vw]">
+              Hey there,
+
+              I'm someone who finds beauty in simplicity and treasures authentic connections. With a warm smile and compassionate eyes, I stand tall, embracing life with an optimistic spirit. Passionate about literature and music, I seek solace in the pages of a good book and find joy in discovering new melodies.Professionally, I'm driven and strive for success while maintaining a balance between work and life. Integrity and kindness are at the core of everything I do, and I believe in the power of empathy and understanding.
+
+              In relationships, I'm fiercely loyal and supportive, valuing open communication and mutual respect. I cherish the bonds I share with loved ones and am always ready to embark on new adventures and create lasting memories together.
+            </p>
+           <p className="lg:max-w-[50vw]">
+
+              In relationships, I'm fiercely loyal and supportive, valuing open communication and mutual respect. I cherish the bonds I share with loved ones and am always ready to embark on new adventures and create lasting memories together.
+            </p>
+           <p className="lg:max-w-[50vw]">
+             
+
+              I'm someone who finds beauty in simplicity and treasures authentic connections. With a warm smile and compassionate eyes, I stand tall, embracing life with an optimistic spirit. Passionate about literature and music, I seek solace in the pages of a good book and find joy in discovering new melodies.Professionally, I'm driven and strive for success while maintaining a balance between work and life. 
+            </p>
+          </div>
         </div>
+        {/* right */}
+         <div className="text-lg  mt-[100px] w-[40%] p-[3%] h-max space-y-3  rounded-xl shadow-xl  ">
+     
+     
+         <p className="spacing text-gray-600">
+          <span className="lg:font-bold text-black">Name</span> : {data?.name}
+          </p>
+        <p className="spacing text-gray-600 ">
+          <span className="lg:font-bold text-black">Gender</span> : {data?.biodataType}
+        </p>
+        
+        <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Date of Birth</span>: {data?.DateOfBirth}
+      </p>
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Age</span>: {data?.age}
+      </p>
+      {/* <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Biodata ID</span>: {data?.biodataId}
+      </p> */}
+    
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Permanent Division</span>: {data?.division}
+      </p>
+    
+      {/* <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Expected Partner Age</span>: {data?.expectedPartnerAge}
+      </p>
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Expected Partner Height</span>: {data?.expectedPartnerHeight}
+      </p>
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Expected Partner Weight</span>: {data?.expectedPartnerWeight}
+      </p> */}
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Fathers Name</span>: {data?.fathersName}
+      </p>
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Height</span>: {data?.height}
+      </p>
+      
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Mothers Name</span>: {data?.mothersName}
+      </p>
+      
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Occupation</span>: {data?.occupation}
+      </p>
+      
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Race</span>: {data?.race}
+      </p>
+      <p className="spacing text-gray-600">
+        <span className="lg:font-bold text-black">Weight</span>: {data?.weight}
+      </p>
+    <div>
+    
+      <p className="spacing  text-gray-600 pt-[2%]">
+        <span className="lg:font-bold text-black">Email</span>: {data?.email}
+      </p>
+      <p className="spacing  text-gray-600 mt-3">
+        <span className="lg:font-bold text-black">Mobile Number</span>: {data?.mobileNumber}
+      </p>
+     </div>
+      <div className="flex flex-col pt-[10%] gap-5">
+        <button id="favorite" onClick={()=>{
+          handleClickOpen()
+         
+        }} className={`  md:px-4 py-2 bg-gradient-to-r from-rose-500 to-rose-600 text-white  font-medium  drop-shadow-xl  flex items-center justify-center gap-2 $ rounded-lg shadow-xl spacing`}><MdOutlineWorkspacePremium /> Request premium</button>
+       
+      </div>
+        </div> 
+        </div>
+
+       
+
+
+
+      </div>
         </>
     );
 }};

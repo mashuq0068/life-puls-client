@@ -111,7 +111,7 @@ const GotMarried = () => {
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block   text-base 2xl:text-lg font-medium text-[#07074D]"
         >
           Self Biodata Number
         </label>
@@ -119,15 +119,15 @@ const GotMarried = () => {
          {...register("selfBiodataNumber" , {required : true})}
           type="text"
           placeholder="Self Biodata Number"
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.selfBiodataNumber && <span className=" text-red-600 spacing"> Self Biodata Number is required </span>}
+        {errors.selfBiodataNumber && <span className=" text-red-600 "> Self Biodata Number is required </span>}
       </div>
       
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block   text-base 2xl:text-lg font-medium text-[#07074D]"
         >
           Partner Biodata Number
         </label>
@@ -135,14 +135,14 @@ const GotMarried = () => {
          {...register("partnerBiodataNumber" , {required : true})}
           type="text"
           placeholder="Partner Biodata Number"
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.partnerBiodataNumber && <span className=" text-red-600 spacing"> Partner Biodata Number is required </span>}
+        {errors.partnerBiodataNumber && <span className=" text-red-600 "> Partner Biodata Number is required </span>}
       </div>
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block   text-base 2xl:text-lg font-medium text-[#07074D]"
         >
           Marriage Date
         </label>
@@ -150,14 +150,14 @@ const GotMarried = () => {
          {...register("marriageDate" , {required : true})}
           type="date"
           placeholder="Marriage Date"
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.marriageDate && <span className=" text-red-600 spacing"> Marriage Date Number is required </span>}
+        {errors.marriageDate && <span className=" text-red-600 "> Marriage Date Number is required </span>}
       </div>
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block   text-base 2xl:text-lg font-medium text-[#07074D]"
         >
          Rating
         </label>
@@ -165,29 +165,29 @@ const GotMarried = () => {
          {...register("rating" , {required : true})}
           type="number"
           placeholder="Rating"
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.rating && <span className=" text-red-600 spacing"> Rating is required </span>}
+        {errors.rating && <span className=" text-red-600 "> Rating is required </span>}
       </div>
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing  text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block   text-base 2xl:text-lg font-medium text-[#07074D]"
         >
         Self Gender
         </label>
         <select {...register("gender" , {required : true})}
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" name="" id="">
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" name="" id="">
           <option value=""></option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
-        {errors.gender && <span className=" text-red-600 spacing"> Gender is required </span>}
+        {errors.gender && <span className=" text-red-600 "> Gender is required </span>}
       </div>
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block  text-base 2xl:text-lg font-medium text-[#07074D]"
         >
          Couple or single Image Link
         </label>
@@ -195,14 +195,14 @@ const GotMarried = () => {
          {...register("image" , {required : true})}
           type="text"
           placeholder="Couple or single Image Link"
-          className="w-full rounded-md border spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.image && <span className=" text-red-600 spacing"> image is required </span>}
+        {errors.image && <span className=" text-red-600 "> image is required </span>}
       </div>
       <div className="mb-5">
         <label
          
-          className="mb-3 block spacing text-base 2xl:text-lg font-medium text-[#07074D]"
+          className="mb-3 block  text-base 2xl:text-lg font-medium text-[#07074D]"
         >
          Success Story
         </label>
@@ -211,15 +211,16 @@ const GotMarried = () => {
 
           type="text"
           placeholder="Success Story"
-          className="w-full rounded-md border h-[30vh] spacing border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border h-[30vh]  border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        {errors.story && <span className=" text-red-600 spacing"> story is required </span>}
+        {errors.story && <span className=" text-red-600 "> story is required </span>}
       </div>
       
     
         <button
        
-          className="hover:shadow-form spacing rounded-md bg-[#ec6b9b] py-3 px-8 text-base font-semibold uppercase outline-none"
+       className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"
+       
         >
         Submit
         </button>

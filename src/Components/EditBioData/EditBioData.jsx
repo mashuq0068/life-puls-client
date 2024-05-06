@@ -6,6 +6,7 @@ import React from "react";
 // import useOneBioData from "../../Hooks/useOneBiodata";
 import { useQuery } from '@tanstack/react-query';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import bgBanner from "../../../public/images/bg-beautiful.png"
 
 
 
@@ -280,7 +281,7 @@ const EditBioData = () => {
           </Typography>
         </Box>
       </Modal>
-        <div className="w-[75vw]">
+        <div  className="w-[75vw]">
 <div className="flex items-center w-full justify-center p-12">
  
   <div className="mx-auto w-full max-w-[550px]">
@@ -295,7 +296,7 @@ const EditBioData = () => {
         <select placeholder="Full Name"
         required
           name="biodataType"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" >
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md" >
             <option value={biodata?.biodataType}>{biodata?.biodataType}</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -316,7 +317,7 @@ const EditBioData = () => {
           type="text"
           defaultValue ={biodata?.name}
           placeholder="Name"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -332,7 +333,7 @@ const EditBioData = () => {
           defaultValue ={biodata?.profileLink}
          name="profileLink"
           placeholder="Profile Image Link"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -351,7 +352,7 @@ const EditBioData = () => {
           }
            required
           placeholder="Date of Birth"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       
       </div>
@@ -369,7 +370,7 @@ const EditBioData = () => {
           placeholder="Height"
           required
           defaultValue={biodata?.height}
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
          </div>
       <div className="mb-5">
@@ -386,7 +387,7 @@ const EditBioData = () => {
           defaultValue={biodata?.weight}
          required
           placeholder="Weight"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
          </div>
       <div className="mb-5">
@@ -403,7 +404,7 @@ const EditBioData = () => {
           
          name="age"
           placeholder="Age"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -422,7 +423,7 @@ const EditBioData = () => {
         
          
           placeholder="Occupation"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
          </div>
       <div className="mb-5">
@@ -439,7 +440,7 @@ const EditBioData = () => {
           required
           name="race"
           placeholder="Race"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       
       </div>
@@ -456,7 +457,7 @@ const EditBioData = () => {
           defaultValue={biodata?.fathersName}
           name="fathersName"
           placeholder="Fathers Name"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -473,7 +474,7 @@ const EditBioData = () => {
           name="mothersName"
           defaultValue={biodata?.mothersName}
           placeholder="Mothers Name"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -487,7 +488,7 @@ const EditBioData = () => {
         // {...register("division" , {required: !biodata ? true : false})}
          required
          placeholder="Permanent Division Name"
-         className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md">
+         className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md">
         <option value={biodata?.division}>{biodata?.division}</option>
         <option value="Dhaka">Dhaka</option>
         <option value="khulna">Khulna</option>
@@ -512,7 +513,7 @@ const EditBioData = () => {
           // {...register("expectedPartnerAge")}
          defaultValue={biodata?.expectedPartnerAge}
           placeholder="Expected Partner Age"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -529,7 +530,7 @@ const EditBioData = () => {
           required
          defaultValue={biodata?.expectedPartnerHeight}
           placeholder="Expected Partner Height"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
          
       </div>
@@ -549,7 +550,7 @@ const EditBioData = () => {
          required
          
           placeholder="Expected Partner Weight"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
         
       </div>
@@ -567,7 +568,7 @@ const EditBioData = () => {
          readOnly
          defaultValue={user?.email}
           placeholder="Age"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -584,7 +585,7 @@ const EditBioData = () => {
          name="number"
          required
           placeholder="Mobile Number"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md border border-[#e0e0e0]   py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
          
       </div>
@@ -592,7 +593,7 @@ const EditBioData = () => {
     
         <button
        
-          className="hover:shadow-form rounded-md bg-[#ec6b9b] py-3 px-8 text-base font-semibold uppercase outline-none"
+          className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"
         >
          Save && publish biodata
         </button>

@@ -10,6 +10,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 // import useAuth from "../../Hooks/useAuth";
 import usePremiums from "../../Hooks/usePremiums";
 import { useState } from "react";
+import { MdOutlineWorkspacePremium } from "react-icons/md";
 
 
 
@@ -92,22 +93,22 @@ const ApprovedPremium = () => {
   </Modal>
         <Container sx={{display:'flex' , justifyContent:'center' , marginLeft:'10%'}}>
         <TableContainer sx={{width:'max-content' , marginLeft:'auto', marginRight:'auto' }} component={Paper}>
-      <Table sx={{ minWidth: 650,fontSize:'20px',width:'60vw', marginTop:'10%' }} aria-label="simple table">
+      <Table sx={{ minWidth: 650,fontSize:'16px',width:'60vw', marginTop:'2%' }} aria-label="simple table">
         <TableHead>
           <TableRow>
            
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Name</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Name</TableCell>
         
            
           
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Email</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Email</TableCell>
          
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Biodata Id</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Biodata Id</TableCell>
           
           
            
          
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Action</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Action</TableCell>
        
           
           
@@ -131,16 +132,13 @@ const ApprovedPremium = () => {
             
             }
             >  
-             <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.name}</TableCell>
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.email}</TableCell>
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.biodataId}</TableCell>
+             <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.name}</TableCell>
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.email}</TableCell>
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px'}} align="center">{request?.biodataId}</TableCell>
             
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' , display:'flex', justifyContent:'center' } , color:'gray', letterSpacing:'1px'}} align="center">
                 <button onClick={()=>{handlePremium(request?.email)}} 
-               className={`bg-[#f06598]  hover:bg-[#d34478] px-3 py-2 rounded-md spacing drop-shadow-xl shadow-xl text-black 2xl:text-xl`}>
-                Approved Premium
-                
-                </button>
+              className="hover:shadow-form  bg-gradient-to-r from-rose-500 flex items-center gap-2 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"><MdOutlineWorkspacePremium className=" text-lg" /> Approve Request</button>
                </TableCell>
              </TableRow>
              )}

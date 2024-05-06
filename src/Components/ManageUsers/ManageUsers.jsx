@@ -1,4 +1,4 @@
-import { CircularProgress, Container, Modal, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Container, Modal, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import Paper from '@mui/material/Paper';
 
 
@@ -12,6 +12,10 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
+import { GrUserAdmin } from "react-icons/gr";
+import { MdOutlineWorkspacePremium } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
+import CircularProgress from '@mui/joy/CircularProgress';
 // import useSearchData from "../../Hooks/useSearchData";
 
 // import { useQuery } from "@tanstack/react-query";
@@ -113,15 +117,10 @@ if(isLoading ){
       display: 'flex',
       position: 'fixed',
       top: '50%',
-      left: '57%',
+      left: '50%',
     }}
   >
-    <CircularProgress
-
-      sx={{
-        color: '#f06598',
-      }}
-    />
+   <CircularProgress color="danger" size="md" />
   </Box>
   )
 }
@@ -161,7 +160,7 @@ if(isLoading ){
      </Typography>
     </Box>
   </Modal>
-  <form onSubmit={handleSearch} className="sticky w-[50vw] drop-shadow-xl shadow-xl mx-auto left-[30vw] top-0">
+  <form onSubmit={handleSearch} className="fixed top-0 left-[22.3vw] z-20 w-[60.7%] shadow-md drop-shadow-md    ">
            <div className=" flex">
            {/* <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
                Search
@@ -172,30 +171,30 @@ if(isLoading ){
           type="text"
           name="name"
           placeholder="Search By Name"
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-4 text-base font-medium text-[black] 2xl:text-lg spacing outline-none focus:border-[#e75e91] focus:shadow-md"
+          className="w-full rounded-md rounded-r-none border border-[#e0e0e0] bg-white py-3 px-4 text-base font-medium text-[black]   outline-none focus:border-[#e75e91] focus:shadow-md"
         />
-        <button className="bg-[#fc7aaa]  text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Search</button>
+        <button  className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-l-none rounded-lg flex items-center gap-2 outline-none"><BsSearch/> Search</button>
            </div>
            </form>
         <Container sx={{display:'flex' , justifyContent:'center' , marginLeft:'10%'}}>
         <TableContainer sx={{width:'max-content' , marginLeft:'auto', marginRight:'auto' }} component={Paper}>
-      <Table sx={{ minWidth: 650,fontSize:'20px',width:'60vw', marginTop:'10%' }} aria-label="simple table">
+      <Table sx={{ minWidth: 650,fontSize:'16px',width:'60vw', marginTop:'5%' }} aria-label="simple table">
         <TableHead>
           <TableRow>
            
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">User Name</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">User Name</TableCell>
         
            
           
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">User Email</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">User Email</TableCell>
          
-           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Actions</TableCell>
+           <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Actions</TableCell>
           
           
           
        
           
-            {/* <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Biodata Id</TableCell>
+            {/* <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'16px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Biodata Id</TableCell>
 
             <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Permanent Address</TableCell>
             <TableCell sx={{ '@media (min-width: 1700px)': {fontSize:'20px' , fontWeight:'bold'},fontWeight:'bold'}} align="center">Occupation</TableCell>
@@ -223,16 +222,21 @@ if(isLoading ){
         
         }
         >  
-         <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.name}</TableCell>
-         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.email}</TableCell>
-         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px' , display:'flex' , justifyContent:'space-between' , alignItems:'center'}} align="center">
-        {user?.role === "admin" ? <p className="text-center w-max ml-[10%] spacing text-black font-bold">Admin</p> : 
+         <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.name}</TableCell>
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.email}</TableCell>
+         <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray', letterSpacing:'1px' , display:'flex' , justifyContent:'center' , alignItems:'center'}} align="center">
+       <div className="flex gap-12 items-center justify-center">
+       {user?.role === "admin" ? <p className="text-center flex items-center gap-2 w-max ml-[10%] spacing  text-green-500 font-semibold"><GrUserAdmin/>Admin</p> : 
         <button onClick={()=>{handleAdmin(user?._id)}}
-      className="bg-[#fc7aaa] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Admin</button>
-      }
-         {user?.isPremium ? <p className="text-center w-max mr-[10%] spacing text-black font-bold">Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
+        className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl flex items-center gap-2 shadow-xl rounded-lg outline-none"
+        ><GrUserAdmin />Make Admin</button>}
       
-      className="bg-[#fc7aaa] ml-[5%] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Premium</button>}
+         {user?.isPremium ? <p className=" text-green-500 flex items-center gap-2 font-semibold mr-[3vw]"><MdOutlineWorkspacePremium className=" text-lg" />Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
+      
+      
+      className="hover:shadow-form  whitespace-nowrap  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium flex items-center gap-2 drop-shadow-xl shadow-xl rounded-lg outline-none"
+      ><MdOutlineWorkspacePremium className=" text-lg"/> Make Premium</button>}
+      </div>
          </TableCell>
          {/* <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.mobileNumber}</TableCell>
          <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.email}</TableCell>
@@ -261,16 +265,16 @@ if(isLoading ){
             
             }
             >  
-             <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.name}</TableCell>
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.email}</TableCell>
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px' , display:'flex' , justifyContent:'space-between' , alignItems:'center'}} align="center">
-            {user?.role === "admin" ? <p className="text-center w-max ml-[10%] spacing text-black font-bold">Admin</p> : 
-            <button onClick={()=>{handleAdmin(user?._id)}}
-          className="bg-[#fc7aaa] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Admin</button>
+             <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray'}} align="center">{user?.name}</TableCell>
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray'}} align="center">{user?.email}</TableCell>
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray' , display:'flex' , justifyContent:'space-between' , alignItems:'center'}} align="center">
+            {user?.role === "admin" ? <p className="text-center w-max ml-[10%] text-green-500  spacing  font-semibold flex items-center gap-2"><GrUserAdmin/> Admin</p> : 
+            <button  className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl flex items-center gap-2 shadow-xl rounded-lg outline-none" onClick={()=>{handleAdmin(user?._id)}}
+        ><GrUserAdmin />Make Admin</button>
           }
-             {user?.isPremium ? <p className="text-center w-max mr-[10%] spacing text-black font-bold">Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
+             {user?.isPremium ? <p className=" text-green-500 flex items-center gap-2 font-semibold mr-[3vw]"><MdOutlineWorkspacePremium className=" text-lg" />Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
           
-          className="bg-[#fc7aaa] ml-[5%] text-black spacing hover:bg-[#d34478] px-3 py-2 rounded-md">Make Premium</button>}
+          className="hover:shadow-form  bg-gradient-to-r from-rose-500 flex items-center gap-2 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"><MdOutlineWorkspacePremium className=" text-lg" /> Make Premium</button>}
              </TableCell>
              {/* <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.mobileNumber}</TableCell>
              <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.email}</TableCell>

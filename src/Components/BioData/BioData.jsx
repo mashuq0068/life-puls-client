@@ -32,7 +32,7 @@ const BioData = ({biodata}) => {
                 <p className="mt-2 spacing ">Age : {age}</p>
                
                 <p className="mt-2 spacing">Occupation : {occupation}</p>
-                <button onClick={handleViewProfile} className="mt-4 px-4 py-2 bg-gradient-to-r from-rose-400 to-rose-600 text-white font-medium spacing   drop-shadow-xl  hover:bg-[rgb(178,63,76)] shadow-xl">View Profile</button>
+                <button onClick={handleViewProfile} className="mt-4 px-4 rounded-lg drop-shadow-xl shadow-xl py-2 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium spacing     hover:bg-[rgb(178,63,76)] ">View Profile</button>
                 
                 <div className="biodata-picture drop-shadow-xl shadow-lg shadow-[black] absolute left-[30%] -top-[75%]  lg:-top-[75%]">
                     <img className="biodata-profile " src={profileLink} alt="" />

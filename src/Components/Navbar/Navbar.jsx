@@ -5,19 +5,89 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 import toast from 'react-hot-toast';
-// import useCheckAdmin from '../../Hooks/useCheckAdmin';
+import React from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
-// import { useState } from 'react';
-
-
-
-
-// const navItems = ['home', 'about', 'contact'];
+const AlertDialog = ({ open, handleClose }) => {
+  const {logOutUser}  = useAuth()
+  
+  const goForLogout = () => {
+    logOutUser()
+      .then((res) => {
+        if (res) {
+          handleClose(); // Close the logout confirmation dialog
+          toast.success("You logged out successfully");
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+      })
+      .finally(() => {
+        handleClose() // Ensure the dialog is closed in the finally block
+      });
+  };
+  
+  return (
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">Logout Confirmation</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          Are you sure you want to logout?
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={goForLogout} autoFocus>
+          Logout
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
 
 const Navbar = () => {
+  const { user}  = useAuth()
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
+
+  // const AlertDialog = ({ open, handleClose }) => {
+    
+    
+  //   const goForLogout = () => {
+  //     logOutUser()
+  //       .then((res) => {
+  //         if (res) {
+  //           handleClose(); // Close the logout confirmation dialog
+  //           toast.success("You logged out successfully");
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error(error.message);
+  //       })
+  //       .finally(() => {
+  //         handleClose() // Ensure the dialog is closed in the finally block
+  //       });
+  //   };
+  // }
+    
+
+  // const [openSuccessDialog, setOpenSuccessDialog] = React.useState(false);
+
+  const handleLogout = () => {
+    setOpenLogoutDialog(true);
+  };
+
+  const handleCloseLogoutDialog = () => {
+    // goForLogout();
+    setOpenLogoutDialog(false);
+  };
   
   // home an dbiodatas should be handle reload
-  const {user , logOutUser} = useAuth()
+  
   const navigate = useNavigate()
   // const [bgColor , setBgColor] = React.useState("transparent")
   const handleReloadHome = () => {
@@ -33,17 +103,7 @@ const Navbar = () => {
     
     // window.location.reload(false);
   }
-  const handleLogOut = () => {
-    logOutUser()
-    .then(res => {
-      if(res)
-      {
-      toast.success("You has been logged out")
-      }
-    })
-    .catch(error => {
-      console.error(error.message)
-    })}
+  
 
   const links = 
   
@@ -55,7 +115,7 @@ const Navbar = () => {
    <NavLink to={'/about'}>About</NavLink>
    <NavLink to={'/contact'}>Contact</NavLink>
 
- { user  ? <button onClick={handleLogOut} className=' spacing  lg:-ml-0 lg:spacing text-base btn hover:bg-[rgb(178,63,76)] btn-primary bg-gradient-to-r from-rose-500 to-rose-600 border-[#f42a41] hover:border-none'>Logout</button> : 
+ { user  ? <button onClick={handleLogout} className=' spacing  lg:-ml-0 lg:spacing text-base btn hover:bg-[rgb(178,63,76)] btn-primary bg-gradient-to-r from-rose-500 to-rose-600 border-[#f42a41] hover:border-none'>Logout</button> : 
  
  <NavLink to='/login' className=' btn btn-primary hover:border-none bg-gradient-to-r from-rose-500 to-rose-600 border-[#f42a41] hover:bg-[rgb(178,63,76)] spacing  lg:-ml-0 lg:spacing text-base '>Login</NavLink>}
 
@@ -110,7 +170,7 @@ const Navbar = () => {
   
   </div>
 </div>
-       
+<AlertDialog open={openLogoutDialog} handleClose={handleCloseLogoutDialog} />
        </>
     
    ) }
