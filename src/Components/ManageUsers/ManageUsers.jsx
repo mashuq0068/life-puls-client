@@ -75,8 +75,7 @@ const ManageUsers = () => {
     }
  })
   }
-  console.log(searchName)
-  console.log(Search)
+ 
    
   const handlePremium = (email , id) => {
     axiosSecure.patch(`/biodata/premium/${email}`)
@@ -126,7 +125,7 @@ if(isLoading ){
 }
     if(users ){
     return (
-        <>
+        <div className=" relative">
        
        <Modal
        open={open}
@@ -160,7 +159,7 @@ if(isLoading ){
      </Typography>
     </Box>
   </Modal>
-  <form onSubmit={handleSearch} className="fixed top-0 left-[22.3vw] z-20 w-[60.7%] shadow-md drop-shadow-md    ">
+  <form onSubmit={handleSearch} className="2xl:fixed 2xl:left-[22.3%] top-0 lg:left-[12%] lg:absolute z-20 w-[60.7vw]  shadow-md drop-shadow-md    ">
            <div className=" flex">
            {/* <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
                Search
@@ -267,14 +266,14 @@ if(isLoading ){
             >  
              <TableCell sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray'}} align="center">{user?.name}</TableCell>
              <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray'}} align="center">{user?.email}</TableCell>
-             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray' , display:'flex' , justifyContent:'space-between' , alignItems:'center'}} align="center">
+             <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'16px' } , color:'gray' , display:'flex' , justifyContent:'space-between' , alignItems:'center' , gap:'10px'}} align="center">
             {user?.role === "admin" ? <p className="text-center w-max ml-[10%] text-green-500  spacing  font-semibold flex items-center gap-2"><GrUserAdmin/> Admin</p> : 
-            <button  className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl flex items-center gap-2 shadow-xl rounded-lg outline-none" onClick={()=>{handleAdmin(user?._id)}}
+            <button  className="hover:shadow-form  bg-gradient-to-r from-rose-500 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl whitespace-nowrap flex items-center gap-2 shadow-xl rounded-lg outline-none" onClick={()=>{handleAdmin(user?._id)}}
         ><GrUserAdmin />Make Admin</button>
           }
              {user?.isPremium ? <p className=" text-green-500 flex items-center gap-2 font-semibold mr-[3vw]"><MdOutlineWorkspacePremium className=" text-lg" />Premium</p> : <button onClick={()=>{handlePremium(user?.email , user?._id)}}
           
-          className="hover:shadow-form  bg-gradient-to-r from-rose-500 flex items-center gap-2 to-rose-600 text-white py-3 px-8 text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"><MdOutlineWorkspacePremium className=" text-lg" /> Make Premium</button>}
+          className="hover:shadow-form  bg-gradient-to-r from-rose-500 flex items-center gap-2 to-rose-600 text-white py-3 2xl:px-8 px-5 whitespace-nowrap text-base font-medium drop-shadow-xl shadow-xl rounded-lg outline-none"><MdOutlineWorkspacePremium className=" text-lg" /> Make Premium</button>}
              </TableCell>
              {/* <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.mobileNumber}</TableCell>
              <TableCell  sx={{'@media (min-width: 1700px)': {fontSize:'17px' } , color:'gray', letterSpacing:'1px'}} align="center">{user?.status === "pending"?"pending":user?.email}</TableCell>
@@ -291,7 +290,7 @@ if(isLoading ){
       </Table>
     </TableContainer>
     </Container>
-    </>
+    </div>
     );
 }};
 

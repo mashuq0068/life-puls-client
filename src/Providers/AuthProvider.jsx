@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
     const twitterProvider = new TwitterAuthProvider()
     const [user , setUser] = useState(null)
     const [loading , setLoading] = useState(true)
+    const [dashboardAccessType , setDashboardAccessType] = useState("user")
     
     
     const createUser = (email , password) => {
@@ -75,6 +76,7 @@ const AuthProvider = ({ children }) => {
             unsubscribe()
         })
     },[])
+    
   const authInfo = 
   {
     createUser,
@@ -82,6 +84,8 @@ const AuthProvider = ({ children }) => {
     logOutUser,
     userWithGoogle,
     userWithTwitter,
+    setDashboardAccessType,
+    dashboardAccessType,
     user,
     loading
 };

@@ -8,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
-import useCheckAdmin from '../Hooks/useCheckAdmin';
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FaUsersCog } from "react-icons/fa";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
@@ -19,6 +18,8 @@ import { FaRegEdit } from "react-icons/fa";
 import { GrView } from "react-icons/gr";
 import { MdFavoriteBorder } from "react-icons/md";
 import { GiWineGlass } from "react-icons/gi";
+import { Box } from '@mui/system';
+import { CircularProgress } from '@mui/joy';
 
 const AlertDialog = ({ open, handleClose }) => {
   const {logOutUser}  = useAuth()
@@ -87,12 +88,11 @@ const AlertDialog = ({ open, handleClose }) => {
 
 const Dashboard = () => {
   
-  const {isAdmin} = useCheckAdmin()
-  console.log(isAdmin)
+const {dashboardAccessType} = useAuth()
   const navigate = useNavigate()
   const handleReload = () => {
     navigate('/dashboard/favorites')
-    window.location.reload(false)
+   
   }
 
   const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
@@ -109,31 +109,15 @@ const Dashboard = () => {
 
   
 
-  // const handleCloseSuccessDialog = () => {
-  //   setOpenSuccessDialog(false);
-  // };
-
-  // // Mock logOutUser function for illustration
-  // const logoutUser = () => {
-    
-  //   return new Promise((resolve) => {
-  //     // Simulate a logout request
-     
-  //     logOutUser()
-  //     setTimeout(() => {
-  //       resolve(true); // Resolve with true for a successful logout
-  //     }, 1000);
-  //   });
-  // };
-
+  
   return (
     <div className=' overflow-hidden'>
          {/* user */}
-   { !isAdmin?.admin ? <div className=" flex  ">
+   { dashboardAccessType === "user" ? <div className=" flex  ">
    
      <div style={{
             backgroundImage: `url(https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
-         }} className=' z-10  overflow-hidden w-[15%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
+         }} className=' z-10  overflow-hidden 2xl:w-[15%] lg:w-[20%] bg-white shadow-black  fixed top-0 flex-col drop-shadow-xl shadow-xl  h-screen'>
      <div className=' w-full h-screen bg-black pt-[25%] bg-opacity-50 backdrop-blur'>
       <div id='dashboard' className="flex flex-col text-white    2xl:text-md  space-y-7  2xl:space-y-12 text-base spacing  ml-[10%] ">
        
@@ -154,7 +138,7 @@ const Dashboard = () => {
     </div>
     
 {/* outlet */}
-    <div className='relative left-[15%] w-[85%]'>
+    <div className='relative 2xl:left-[15%] lg:left-[20%] 2xl:w-[85%] lg:w-[80%]'>
     <Outlet></Outlet>
     </div>
     </div>
@@ -167,7 +151,7 @@ const Dashboard = () => {
    
      <div   style={{
             backgroundImage: `url(https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
-         }} className=' z-10 overflow-hidden w-[15%]    fixed  flex-col drop-shadow-xl shadow-xl  h-screen'>
+         }} className=' z-10 overflow-hidden 2xl:w-[15%] lg:w-[20%]    fixed  flex-col drop-shadow-xl shadow-xl  h-screen'>
      <div className=' w-full h-screen bg-black pt-[25%] bg-opacity-50 backdrop-blur'>
      <div id='dashboard' className="flex flex-col   text-white    2xl:text-md space-y-7  2xl:space-y-12 text-base  ml-[10%] ">
        
@@ -191,7 +175,7 @@ const Dashboard = () => {
     </div>
     
 {/* outlet */}
-    <div className='relative left-[15%]'>
+    <div className='relative 2xl:left-[15%] lg:left-[20%]'>
     <Outlet></Outlet>
     </div>
     </div>}

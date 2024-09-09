@@ -31,7 +31,7 @@ const SuccessStory = () => {
             interval={2000}
           >
             {ascendingOrder?.map(successStory =>
-              <div className='lg:h-full h-[550px]  w-full flex flex-col items-center gap-[5%] 2xl:text-lg spacing  bg-white' key={successStory?._id}>
+              <div className='lg:h-full h-[550px] lg:pt-[5%]  w-full flex flex-col items-center gap-[5%] 2xl:text-lg spacing  bg-white' key={successStory?._id}>
                 <div className='details-picture drop-shadow-xl shadow-xl shadow-black'>
                   <img className='details-profile drop-shadow-xl shadow-xl shadow-black' src={successStory?.image} alt="" />
                 </div>

@@ -9,6 +9,7 @@ import bgBanner from "../../../public/images/bg-beautiful.png"
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 
 
@@ -30,8 +31,8 @@ const Banner = () => {
            Partnering for a Lifetime? It captures the essence of your website's goal of helping life partners find each other for a lifelong journey together.
           </h1>
           <div className="hero_buttons_container">
-            <button href="/book-a-demo"><button className="home1_primary_button text-xl btn btn-primary ">Get started</button></button>
-            {/* <button className="home1_primary_button">Let’s Get started</button> */}
+            <Link to={'/biodatas'}><button className="home1_primary_button text-xl btn btn-primary ">Get started</button> </Link>
+          {/* <button className="home1_primary_button">Let’s Get started</button> */}
           </div>
         </div>
       </div>

@@ -8,6 +8,9 @@ import PremiumMembers from "../../Components/PremiumMembers/PremiumMembers";
 
 import ProfilePicture from "../../Components/ProfilePicture/ProfilePicture";
 import SuccessStory from "../../Components/SuccessStory/SuccessStory";
+import { useEffect, useState } from "react";
+import { Box, CircularProgress } from "@mui/joy";
+// import OurService from "../../Components/OurService/OurService";
 
 
 
@@ -15,6 +18,7 @@ import SuccessStory from "../../Components/SuccessStory/SuccessStory";
 
 
 const HomePage = () => {
+    
 
  
     return (
@@ -25,6 +29,8 @@ const HomePage = () => {
            <PremiumMembers></PremiumMembers>
             <HowWebsiteWorks></HowWebsiteWorks>
             <CounterSection></CounterSection>
+            {/* <OurService></OurService> */}
+           
             <SuccessStory></SuccessStory>
           
            <Footer></Footer>

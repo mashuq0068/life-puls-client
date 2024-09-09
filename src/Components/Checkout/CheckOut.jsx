@@ -1,5 +1,5 @@
 import {  useParams } from "react-router-dom";
-import { Elements } from "@stripe/react-stripe-js";
+import { Elements, PaymentElement } from "@stripe/react-stripe-js";
 
 import {loadStripe} from '@stripe/stripe-js';
 import PaymentForm from "../PayemntForm/PaymentForm";
@@ -8,17 +8,30 @@ import useOneBioData from "../../Hooks/useOneBiodata";
 import useAllBioDataTwo from "../../Hooks/useAllBiodataTwo";
 import { Box } from "@mui/system";
 import CircularProgress from '@mui/material/CircularProgress';
+import CardForm from "../CardForm/CardForm";
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_KEY)
 
 
 const CheckOut = () => {
     const params = useParams()
+    const axiosSecure = useAxiosSecure()
+    const [clientSecret, setClientSecret] = useState("")
     const {data} = useOneBioData()
     const {allBiodata} = useAllBioDataTwo()
-    console.log(allBiodata)
+
 
     const requested = allBiodata?.filter(biodata => biodata?.biodataId === parseInt(params?.id))
+    useEffect(()=>{
+   
+      axiosSecure.post('/create-payment-intent',{ price:500})
+      .then(res => {
+        console.log(res.data)
+        setClientSecret(res.data.clientSecret)
+      })
+    },[])
     if(!data && !requested){
     
         <Box
@@ -63,12 +76,11 @@ const CheckOut = () => {
            </div>
         <div className="mt-[10%] lg:block hidden  w-max mx-auto">
            <div className=" flex flex-col  items-center">
-           <h1 className="2xl:text-3xl text-2xl font-bold spacing">CheckOut-500 TK</h1>
-           <p className=" bg-[#f06598] mb-[5%]  h-1 mt-[1vh] mx-auto w-[18vw]"></p>
+           <h1 className="2xl:text-3xl text-2xl font-semibold mb-[4%]">Payment (<span className='text-[#f42a41]'>500</span> TK)</h1>
            </div>
-           <form className="flex ml-[10%] flex-wrap gap-[2%]">
-           <div>
-           <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
+           <form className="flex ml-[10%] mb-[5%] flex-wrap gap-[2%]">
+           <div className=" space-y-5">
+           <label className="2xl:text-lg  text-gray-600 font-semibold" htmlFor="biodataId">
                 Biodata Id
             </label>
             
@@ -81,8 +93,8 @@ const CheckOut = () => {
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
            </div>
-           <div>
-           <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
+           <div className=" space-y-5">
+           <label className="2xl:text-lg  text-gray-600 font-semibold" htmlFor="biodataId">
               Self Biodata Id
             </label>
             
@@ -95,8 +107,8 @@ const CheckOut = () => {
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e75e91] focus:shadow-md"
         />
            </div>
-           <div>
-           <label className="2xl:text-lg spacing text-gray-600 font-bold" htmlFor="biodataId">
+           <div className=" space-y-5">
+           <label className="2xl:text-lg  text-gray-600 font-semibold" htmlFor="biodataId">
            Self Email
             </label>
             
@@ -111,8 +123,9 @@ const CheckOut = () => {
            </div>
            </form>
            
+            {/* <PaymentElement/> */}
  <div className="mt-[4%]">
- <Elements stripe={stripePromise} >
+ <Elements stripe={stripePromise} clientSecret={clientSecret} >
      <PaymentForm paymentInfo = {paymentInfo}></PaymentForm>
   </Elements>
  </div>
@@ -124,7 +137,7 @@ const CheckOut = () => {
 else{
   return(
       <div>
-          <p className="2xl:text-3xl text-2xl font-bold spacing text-center text-gray-600 mt-[20%]">May be You did not created any biodata.And We need your biodata Id</p>
+          <p className="2xl:text-3xl text-2xl font-bold  text-center text-gray-600 mt-[20%]">May be You did not created any biodata.And We need your biodata Id</p>
       </div>
   )
 }

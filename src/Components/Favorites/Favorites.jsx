@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import {   Modal, Typography } from "@mui/material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CircularProgress from '@mui/joy/CircularProgress';
 import { Link } from "react-router-dom";
 import { FaRegEdit } from "react-icons/fa";
@@ -27,6 +27,7 @@ import { GrView } from "react-icons/gr";
 const Favorites = () => {
     const axiosSecure = useAxiosSecure()
     const {user , loading} = useAuth()
+    const [isPageReady , setIsPageReady] = useState(false)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -44,7 +45,12 @@ const Favorites = () => {
         p: 4,
         
       };
-    
+    useEffect(()=>{
+      setTimeout(()=>{
+        setIsPageReady(true)
+
+      }, 2000)
+    })
     
    
 
@@ -68,7 +74,7 @@ const Favorites = () => {
         })
        }
        console.log(data);
-    if(isLoading || loading || isPending){
+    if(isLoading || loading || isPending || !isPageReady){
         return(
              <Box
             sx={{

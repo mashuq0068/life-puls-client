@@ -1,6 +1,6 @@
 
 
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { CardElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, {  useEffect, useState } from "react";
 
 
@@ -11,10 +11,12 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import {  Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { MdPayments } from "react-icons/md";
 
 
 
-const PaymentForm = ({paymentInfo}) => {
+const PaymentForm = ({paymentInfo }) => {
+  
     const stripe = useStripe();
     const {user} = useAuth()
     const elements = useElements()
@@ -46,7 +48,6 @@ const PaymentForm = ({paymentInfo}) => {
    
       axiosSecure.post('/create-payment-intent',{ price:500})
       .then(res => {
-        console.log(res.data)
         setClientSecret(res.data.clientSecret)
       })
     },[])
@@ -129,7 +130,7 @@ const PaymentForm = ({paymentInfo}) => {
         </Box>
       </Modal>
       
-        <form onSubmit={handleSubmit} className=" 2xl:text-2xl w-[75vw] mx-auto px-[20%]">
+        <form onSubmit={handleSubmit} className="w-[70vw] 2xl:text-2xl  mx-auto px-[20%]">
         <CardElement
       
       options={{
@@ -149,8 +150,9 @@ const PaymentForm = ({paymentInfo}) => {
         },
       }}
         />
-        <button className=" mt-[4%] bg-[#e782a7] rounded-md px-3 py-2 drop-shadow-xl shadow-xl w-max mx-auto 2xl:text-xl text-lg spacing text-center relative left-[40%]" type="submit" disabled={!stripe || !clientSecret}>
-         CheckOut
+        
+        <button className=" px-4 rounded-lg drop-shadow-xl flex gap-2 items-center shadow-xl py-2 bg-gradient-to-r from-rose-500 to-rose-600 text-white cursor-pointer font-medium  text-base mt-[5%]   w-max mx-auto  hover:bg-[rgb(178,63,76)] " type="submit" disabled={!stripe || !clientSecret}>
+        <MdPayments /> Payment
         </button>
         <p className="text-red-500 text-base mt-5">{error}</p>
       {transactionId && 

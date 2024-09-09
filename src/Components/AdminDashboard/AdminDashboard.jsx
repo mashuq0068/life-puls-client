@@ -1,11 +1,13 @@
-import { FaUserGraduate } from "react-icons/fa";
-import { FaMale } from "react-icons/fa";
-import { FaFemale } from "react-icons/fa";
-import { MdOutlineWorkspacePremium } from "react-icons/md";
-import { TfiWallet } from "react-icons/tfi";
+
 import useAllCounts from "../../Hooks/useAllCounts";
 import useCheckAdmin from "../../Hooks/useCheckAdmin";
-import AdminPieChart from "../PieChart/PieChart";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+import UserActivities from "./UserActivities";
+import Revenue from "./Revenue";
+import SuccessRate from "./SuccessRate";
+
 
 
 
@@ -16,96 +18,99 @@ const AdminHome = () => {
 const{allCounts} = useAllCounts()
 console.log(allCounts)
 const {isAdmin} = useCheckAdmin()
+const { ref, inView } = useInView();
+const [isVisible, setIsVisible] = useState(false);
 
     
-  if(allCounts && isAdmin){
-    return (
-      <>
-        <div className={`w-[75vw]  px-[10%] py-[5%] ${ isAdmin?.admin === true ? "block" : "hidden"}`}>
-            {/* one grid */}
-            <div className="grid grid-cols-3 gap-[5%]">
-           
-            {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
-           <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
-            <p className=" bg-[#f06598] mb-[20%]  h-1 mt-[1vh] w-[100%]"></p>
-           </div>
-           <div className="flex  justify-center items-center gap-[20%] ">
-           <FaUserGraduate className=" text-3xl 2xl:text-4xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.totalBiodata}</p>
+useEffect(() => {
+  if (inView) {
+      setIsVisible(true);
+      
+  }
+}, [inView]);
 
-           </div>
 
-           </div>
-            {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
-           <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Male Biodata</h3>
-            <p className=" bg-[#f06598] mb-[17%]  h-1 mt-[1vh] w-[100%]"></p>
-           </div>
-           <div className="flex  justify-center items-center gap-[20%] ">
-           <FaMale className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.maleBiodata}</p>
 
-           </div>
+if(allCounts){
+return (
+  <div className="2xl:w-[85vw] lg:w-[80vw] mx-auto  px-[5%] py-[5%] ">
+    <div  className=" justify-between flex  ">
 
-           </div>
-            {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
-           <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata</h3>
-            <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
-           </div>
-           <div className="flex  justify-center items-center gap-[20%] ">
-           <FaFemale className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.femaleBiodata}</p>
-
-           </div>
-
-           </div>
-          
-            
-           
+        {/* one grid */}
+        {/* <h3 className="md:mt-32 mt-[20vh] mb-[3%] spacing text-center 2xl:text-3xl font-bold text-2xl"><span className='text-[#f42a41] '>Success </span> Counter</h3>
+  */}
+   
+       
+        
+         {/* female */}
+         <div className=" flex items-center gap-[20px]">
+          <img width={90} src="https://tse1.mm.bing.net/th?id=OIP.MVJcYEbxpX4e2MAmqWtXAwHaHa&pid=Api&P=0&h=220"/>
+          <div className=" space-y-5">
+          <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Female Biodata </h3>
+         <div>
+         {isVisible && <CountUp end={7000} duration={5}  className="2xl:text-3xl text-xl text-pink-500   spacing font-semibold"/> }
+         <span className="2xl:text-3xl text-xl  text-pink-500   spacing font-semibold">+</span>
+         </div>
+          </div>
         </div>
-        {/* firend */}
-        {/* two grid */}
-        <div className="w-[70%] mx-auto mt-[5%] gap-[5%] grid grid-cols-2">
-             {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
-           <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Premium Biodata</h3>
-            <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
-           </div>
-           <div className="flex  justify-center items-center gap-[20%] ">
-           <MdOutlineWorkspacePremium className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">+{allCounts?.premiumBiodata}</p>
-
-           </div>
-
-           </div>
-             {/* first */}
-           <div className="px-[3%] spacing py-[15%] drop-shadow-xl  shadow-2xl">
-           <div className="w-max mx-auto">
-           <h3 className=" 2xl:text-2xl text-xl spacing font-semibold">Total Revenue</h3>
-            <p className=" bg-[#f06598] mb-[15%]  h-1 mt-[1vh] w-[100%]"></p>
-           </div>
-           <div className="flex  justify-center items-center gap-[20%] ">
-           <TfiWallet className=" text-4xl 2xl:text-5xl" />
-           <p className="2xl:text-2xl text-xl  spacing font-semibold">${allCounts?.contactRequests*500}</p>
-
-           </div>
-
-           </div>
-          
-            
+        {/* male */}
+    
+        <div className=" flex items-center gap-[20px]">
+          <img width={90} src="https://cdn-icons-png.flaticon.com/512/236/236831.png"/>
+          <div className=" space-y-5">
+          <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Male Biodata</h3>
+         <div>
+         {isVisible && <CountUp end={12000} duration={5}  className="2xl:text-3xl text-xl text-red-500   spacing font-semibold"/>}
+         <span className="2xl:text-3xl text-xl  text-red-500   spacing font-semibold">+</span>
+         </div>
+          </div>
+       
+         
+      
+        
+       
+    </div>
+  
+    
+   
+         {/* total*/}
+         <div className=" flex items-center gap-[20px]">
+          <img width={90} src="https://cdn4.iconfinder.com/data/icons/seo-and-digital-marketing-8/128/392-1024.png"/>
+          <div className=" space-y-5">
+          <h3  className=" 2xl:text-2xl text-xl spacing font-semibold">Total Biodata</h3>
+         <div>
+         {isVisible && <CountUp end={17000} duration={5}  className="2xl:text-3xl text-xl   text-fuchsia-500 spacing font-semibold"/>}
+         <span className="2xl:text-3xl text-xl text-fuchsia-500  spacing font-semibold">+</span>
+         </div>
+          </div>
         </div>
+       
+         {/*success*/}
+         <div className=" flex items-center gap-[20px]">
+          <img width={90} src="https://icon-library.com/images/revenue-icon/revenue-icon-0.jpg"/>
+          <div className=" space-y-5">
+          <h3 ref={ref}  className=" 2xl:text-2xl text-xl spacing font-semibold">Total Revenue</h3>
+         <div>
+         {isVisible && <CountUp end={800} duration={5}  className="2xl:text-3xl text-xl text-teal-500  spacing font-semibold"/>}
+         <span className="2xl:text-3xl text-xl  text-teal-500   spacing font-semibold">k+</span>
+         </div>
+          </div>
         </div>
-       <div className=" w-max mx-auto">
-       <AdminPieChart></AdminPieChart>
-       </div>
-        </>
-    );
+      
+        
+    
+    </div>
+    
+    <div className=" mt-[5%] flex justify-between">
+      <UserActivities/>
+      <Revenue/>
+    </div>
+    <div>
+    <SuccessRate/>
+    </div>
+    </div>
+    
+);
 }};
 
 export default AdminHome;

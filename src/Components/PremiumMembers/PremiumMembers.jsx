@@ -1,14 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useAllBioData from '../../Hooks/useAllBioData';
 import BioData from "../BioData/BioData"
 import Aos from 'aos';
+import { Box } from '@mui/system';
+import { CircularProgress } from '@mui/joy';
 
 const PremiumMembers = () => {
   const {data}= useAllBioData()
+  const [isHomePageLoaded , setIsHomePageLoaded] = useState(false)
+    useEffect(()=>{
+        setTimeout(()=>{
+            setIsHomePageLoaded(true)
+            Aos.init()
+        },2000)
+    },[])
+    if(!isHomePageLoaded){
+        return(
+            <Box
+            sx={{
+              display: 'flex',
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+            }}
+          >
+           <CircularProgress color="danger" size="md" />
+          </Box>
+        )
+    }
+  
  
-  useEffect(()=>{
-    Aos.init();
-  },[])
+ 
+  
   const filteredByPremium = data?.filter(biodata => biodata?.isPremium === true)
   console.log(filteredByPremium)
   if(filteredByPremium){
